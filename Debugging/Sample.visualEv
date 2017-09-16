@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<evModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="2b88aaa6-9d55-4e4e-919f-1ab520137a4d" xmlns="http://schemas.microsoft.com/dsltools/Ev">
+  <elements>
+    <option Id="b0a07b0d-e890-404b-9e1e-e708f68694b7" type="User">
+      <functions>
+        <optionHasFunctions Id="ad09e4a3-8af2-40c0-bbaf-3da55cb511bd" var=" Debito">
+          <function Id="7a8e680e-4555-473e-88fe-d5f3c680d7e6" name="askCardInfo" />
+        </optionHasFunctions>
+        <optionHasFunctions Id="a2c6c7d2-19c7-499e-a56b-62e3e3d910a5">
+          <function Id="41cccc53-0732-41d2-b846-a18c4cf7bb5b" />
+        </optionHasFunctions>
+      </functions>
+    </option>
+    <option Id="21083822-f835-435e-85f5-27b5367ce412" type="Option2">
+      <functions>
+        <optionHasFunctions Id="696f3d02-d7bf-415d-ad62-176a7a152997" var=" x xz">
+          <function Id="a22edd33-50b4-4ef7-96f7-8054c79a8e5d" name="cv d " />
+        </optionHasFunctions>
+      </functions>
+    </option>
+  </elements>
+</evModel>

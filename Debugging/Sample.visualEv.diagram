@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<evDiagram dslVersion="1.0.0.0" Id="2f2adc24-8c99-4f8b-b52a-35413533b3e8" absoluteBounds="0, 0, 11, 8.5" name="Sample">
+  <evModelMoniker Id="2b88aaa6-9d55-4e4e-919f-1ab520137a4d" />
+  <nestedChildShapes>
+    <optionShape Id="357cb7f9-4b23-4944-9597-6696af21e107" absoluteBounds="0.625, 0.625, 2, 0.75">
+      <optionMoniker type="/2b88aaa6-9d55-4e4e-919f-1ab520137a4d/User" />
+    </optionShape>
+    <functionShape Id="952b55f2-30c3-4613-88df-de203c75280e" absoluteBounds="1.375, 2, 1.5, 1">
+      <functionMoniker Id="7a8e680e-4555-473e-88fe-d5f3c680d7e6" />
+    </functionShape>
+    <exampleConnector Id="9a6a58ac-9363-4107-b999-c772c55d20a1" edgePoints="[(2 : 1.375); (2 : 2)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <optionHasFunctionsMoniker Id="ad09e4a3-8af2-40c0-bbaf-3da55cb511bd" />
+      <relativeChildShapes />
+      <nodes>
+        <optionShapeMoniker Id="357cb7f9-4b23-4944-9597-6696af21e107" />
+        <functionShapeMoniker Id="952b55f2-30c3-4613-88df-de203c75280e" />
+      </nodes>
+    </exampleConnector>
+    <optionShape Id="e88acfc5-8ded-4af8-bf26-589813a3bc04" absoluteBounds="3.75, 0.625, 2, 0.75">
+      <optionMoniker type="/2b88aaa6-9d55-4e4e-919f-1ab520137a4d/Option2" />
+    </optionShape>
+    <functionShape Id="c4ec4a21-7f6e-4ccd-b971-2f83efcce816" absoluteBounds="4.25, 1.875, 1.5, 1">
+      <functionMoniker Id="a22edd33-50b4-4ef7-96f7-8054c79a8e5d" />
+    </functionShape>
+    <exampleConnector Id="30003242-c03c-497a-8064-dea9906ec59e" edgePoints="[(5 : 1.375); (5 : 1.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <optionHasFunctionsMoniker Id="696f3d02-d7bf-415d-ad62-176a7a152997" />
+      <relativeChildShapes />
+      <nodes>
+        <optionShapeMoniker Id="e88acfc5-8ded-4af8-bf26-589813a3bc04" />
+        <functionShapeMoniker Id="c4ec4a21-7f6e-4ccd-b971-2f83efcce816" />
+      </nodes>
+    </exampleConnector>
+    <functionShape Id="dd69324b-411c-4751-a764-13db2ed90424" absoluteBounds="1.375, 3.625, 1.5, 1">
+      <functionMoniker Id="41cccc53-0732-41d2-b846-a18c4cf7bb5b" />
+    </functionShape>
+    <exampleConnector Id="298c5b62-0e72-420d-91cb-7c92a9ab4041" edgePoints="[(0.9999995 : 1.375); (0.9999995 : 4.125); (1.375 : 4.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <optionHasFunctionsMoniker Id="a2c6c7d2-19c7-499e-a56b-62e3e3d910a5" />
+      <relativeChildShapes />
+      <nodes>
+        <optionShapeMoniker Id="357cb7f9-4b23-4944-9597-6696af21e107" />
+        <functionShapeMoniker Id="dd69324b-411c-4751-a764-13db2ed90424" />
+      </nodes>
+    </exampleConnector>
+  </nestedChildShapes>
+</evDiagram>

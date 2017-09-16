@@ -1,0 +1,17 @@
+﻿<!--DSL Tools Language Template-->
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TemplateData>
+		<TemplateID>{f06434d7-2487-44db-b92f-a76c2c6ac1a2}</TemplateID>
+		<Name Package="{623cb3cb-ecfa-457c-8465-c0634384012d}" ID="103"/>
+		<Description Package="{623cb3cb-ecfa-457c-8465-c0634384012d}" ID="102"/>
+		<Icon Package="{623cb3cb-ecfa-457c-8465-c0634384012d}" ID="201" />
+		<ProjectType>VisualBasic</ProjectType>
+		<SortOrder>360</SortOrder>
+		<DefaultName>Ev.visualEv</DefaultName>
+	</TemplateData>
+	<TemplateContent>
+		<ProjectItem TargetFileName="$fileinputname$.visualEv">visualEv.visualEv</ProjectItem>
+		<ProjectItem TargetFileName="$fileinputname$.visualEv.diagram">visualEv.diagram</ProjectItem>
+	</TemplateContent>
+</VSTemplate>
+
