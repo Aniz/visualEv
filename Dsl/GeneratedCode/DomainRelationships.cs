@@ -572,3 +572,481 @@ namespace Ufba.Ev
 		#endregion
 	}
 }
+namespace Ufba.Ev
+{
+	/// <summary>
+	/// DomainRelationship OptionHasProperties
+	/// Description for Ufba.Ev.OptionHasProperties
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ufba.Ev.OptionHasProperties.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ufba.Ev.OptionHasProperties.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ufba.Ev.EvDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship(IsEmbedding=true)]
+	[DslModeling::DomainObjectId("b2482601-abc8-4721-9401-838659fdefab")]
+	public partial class OptionHasProperties : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// OptionHasProperties domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xb2482601, 0xabc8, 0x4721, 0x94, 0x01, 0x83, 0x86, 0x59, 0xfd, 0xef, 0xab);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a OptionHasProperties link in the same Partition as the given Option
+		/// </summary>
+		/// <param name="source">Option to use as the source of the relationship.</param>
+		/// <param name="target">Property to use as the target of the relationship.</param>
+		public OptionHasProperties(Option source, Property target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(OptionHasProperties.OptionDomainRoleId, source), new DslModeling::RoleAssignment(OptionHasProperties.PropertyDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public OptionHasProperties(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public OptionHasProperties(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public OptionHasProperties(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public OptionHasProperties(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Option domain role code
+		
+		/// <summary>
+		/// Option domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid OptionDomainRoleId = new global::System.Guid(0xc124a9c1, 0x5a72, 0x41a9, 0xbe, 0x5e, 0x43, 0xf7, 0xea, 0xc3, 0x0b, 0x47);
+		
+		/// <summary>
+		/// DomainRole Option
+		/// Description for Ufba.Ev.OptionHasProperties.Option
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.OptionHasProperties/Option.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.OptionHasProperties/Option.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Properties", PropertyDisplayNameKey="Ufba.Ev.OptionHasProperties/Option.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("c124a9c1-5a72-41a9-be5e-43f7eac30b47")]
+		public virtual Option Option
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Option)DslModeling::DomainRoleInfo.GetRolePlayer(this, OptionDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, OptionDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access Option of a Property
+		/// <summary>
+		/// Gets Option.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static Option GetOption(Property element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, PropertyDomainRoleId) as Option;
+		}
+		
+		/// <summary>
+		/// Sets Option.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetOption(Property element, Option newOption)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, PropertyDomainRoleId, newOption);
+		}
+		#endregion
+		#region Property domain role code
+		
+		/// <summary>
+		/// Property domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid PropertyDomainRoleId = new global::System.Guid(0x8723d0d8, 0x3352, 0x4902, 0xbb, 0x66, 0xf5, 0x1f, 0x08, 0x2d, 0x41, 0x8f);
+		
+		/// <summary>
+		/// DomainRole Property
+		/// Description for Ufba.Ev.OptionHasProperties.Property
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.OptionHasProperties/Property.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.OptionHasProperties/Property.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "Option", PropertyDisplayNameKey="Ufba.Ev.OptionHasProperties/Property.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.One)]
+		[DslModeling::DomainObjectId("8723d0d8-3352-4902-bb66-f51f082d418f")]
+		public virtual Property Property
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Property)DslModeling::DomainRoleInfo.GetRolePlayer(this, PropertyDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, PropertyDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access Properties of a Option
+		/// <summary>
+		/// Gets a list of Properties.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Property> GetProperties(Option element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Property>, Property>(element, OptionDomainRoleId);
+		}
+		#endregion
+		#region Option link accessor
+		/// <summary>
+		/// Get the list of OptionHasProperties links to a Option.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ufba.Ev.OptionHasProperties> GetLinksToProperties ( global::Ufba.Ev.Option optionInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Ufba.Ev.OptionHasProperties>(optionInstance, global::Ufba.Ev.OptionHasProperties.OptionDomainRoleId);
+		}
+		#endregion
+		#region Property link accessor
+		/// <summary>
+		/// Get the OptionHasProperties link to a Property.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Ufba.Ev.OptionHasProperties GetLinkToOption (global::Ufba.Ev.Property propertyInstance)
+		{
+			global::System.Collections.Generic.IList<global::Ufba.Ev.OptionHasProperties> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ufba.Ev.OptionHasProperties>(propertyInstance, global::Ufba.Ev.OptionHasProperties.PropertyDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Property not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region OptionHasProperties instance accessors
+		
+		/// <summary>
+		/// Get any OptionHasProperties links between a given Option and a Property.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ufba.Ev.OptionHasProperties> GetLinks( global::Ufba.Ev.Option source, global::Ufba.Ev.Property target )
+		{
+			global::System.Collections.Generic.List<global::Ufba.Ev.OptionHasProperties> outLinks = new global::System.Collections.Generic.List<global::Ufba.Ev.OptionHasProperties>();
+			global::System.Collections.Generic.IList<global::Ufba.Ev.OptionHasProperties> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ufba.Ev.OptionHasProperties>(source, global::Ufba.Ev.OptionHasProperties.OptionDomainRoleId);
+			foreach ( global::Ufba.Ev.OptionHasProperties link in links )
+			{
+				if ( target.Equals(link.Property) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one OptionHasProperties link between a given Optionand a Property.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Ufba.Ev.OptionHasProperties GetLink( global::Ufba.Ev.Option source, global::Ufba.Ev.Property target )
+		{
+			global::System.Collections.Generic.IList<global::Ufba.Ev.OptionHasProperties> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ufba.Ev.OptionHasProperties>(source, global::Ufba.Ev.OptionHasProperties.OptionDomainRoleId);
+			foreach ( global::Ufba.Ev.OptionHasProperties link in links )
+			{
+				if ( target.Equals(link.Property) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}
+namespace Ufba.Ev
+{
+	/// <summary>
+	/// DomainRelationship OptionHasTypes
+	/// Description for Ufba.Ev.OptionHasTypes
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ufba.Ev.OptionHasTypes.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ufba.Ev.OptionHasTypes.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ufba.Ev.EvDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainRelationship(IsEmbedding=true)]
+	[DslModeling::DomainObjectId("f378e9b2-9af7-454f-8344-2f01eede5025")]
+	public partial class OptionHasTypes : DslModeling::ElementLink
+	{
+		#region Constructors, domain class Id
+		
+		/// <summary>
+		/// OptionHasTypes domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xf378e9b2, 0x9af7, 0x454f, 0x83, 0x44, 0x2f, 0x01, 0xee, 0xde, 0x50, 0x25);
+	
+				
+		/// <summary>
+		/// Constructor
+		/// Creates a OptionHasTypes link in the same Partition as the given Option
+		/// </summary>
+		/// <param name="source">Option to use as the source of the relationship.</param>
+		/// <param name="target">Type to use as the target of the relationship.</param>
+		public OptionHasTypes(Option source, Type target)
+			: base((source != null ? source.Partition : null), new DslModeling::RoleAssignment[]{new DslModeling::RoleAssignment(OptionHasTypes.OptionDomainRoleId, source), new DslModeling::RoleAssignment(OptionHasTypes.TypeDomainRoleId, target)}, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public OptionHasTypes(DslModeling::Store store, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public OptionHasTypes(DslModeling::Store store, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, roleAssignments, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		public OptionHasTypes(DslModeling::Partition partition, params DslModeling::RoleAssignment[] roleAssignments)
+			: base(partition, roleAssignments, null)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new link is to be created.</param>
+		/// <param name="roleAssignments">List of relationship role assignments.</param>
+		/// <param name="propertyAssignments">List of properties assignments to set on the new link.</param>
+		public OptionHasTypes(DslModeling::Partition partition, DslModeling::RoleAssignment[] roleAssignments, DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, roleAssignments, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Option domain role code
+		
+		/// <summary>
+		/// Option domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid OptionDomainRoleId = new global::System.Guid(0x2badeb65, 0x5ed6, 0x4030, 0xbc, 0xe6, 0x7b, 0xd5, 0xbc, 0x2e, 0xde, 0x94);
+		
+		/// <summary>
+		/// DomainRole Option
+		/// Description for Ufba.Ev.OptionHasTypes.Option
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.OptionHasTypes/Option.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.OptionHasTypes/Option.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Source, PropertyName = "Types", PropertyDisplayNameKey="Ufba.Ev.OptionHasTypes/Option.PropertyDisplayName",  PropagatesCopy = DslModeling::PropagatesCopyOption.PropagatesCopyToLinkAndOppositeRolePlayer, Multiplicity = DslModeling::Multiplicity.ZeroMany)]
+		[DslModeling::DomainObjectId("2badeb65-5ed6-4030-bce6-7bd5bc2ede94")]
+		public virtual Option Option
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Option)DslModeling::DomainRoleInfo.GetRolePlayer(this, OptionDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, OptionDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access Option of a Type
+		/// <summary>
+		/// Gets Option.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static Option GetOption(Type element)
+		{
+			return DslModeling::DomainRoleInfo.GetLinkedElement(element, TypeDomainRoleId) as Option;
+		}
+		
+		/// <summary>
+		/// Sets Option.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static void SetOption(Type element, Option newOption)
+		{
+			DslModeling::DomainRoleInfo.SetLinkedElement(element, TypeDomainRoleId, newOption);
+		}
+		#endregion
+		#region Type domain role code
+		
+		/// <summary>
+		/// Type domain role Id.
+		/// </summary>
+		public static readonly global::System.Guid TypeDomainRoleId = new global::System.Guid(0x365a3858, 0x8efb, 0x4194, 0xac, 0x12, 0x16, 0x10, 0xc7, 0xa1, 0x70, 0x36);
+		
+		/// <summary>
+		/// DomainRole Type
+		/// Description for Ufba.Ev.OptionHasTypes.Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.OptionHasTypes/Type.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.OptionHasTypes/Type.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainRole(DslModeling::DomainRoleOrder.Target, PropertyName = "Option", PropertyDisplayNameKey="Ufba.Ev.OptionHasTypes/Type.PropertyDisplayName", PropagatesDelete = true,  PropagatesCopy = DslModeling::PropagatesCopyOption.DoNotPropagateCopy, Multiplicity = DslModeling::Multiplicity.One)]
+		[DslModeling::DomainObjectId("365a3858-8efb-4194-ac12-1610c7a17036")]
+		public virtual Type Type
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return (Type)DslModeling::DomainRoleInfo.GetRolePlayer(this, TypeDomainRoleId);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetRolePlayer(this, TypeDomainRoleId, value);
+			}
+		}
+				
+		#endregion
+		#region Static methods to access Types of a Option
+		/// <summary>
+		/// Gets a list of Types.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static DslModeling::LinkedElementCollection<Type> GetTypes(Option element)
+		{
+			return GetRoleCollection<DslModeling::LinkedElementCollection<Type>, Type>(element, OptionDomainRoleId);
+		}
+		#endregion
+		#region Option link accessor
+		/// <summary>
+		/// Get the list of OptionHasTypes links to a Option.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ufba.Ev.OptionHasTypes> GetLinksToTypes ( global::Ufba.Ev.Option optionInstance )
+		{
+			return DslModeling::DomainRoleInfo.GetElementLinks<global::Ufba.Ev.OptionHasTypes>(optionInstance, global::Ufba.Ev.OptionHasTypes.OptionDomainRoleId);
+		}
+		#endregion
+		#region Type link accessor
+		/// <summary>
+		/// Get the OptionHasTypes link to a Type.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Ufba.Ev.OptionHasTypes GetLinkToOption (global::Ufba.Ev.Type typeInstance)
+		{
+			global::System.Collections.Generic.IList<global::Ufba.Ev.OptionHasTypes> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ufba.Ev.OptionHasTypes>(typeInstance, global::Ufba.Ev.OptionHasTypes.TypeDomainRoleId);
+			global::System.Diagnostics.Debug.Assert(links.Count <= 1, "Multiplicity of Type not obeyed.");
+			if ( links.Count == 0 )
+			{
+				return null;
+			}
+			else
+			{
+				return links[0];
+			}
+		}
+		#endregion
+		#region OptionHasTypes instance accessors
+		
+		/// <summary>
+		/// Get any OptionHasTypes links between a given Option and a Type.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::System.Collections.ObjectModel.ReadOnlyCollection<global::Ufba.Ev.OptionHasTypes> GetLinks( global::Ufba.Ev.Option source, global::Ufba.Ev.Type target )
+		{
+			global::System.Collections.Generic.List<global::Ufba.Ev.OptionHasTypes> outLinks = new global::System.Collections.Generic.List<global::Ufba.Ev.OptionHasTypes>();
+			global::System.Collections.Generic.IList<global::Ufba.Ev.OptionHasTypes> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ufba.Ev.OptionHasTypes>(source, global::Ufba.Ev.OptionHasTypes.OptionDomainRoleId);
+			foreach ( global::Ufba.Ev.OptionHasTypes link in links )
+			{
+				if ( target.Equals(link.Type) )
+				{
+					outLinks.Add(link);
+				}
+			}
+			return outLinks.AsReadOnly();
+		}
+		/// <summary>
+		/// Get the one OptionHasTypes link between a given Optionand a Type.
+		/// </summary>
+		[global::System.Diagnostics.DebuggerStepThrough]
+		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+		public static global::Ufba.Ev.OptionHasTypes GetLink( global::Ufba.Ev.Option source, global::Ufba.Ev.Type target )
+		{
+			global::System.Collections.Generic.IList<global::Ufba.Ev.OptionHasTypes> links = DslModeling::DomainRoleInfo.GetElementLinks<global::Ufba.Ev.OptionHasTypes>(source, global::Ufba.Ev.OptionHasTypes.OptionDomainRoleId);
+			foreach ( global::Ufba.Ev.OptionHasTypes link in links )
+			{
+				if ( target.Equals(link.Type) )
+				{
+					return link;
+				}
+			}
+			return null;
+		}
+		
+		#endregion
+	}
+}

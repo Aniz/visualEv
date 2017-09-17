@@ -323,6 +323,36 @@ namespace Ufba.Ev
 			}
 		}
 		#endregion
+		#region Properties opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Properties.
+		/// Description for Ufba.Ev.OptionHasProperties.Option
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Property> Properties
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Property>, Property>(global::Ufba.Ev.OptionHasProperties.OptionDomainRoleId);
+			}
+		}
+		#endregion
+		#region Types opposite domain role accessor
+		
+		/// <summary>
+		/// Gets a list of Types.
+		/// Description for Ufba.Ev.OptionHasTypes.Option
+		/// </summary>
+		public virtual DslModeling::LinkedElementCollection<Type> Types
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Type>, Type>(global::Ufba.Ev.OptionHasTypes.OptionDomainRoleId);
+			}
+		}
+		#endregion
 		#region ElementGroupPrototype Merge methods
 		/// <summary>
 		/// Returns a value indicating whether the source element represented by the
@@ -344,6 +374,16 @@ namespace Ufba.Ev
 				DslModeling::DomainClassInfo rootElementDomainInfo = this.Partition.DomainDataDirectory.GetDomainClass(rootElement.DomainClassId);
 				
 				if (rootElementDomainInfo.IsDerivedFrom(global::Ufba.Ev.Function.DomainClassId)) 
+				{
+					return true;
+				}
+				
+				if (rootElementDomainInfo.IsDerivedFrom(global::Ufba.Ev.Property.DomainClassId)) 
+				{
+					return true;
+				}
+				
+				if (rootElementDomainInfo.IsDerivedFrom(global::Ufba.Ev.Type.DomainClassId)) 
 				{
 					return true;
 				}
@@ -380,6 +420,24 @@ namespace Ufba.Ev
 
 				return;
 			}
+				
+			global::Ufba.Ev.Property sourceProperty2 = sourceElement as global::Ufba.Ev.Property;
+			if (sourceProperty2 != null)
+			{
+				// Create link for path OptionHasProperties.Properties
+				this.Properties.Add(sourceProperty2);
+
+				return;
+			}
+				
+			global::Ufba.Ev.Type sourceType3 = sourceElement as global::Ufba.Ev.Type;
+			if (sourceType3 != null)
+			{
+				// Create link for path OptionHasTypes.Types
+				this.Types.Add(sourceType3);
+
+				return;
+			}
 		
 			// Sdk workaround to runtime bug #879350 (DSL: can't copy and paste a MEL that has a MEX). Avoid MergeRelate on ModelElementExtension
 			// during a "Paste".
@@ -412,6 +470,34 @@ namespace Ufba.Ev
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
 					link.Delete(global::Ufba.Ev.OptionHasFunctions.OptionDomainRoleId, global::Ufba.Ev.OptionHasFunctions.FunctionDomainRoleId);
+				}
+
+				return;
+			}
+				
+			global::Ufba.Ev.Property sourceProperty2 = sourceElement as global::Ufba.Ev.Property;
+			if (sourceProperty2 != null)
+			{
+				// Delete link for path OptionHasProperties.Properties
+				
+				foreach (DslModeling::ElementLink link in global::Ufba.Ev.OptionHasProperties.GetLinks((global::Ufba.Ev.Option)this, sourceProperty2))
+				{
+					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
+					link.Delete(global::Ufba.Ev.OptionHasProperties.OptionDomainRoleId, global::Ufba.Ev.OptionHasProperties.PropertyDomainRoleId);
+				}
+
+				return;
+			}
+				
+			global::Ufba.Ev.Type sourceType3 = sourceElement as global::Ufba.Ev.Type;
+			if (sourceType3 != null)
+			{
+				// Delete link for path OptionHasTypes.Types
+				
+				foreach (DslModeling::ElementLink link in global::Ufba.Ev.OptionHasTypes.GetLinks((global::Ufba.Ev.Option)this, sourceType3))
+				{
+					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
+					link.Delete(global::Ufba.Ev.OptionHasTypes.OptionDomainRoleId, global::Ufba.Ev.OptionHasTypes.TypeDomainRoleId);
 				}
 
 				return;
@@ -564,6 +650,300 @@ namespace Ufba.Ev
 			set
 			{
 				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ufba.Ev.OptionHasFunctions.FunctionDomainRoleId, value);
+			}
+		}
+		#endregion
+	}
+}
+namespace Ufba.Ev
+{
+	/// <summary>
+	/// DomainClass Property
+	/// Description for Ufba.Ev.Property
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ufba.Ev.Property.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ufba.Ev.Property.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ufba.Ev.EvDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("6a78b38d-b370-45fc-992c-ce5f1193a4a7")]
+	public partial class Property : DslModeling::ModelElement
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// Property domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x6a78b38d, 0xb370, 0x45fc, 0x99, 0x2c, 0xce, 0x5f, 0x11, 0x93, 0xa4, 0xa7);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Property(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Property(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Name domain property code
+		
+		/// <summary>
+		/// Name domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x1a60111e, 0x9ed2, 0x4006, 0x87, 0xc0, 0x9f, 0x92, 0x23, 0x79, 0x9b, 0x79);
+		
+		/// <summary>
+		/// Storage for Name
+		/// </summary>
+		private global::System.String namePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Name domain property.
+		/// Description for Ufba.Ev.Property.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.Property/Name.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.Property/Name.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("1a60111e-9ed2-4006-87c0-9f9223799b79")]
+		public global::System.String Name
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return namePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Property.Name domain property.
+		/// </summary>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Property, global::System.String>
+		{
+			private NamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Property.Name domain property value handler.
+			/// </summary>
+			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Property.Name domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Property element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Property element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Option opposite domain role accessor
+		/// <summary>
+		/// Gets or sets Option.
+		/// Description for Ufba.Ev.OptionHasProperties.Property
+		/// </summary>
+		public virtual Option Option
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ufba.Ev.OptionHasProperties.PropertyDomainRoleId) as Option;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ufba.Ev.OptionHasProperties.PropertyDomainRoleId, value);
+			}
+		}
+		#endregion
+	}
+}
+namespace Ufba.Ev
+{
+	/// <summary>
+	/// DomainClass Type
+	/// Description for Ufba.Ev.Type
+	/// </summary>
+	[DslDesign::DisplayNameResource("Ufba.Ev.Type.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ufba.Ev.Type.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslModeling::DomainModelOwner(typeof(global::Ufba.Ev.EvDomainModel))]
+	[global::System.CLSCompliant(true)]
+	[DslModeling::DomainObjectId("2ac8ebca-adb0-4a57-b9e1-38c93f6f2517")]
+	public partial class Type : DslModeling::ModelElement
+	{
+		#region Constructors, domain class Id
+	
+		/// <summary>
+		/// Type domain class Id.
+		/// </summary>
+		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x2ac8ebca, 0xadb0, 0x4a57, 0xb9, 0xe1, 0x38, 0xc9, 0x3f, 0x6f, 0x25, 0x17);
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="store">Store where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Type(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
+		{
+		}
+		
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="partition">Partition where new element is to be created.</param>
+		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
+		public Type(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+			: base(partition, propertyAssignments)
+		{
+		}
+		#endregion
+		#region Name domain property code
+		
+		/// <summary>
+		/// Name domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x748dea58, 0x1627, 0x4eea, 0x9a, 0x80, 0xfb, 0x92, 0x4f, 0xc8, 0x32, 0x91);
+		
+		/// <summary>
+		/// Storage for Name
+		/// </summary>
+		private global::System.String namePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Name domain property.
+		/// Description for Ufba.Ev.Type.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.Type/Name.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.Type/Name.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("748dea58-1627-4eea-9a80-fb924fc83291")]
+		public global::System.String Name
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return namePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Type.Name domain property.
+		/// </summary>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Type, global::System.String>
+		{
+			private NamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Type.Name domain property value handler.
+			/// </summary>
+			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Type.Name domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Type element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Type element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Option opposite domain role accessor
+		/// <summary>
+		/// Gets or sets Option.
+		/// Description for Ufba.Ev.OptionHasTypes.Type
+		/// </summary>
+		public virtual Option Option
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ufba.Ev.OptionHasTypes.TypeDomainRoleId) as Option;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ufba.Ev.OptionHasTypes.TypeDomainRoleId, value);
 			}
 		}
 		#endregion

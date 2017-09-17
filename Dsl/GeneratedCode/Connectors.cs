@@ -14,16 +14,16 @@ using DslDiagrams = global::Microsoft.VisualStudio.Modeling.Diagrams;
 namespace Ufba.Ev
 {
 	/// <summary>
-	/// DomainClass ExampleConnector
+	/// DomainClass OptionConnector
 	/// Connector between the ExampleShapes. Represents ExampleRelationships on the
 	/// Diagram.
 	/// </summary>
-	[DslDesign::DisplayNameResource("Ufba.Ev.ExampleConnector.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Ufba.Ev.ExampleConnector.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Ufba.Ev.OptionConnector.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ufba.Ev.OptionConnector.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Ufba.Ev.EvDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("ce04cb6b-f0cc-46b9-8ed0-eacd62889875")]
-	public partial class ExampleConnector : DslDiagrams::BinaryLinkShape
+	public partial class OptionConnector : DslDiagrams::BinaryLinkShape
 	{
 		#region DiagramElement boilerplate
 		private static DslDiagrams::StyleSet classStyleSet;
@@ -88,9 +88,9 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// Finds a decorator associated with ExampleConnector.
+		/// Finds a decorator associated with OptionConnector.
 		/// </summary>
-		public static DslDiagrams::Decorator FindExampleConnectorDecorator(string decoratorName)
+		public static DslDiagrams::Decorator FindOptionConnectorDecorator(string decoratorName)
 		{	
 			if(decorators == null) return null;
 			return DslDiagrams::ShapeElement.FindDecorator(decorators, decoratorName);
@@ -167,7 +167,7 @@ namespace Ufba.Ev
 			base.InitializeDecorators(shapeFields, decorators);
 			
 			DslDiagrams::TextField field1 = new DslDiagrams::TextField("Var");
-			field1.DefaultText = global::Ufba.Ev.EvDomainModel.SingletonResourceManager.GetString("ExampleConnectorVarDefaultText");
+			field1.DefaultText = global::Ufba.Ev.EvDomainModel.SingletonResourceManager.GetString("OptionConnectorVarDefaultText");
 			field1.DefaultFocusable = true;
 			field1.DefaultAutoSize = true;
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;
@@ -183,7 +183,7 @@ namespace Ufba.Ev
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// ExampleConnector domain class Id.
+		/// OptionConnector domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0xce04cb6b, 0xf0cc, 0x46b9, 0x8e, 0xd0, 0xea, 0xcd, 0x62, 0x88, 0x98, 0x75);
 		/// <summary>
@@ -191,7 +191,7 @@ namespace Ufba.Ev
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ExampleConnector(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public OptionConnector(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -201,7 +201,7 @@ namespace Ufba.Ev
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public ExampleConnector(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public OptionConnector(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}

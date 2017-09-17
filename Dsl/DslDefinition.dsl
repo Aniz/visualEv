@@ -31,11 +31,45 @@
             <DomainPath>OptionHasFunctions.Functions</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
+        <ElementMergeDirective>
+          <Index>
+            <DomainClassMoniker Name="Property" />
+          </Index>
+          <LinkCreationPaths>
+            <DomainPath>OptionHasProperties.Properties</DomainPath>
+          </LinkCreationPaths>
+        </ElementMergeDirective>
+        <ElementMergeDirective>
+          <Index>
+            <DomainClassMoniker Name="Type" />
+          </Index>
+          <LinkCreationPaths>
+            <DomainPath>OptionHasTypes.Types</DomainPath>
+          </LinkCreationPaths>
+        </ElementMergeDirective>
       </ElementMergeDirectives>
     </DomainClass>
     <DomainClass Id="a1d03807-55e4-4045-acb7-598e4eefae80" Description="Description for Ufba.Ev.Function" Name="Function" DisplayName="Function" Namespace="Ufba.Ev">
       <Properties>
         <DomainProperty Id="119461ac-c927-4f97-bb68-11eee99e5d16" Description="Description for Ufba.Ev.Function.Name" Name="Name" DisplayName="Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
+    <DomainClass Id="6a78b38d-b370-45fc-992c-ce5f1193a4a7" Description="Description for Ufba.Ev.Property" Name="Property" DisplayName="Property" Namespace="Ufba.Ev">
+      <Properties>
+        <DomainProperty Id="1a60111e-9ed2-4006-87c0-9f9223799b79" Description="Description for Ufba.Ev.Property.Name" Name="Name" DisplayName="Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
+    </DomainClass>
+    <DomainClass Id="2ac8ebca-adb0-4a57-b9e1-38c93f6f2517" Description="Description for Ufba.Ev.Type" Name="Type" DisplayName="Type" Namespace="Ufba.Ev">
+      <Properties>
+        <DomainProperty Id="748dea58-1627-4eea-9a80-fb924fc83291" Description="Description for Ufba.Ev.Type.Name" Name="Name" DisplayName="Name">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -83,6 +117,38 @@
         </DomainRole>
       </Target>
     </DomainRelationship>
+    <DomainRelationship Id="b2482601-abc8-4721-9401-838659fdefab" Description="Description for Ufba.Ev.OptionHasProperties" Name="OptionHasProperties" DisplayName="Option Has Properties" Namespace="Ufba.Ev" IsEmbedding="true">
+      <Source>
+        <DomainRole Id="c124a9c1-5a72-41a9-be5e-43f7eac30b47" Description="Description for Ufba.Ev.OptionHasProperties.Option" Name="Option" DisplayName="Option" PropertyName="Properties" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Properties">
+          <RolePlayer>
+            <DomainClassMoniker Name="Option" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="8723d0d8-3352-4902-bb66-f51f082d418f" Description="Description for Ufba.Ev.OptionHasProperties.Property" Name="Property" DisplayName="Property" PropertyName="Option" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Option">
+          <RolePlayer>
+            <DomainClassMoniker Name="Property" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
+    <DomainRelationship Id="f378e9b2-9af7-454f-8344-2f01eede5025" Description="Description for Ufba.Ev.OptionHasTypes" Name="OptionHasTypes" DisplayName="Option Has Types" Namespace="Ufba.Ev" IsEmbedding="true">
+      <Source>
+        <DomainRole Id="2badeb65-5ed6-4030-bce6-7bd5bc2ede94" Description="Description for Ufba.Ev.OptionHasTypes.Option" Name="Option" DisplayName="Option" PropertyName="Types" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Types">
+          <RolePlayer>
+            <DomainClassMoniker Name="Option" />
+          </RolePlayer>
+        </DomainRole>
+      </Source>
+      <Target>
+        <DomainRole Id="365a3858-8efb-4194-ac12-1610c7a17036" Description="Description for Ufba.Ev.OptionHasTypes.Type" Name="Type" DisplayName="Type" PropertyName="Option" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Option">
+          <RolePlayer>
+            <DomainClassMoniker Name="Type" />
+          </RolePlayer>
+        </DomainRole>
+      </Target>
+    </DomainRelationship>
   </Relationships>
   <Types>
     <ExternalType Name="DateTime" Namespace="System" />
@@ -102,20 +168,21 @@
     <ExternalType Name="Char" Namespace="System" />
   </Types>
   <Shapes>
-    <GeometryShape Id="2ab20784-2c55-4ce9-ae4f-00710a4b6863" Description="Shape used to represent ExampleElements on a Diagram." Name="OptionShape" DisplayName="Option Shape" Namespace="Ufba.Ev" FixedTooltipText="Option Shape" FillColor="0, 192, 192" OutlineColor="113, 111, 110" InitialWidth="2" InitialHeight="0.75" OutlineThickness="0.01" Geometry="Rectangle">
-      <Notes>The shape has a text decorator used to display the Name property of the mapped ExampleElement.</Notes>
-      <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="NameDecorator" DisplayName="Name Decorator" DefaultText="NameDecorator" />
-      </ShapeHasDecorators>
-    </GeometryShape>
-    <GeometryShape Id="9e94b808-f9f7-45db-89e1-5c609151267f" Description="Description for Ufba.Ev.FunctionShape" Name="FunctionShape" DisplayName="Function Shape" Namespace="Ufba.Ev" FixedTooltipText="Function Shape" FillColor="DarkRed" InitialHeight="1" Geometry="Rectangle">
+    <GeometryShape Id="9e94b808-f9f7-45db-89e1-5c609151267f" Description="Description for Ufba.Ev.FunctionShape" Name="FunctionShape" DisplayName="Function Shape" Namespace="Ufba.Ev" FixedTooltipText="Function Shape" FillColor="DarkRed" InitialHeight="0.5" Geometry="Ellipse">
       <ShapeHasDecorators Position="InnerTopLeft" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="Name" DisplayName="Name" DefaultText="Name" />
       </ShapeHasDecorators>
     </GeometryShape>
+    <CompartmentShape Id="1027ef0a-85dd-46fb-9ce6-94cee5533d96" Description="Description for Ufba.Ev.OptionShape" Name="OptionShape" DisplayName="Option Shape" Namespace="Ufba.Ev" FixedTooltipText="Option Shape" FillColor="SkyBlue" InitialHeight="1" Geometry="Rectangle">
+      <ShapeHasDecorators Position="InnerTopLeft" HorizontalOffset="0" VerticalOffset="0">
+        <TextDecorator Name="Name" DisplayName="Name" DefaultText="Name" />
+      </ShapeHasDecorators>
+      <Compartment FillColor="Coral" Name="Properties" />
+      <Compartment Name="Types" />
+    </CompartmentShape>
   </Shapes>
   <Connectors>
-    <Connector Id="ce04cb6b-f0cc-46b9-8ed0-eacd62889875" Description="Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram." Name="ExampleConnector" DisplayName="Example Connector" Namespace="Ufba.Ev" FixedTooltipText="Example Connector" Color="Fuchsia" TargetEndStyle="EmptyArrow" Thickness="0.01">
+    <Connector Id="ce04cb6b-f0cc-46b9-8ed0-eacd62889875" Description="Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram." Name="OptionConnector" DisplayName="Option Connector" Namespace="Ufba.Ev" FixedTooltipText="Option Connector" Color="Fuchsia" TargetEndStyle="EmptyArrow" Thickness="0.01">
       <ConnectorHasDecorators Position="SourceTop" OffsetFromShape="0" OffsetFromLine="0">
         <TextDecorator Name="Var" DisplayName="Var" DefaultText="Var" />
       </ConnectorHasDecorators>
@@ -140,16 +207,19 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="functions">
             <DomainRelationshipMoniker Name="OptionHasFunctions" />
           </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="properties">
+            <DomainRelationshipMoniker Name="OptionHasProperties" />
+          </XmlRelationshipData>
+          <XmlRelationshipData UseFullForm="true" RoleElementName="types">
+            <DomainRelationshipMoniker Name="OptionHasTypes" />
+          </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="EvModelHasElements" MonikerAttributeName="" SerializeId="true" MonikerElementName="evModelHasElementsMoniker" ElementName="evModelHasElements" MonikerTypeName="EvModelHasElementsMoniker">
         <DomainRelationshipMoniker Name="EvModelHasElements" />
       </XmlClassData>
-      <XmlClassData TypeName="OptionShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionShapeMoniker" ElementName="optionShape" MonikerTypeName="OptionShapeMoniker">
-        <GeometryShapeMoniker Name="OptionShape" />
-      </XmlClassData>
-      <XmlClassData TypeName="ExampleConnector" MonikerAttributeName="" SerializeId="true" MonikerElementName="exampleConnectorMoniker" ElementName="exampleConnector" MonikerTypeName="ExampleConnectorMoniker">
-        <ConnectorMoniker Name="ExampleConnector" />
+      <XmlClassData TypeName="OptionConnector" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionConnectorMoniker" ElementName="optionConnector" MonikerTypeName="OptionConnectorMoniker">
+        <ConnectorMoniker Name="OptionConnector" />
       </XmlClassData>
       <XmlClassData TypeName="EvDiagram" MonikerAttributeName="" SerializeId="true" MonikerElementName="evDiagramMoniker" ElementName="evDiagram" MonikerTypeName="EvDiagramMoniker">
         <DiagramMoniker Name="EvDiagram" />
@@ -172,6 +242,31 @@
       </XmlClassData>
       <XmlClassData TypeName="FunctionShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="functionShapeMoniker" ElementName="functionShape" MonikerTypeName="FunctionShapeMoniker">
         <GeometryShapeMoniker Name="FunctionShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="OptionShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionShapeMoniker" ElementName="optionShape" MonikerTypeName="OptionShapeMoniker">
+        <CompartmentShapeMoniker Name="OptionShape" />
+      </XmlClassData>
+      <XmlClassData TypeName="Property" MonikerAttributeName="" SerializeId="true" MonikerElementName="propertyMoniker" ElementName="property" MonikerTypeName="PropertyMoniker">
+        <DomainClassMoniker Name="Property" />
+        <ElementData>
+          <XmlPropertyData XmlName="name">
+            <DomainPropertyMoniker Name="Property/Name" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="OptionHasProperties" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionHasPropertiesMoniker" ElementName="optionHasProperties" MonikerTypeName="OptionHasPropertiesMoniker">
+        <DomainRelationshipMoniker Name="OptionHasProperties" />
+      </XmlClassData>
+      <XmlClassData TypeName="Type" MonikerAttributeName="" SerializeId="true" MonikerElementName="typeMoniker" ElementName="type" MonikerTypeName="TypeMoniker">
+        <DomainClassMoniker Name="Type" />
+        <ElementData>
+          <XmlPropertyData XmlName="name">
+            <DomainPropertyMoniker Name="Type/Name" />
+          </XmlPropertyData>
+        </ElementData>
+      </XmlClassData>
+      <XmlClassData TypeName="OptionHasTypes" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionHasTypesMoniker" ElementName="optionHasTypes" MonikerTypeName="OptionHasTypesMoniker">
+        <DomainRelationshipMoniker Name="OptionHasTypes" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
@@ -203,21 +298,6 @@
     </Class>
     <ShapeMaps>
       <ShapeMap>
-        <DomainClassMoniker Name="Option" />
-        <ParentElementPath>
-          <DomainPath>EvModelHasElements.EvModel/!EvModel</DomainPath>
-        </ParentElementPath>
-        <DecoratorMap>
-          <TextDecoratorMoniker Name="OptionShape/NameDecorator" />
-          <PropertyDisplayed>
-            <PropertyPath>
-              <DomainPropertyMoniker Name="Option/Type" />
-            </PropertyPath>
-          </PropertyDisplayed>
-        </DecoratorMap>
-        <GeometryShapeMoniker Name="OptionShape" />
-      </ShapeMap>
-      <ShapeMap>
         <DomainClassMoniker Name="Function" />
         <ParentElementPath>
           <DomainPath>OptionHasFunctions.Option/!Option/EvModelHasElements.EvModel/!EvModel</DomainPath>
@@ -232,13 +312,50 @@
         </DecoratorMap>
         <GeometryShapeMoniker Name="FunctionShape" />
       </ShapeMap>
+      <CompartmentShapeMap>
+        <DomainClassMoniker Name="Option" />
+        <ParentElementPath>
+          <DomainPath>EvModelHasElements.EvModel/!EvModel</DomainPath>
+        </ParentElementPath>
+        <DecoratorMap>
+          <TextDecoratorMoniker Name="OptionShape/Name" />
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Option/Type" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </DecoratorMap>
+        <CompartmentShapeMoniker Name="OptionShape" />
+        <CompartmentMap>
+          <CompartmentMoniker Name="OptionShape/Properties" />
+          <ElementsDisplayed>
+            <DomainPath>OptionHasProperties.Properties/!Property</DomainPath>
+          </ElementsDisplayed>
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Property/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </CompartmentMap>
+        <CompartmentMap>
+          <CompartmentMoniker Name="OptionShape/Types" />
+          <ElementsDisplayed>
+            <DomainPath>OptionHasTypes.Types/!Type</DomainPath>
+          </ElementsDisplayed>
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Type/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </CompartmentMap>
+      </CompartmentShapeMap>
     </ShapeMaps>
     <ConnectorMaps>
       <ConnectorMap>
-        <ConnectorMoniker Name="ExampleConnector" />
+        <ConnectorMoniker Name="OptionConnector" />
         <DomainRelationshipMoniker Name="OptionHasFunctions" />
         <DecoratorMap>
-          <TextDecoratorMoniker Name="ExampleConnector/Var" />
+          <TextDecoratorMoniker Name="OptionConnector/Var" />
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="OptionHasFunctions/Var" />

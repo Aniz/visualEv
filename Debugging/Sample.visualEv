@@ -10,13 +10,17 @@
           <function Id="41cccc53-0732-41d2-b846-a18c4cf7bb5b" />
         </optionHasFunctions>
       </functions>
+      <properties>
+        <optionHasProperties Id="aa839d1a-5d7f-4edd-9c4d-5aa6612a944b">
+          <property Id="7fd8a105-ae3f-4c45-88ca-75db5c55770d" name="jiho" />
+        </optionHasProperties>
+      </properties>
+      <types>
+        <optionHasTypes Id="444c0221-412e-4ba1-a869-0534b106065a">
+          <type Id="67c05001-e3ae-4551-8a51-6e6430cb7b89" name="mmçç" />
+        </optionHasTypes>
+      </types>
     </option>
-    <option Id="21083822-f835-435e-85f5-27b5367ce412" type="Option2">
-      <functions>
-        <optionHasFunctions Id="696f3d02-d7bf-415d-ad62-176a7a152997" var=" x xz">
-          <function Id="a22edd33-50b4-4ef7-96f7-8054c79a8e5d" name="cv d " />
-        </optionHasFunctions>
-      </functions>
-    </option>
+    <option Id="21083822-f835-435e-85f5-27b5367ce412" type="Option2" />
   </elements>
 </evModel>

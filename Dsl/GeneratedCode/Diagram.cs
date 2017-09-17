@@ -86,6 +86,88 @@ namespace Ufba.Ev
 			}
 		}
 		#endregion
+		#region Compartment support
+		/// <summary>
+		/// Whether compartment items change events are subscribed to.
+		/// </summary>
+		private bool subscribedCompartmentItemsEvents;
+		
+		/// <summary>
+		/// Subscribe to events fired when compartment items changes.
+		/// </summary>
+		public void SubscribeCompartmentItemsEvents()
+		{
+			if (!subscribedCompartmentItemsEvents && this.Store != null)
+			{
+				subscribedCompartmentItemsEvents = true;
+				this.Store.EventManagerDirectory.ElementAdded.Add(new global::System.EventHandler<DslModeling::ElementAddedEventArgs>(this.CompartmentItemAdded));
+				this.Store.EventManagerDirectory.ElementDeleted.Add(new global::System.EventHandler<DslModeling::ElementDeletedEventArgs>(this.CompartmentItemDeleted));
+				this.Store.EventManagerDirectory.ElementPropertyChanged.Add(new global::System.EventHandler<DslModeling::ElementPropertyChangedEventArgs>(this.CompartmentItemPropertyChanged));
+				this.Store.EventManagerDirectory.RolePlayerChanged.Add(new global::System.EventHandler<DslModeling::RolePlayerChangedEventArgs>(this.CompartmentItemRolePlayerChanged));
+				this.Store.EventManagerDirectory.RolePlayerOrderChanged.Add(new global::System.EventHandler<DslModeling::RolePlayerOrderChangedEventArgs>(this.CompartmentItemRolePlayerOrderChanged));
+			}
+		}
+		
+		/// <summary>
+		/// Unsubscribe to events fired when compartment items changes.
+		/// </summary>
+		public void UnsubscribeCompartmentItemsEvents()
+		{
+			if (subscribedCompartmentItemsEvents)
+			{
+				this.Store.EventManagerDirectory.ElementAdded.Remove(new global::System.EventHandler<DslModeling::ElementAddedEventArgs>(this.CompartmentItemAdded));
+				this.Store.EventManagerDirectory.ElementDeleted.Remove(new global::System.EventHandler<DslModeling::ElementDeletedEventArgs>(this.CompartmentItemDeleted));
+				this.Store.EventManagerDirectory.ElementPropertyChanged.Remove(new global::System.EventHandler<DslModeling::ElementPropertyChangedEventArgs>(this.CompartmentItemPropertyChanged));
+				this.Store.EventManagerDirectory.RolePlayerChanged.Remove(new global::System.EventHandler<DslModeling::RolePlayerChangedEventArgs>(this.CompartmentItemRolePlayerChanged));
+				this.Store.EventManagerDirectory.RolePlayerOrderChanged.Remove(new global::System.EventHandler<DslModeling::RolePlayerOrderChangedEventArgs>(this.CompartmentItemRolePlayerOrderChanged));
+				subscribedCompartmentItemsEvents = false;
+			}
+		}
+		
+		#region Event handlers
+		/// <summary>
+		/// Event for element added.
+		/// </summary>
+		private void CompartmentItemAdded(object sender, DslModeling::ElementAddedEventArgs e)
+		{
+			// If in Undo, Redo or Rollback the compartment item rules are not run so we must refresh the compartment list at this point if required
+			bool repaintOnly = !e.ModelElement.Store.InUndoRedoOrRollback;
+			CompartmentItemAddRule.ElementAdded(e, repaintOnly);
+		}
+		/// <summary>
+		/// Event for element deleted.
+		/// </summary>
+		private void CompartmentItemDeleted(object sender, DslModeling::ElementDeletedEventArgs e)
+		{
+			bool repaintOnly = !e.ModelElement.Store.InUndoRedoOrRollback;
+			CompartmentItemDeleteRule.ElementDeleted(e, repaintOnly);
+		}
+		/// <summary>
+		/// Event for element property changed.
+		/// </summary>
+		private void CompartmentItemPropertyChanged(object sender, DslModeling::ElementPropertyChangedEventArgs e)
+		{
+			bool repaintOnly = !e.ModelElement.Store.InUndoRedoOrRollback;
+			CompartmentItemChangeRule.ElementPropertyChanged(e, repaintOnly);
+		}
+		/// <summary>
+		/// Event for role-player changed.
+		/// </summary>
+		private void CompartmentItemRolePlayerChanged(object sender, DslModeling::RolePlayerChangedEventArgs e)
+		{
+			bool repaintOnly = !e.ElementLink.Store.InUndoRedoOrRollback;
+			CompartmentItemRolePlayerChangeRule.RolePlayerChanged(e, repaintOnly);
+		}
+		/// <summary>
+		/// Event for role-player order changed.
+		/// </summary>
+		private void CompartmentItemRolePlayerOrderChanged(object sender, DslModeling::RolePlayerOrderChangedEventArgs e)
+		{
+			bool repaintOnly = !e.Link.Store.InUndoRedoOrRollback;
+			CompartmentItemRolePlayerPositionChangeRule.RolePlayerPositionChanged(e, repaintOnly);
+		}
+		#endregion
+		#endregion
 		#region Shape mapping
 		/// <summary>
 		/// Called during view fixup to ask the parent whether a shape should be created for the given child element.
@@ -191,21 +273,21 @@ namespace Ufba.Ev
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling", Justification = "Generated code.")]
 		protected override DslDiagrams::ShapeElement CreateChildShape(DslModeling::ModelElement element)
 		{
-			if(element is global::Ufba.Ev.Option)
-			{
-				global::Ufba.Ev.OptionShape newShape = new global::Ufba.Ev.OptionShape(this.Partition);
-				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
-				return newShape;
-			}
 			if(element is global::Ufba.Ev.Function)
 			{
 				global::Ufba.Ev.FunctionShape newShape = new global::Ufba.Ev.FunctionShape(this.Partition);
 				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
 				return newShape;
 			}
+			if(element is global::Ufba.Ev.Option)
+			{
+				global::Ufba.Ev.OptionShape newShape = new global::Ufba.Ev.OptionShape(this.Partition);
+				if(newShape != null) newShape.Size = newShape.DefaultSize; // set default shape size
+				return newShape;
+			}
 			if(element is global::Ufba.Ev.OptionHasFunctions)
 			{
-				global::Ufba.Ev.ExampleConnector newShape = new global::Ufba.Ev.ExampleConnector(this.Partition);
+				global::Ufba.Ev.OptionConnector newShape = new global::Ufba.Ev.OptionConnector(this.Partition);
 				return newShape;
 			}
 			return base.CreateChildShape(element);
@@ -219,27 +301,9 @@ namespace Ufba.Ev
 		protected override void InitializeShapeFields(global::System.Collections.Generic.IList<DslDiagrams::ShapeField> shapeFields)
 		{
 			base.InitializeShapeFields(shapeFields);
-			global::Ufba.Ev.OptionShape.DecoratorsInitialized += OptionShapeDecoratorMap.OnDecoratorsInitialized;
 			global::Ufba.Ev.FunctionShape.DecoratorsInitialized += FunctionShapeDecoratorMap.OnDecoratorsInitialized;
-			global::Ufba.Ev.ExampleConnector.DecoratorsInitialized += ExampleConnectorDecoratorMap.OnDecoratorsInitialized;
-		}
-		
-		/// <summary>
-		/// Class containing decorator path traversal methods for OptionShape.
-		/// </summary>
-		internal static partial class OptionShapeDecoratorMap
-		{
-			/// <summary>
-			/// Event handler called when decorator initialization is complete for OptionShape.  Adds decorator mappings for this shape or connector.
-			/// </summary>
-			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
-			{
-				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
-				DslDiagrams::AssociatedPropertyInfo propertyInfo;
-				
-				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ufba.Ev.Option.TypeDomainPropertyId);
-				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "NameDecorator").AssociateValueWith(shape.Store, propertyInfo);
-			}
+			global::Ufba.Ev.OptionShape.DecoratorsInitialized += OptionShapeDecoratorMap.OnDecoratorsInitialized;
+			global::Ufba.Ev.OptionConnector.DecoratorsInitialized += OptionConnectorDecoratorMap.OnDecoratorsInitialized;
 		}
 		
 		/// <summary>
@@ -261,12 +325,30 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// Class containing decorator path traversal methods for ExampleConnector.
+		/// Class containing decorator path traversal methods for OptionShape.
 		/// </summary>
-		internal static partial class ExampleConnectorDecoratorMap
+		internal static partial class OptionShapeDecoratorMap
 		{
 			/// <summary>
-			/// Event handler called when decorator initialization is complete for ExampleConnector.  Adds decorator mappings for this shape or connector.
+			/// Event handler called when decorator initialization is complete for OptionShape.  Adds decorator mappings for this shape or connector.
+			/// </summary>
+			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
+			{
+				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
+				DslDiagrams::AssociatedPropertyInfo propertyInfo;
+				
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ufba.Ev.Option.TypeDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "Name").AssociateValueWith(shape.Store, propertyInfo);
+			}
+		}
+		
+		/// <summary>
+		/// Class containing decorator path traversal methods for OptionConnector.
+		/// </summary>
+		internal static partial class OptionConnectorDecoratorMap
+		{
+			/// <summary>
+			/// Event handler called when decorator initialization is complete for OptionConnector.  Adds decorator mappings for this shape or connector.
 			/// </summary>
 			public static void OnDecoratorsInitialized(object sender, global::System.EventArgs e)
 			{
@@ -376,6 +458,7 @@ namespace Ufba.Ev
 						this.optionRelationshipConnectAction.Dispose();
 						this.optionRelationshipConnectAction = null;
 					}
+					this.UnsubscribeCompartmentItemsEvents();
 				}
 			}
 			finally
@@ -429,8 +512,8 @@ namespace Ufba.Ev
 		/// <summary>
 		/// Rule that initiates view fixup when an element that has an associated shape is added to the model. 
 		/// </summary>
-		[DslModeling::RuleOn(typeof(global::Ufba.Ev.Option), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ufba.Ev.Function), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.Option), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddShapeParentExistRulePriority, InitiallyDisabled=true)]
 		[DslModeling::RuleOn(typeof(global::Ufba.Ev.OptionHasFunctions), FireTime = DslModeling::TimeToFire.TopLevelCommit, Priority = DslDiagrams::DiagramFixupConstants.AddConnectionRulePriority, InitiallyDisabled=true)]
 		internal sealed partial class FixUpDiagram : FixUpDiagramBase
 		{
@@ -447,13 +530,13 @@ namespace Ufba.Ev
 				{
 					parentElement = GetParentForRelationship((DslModeling::ElementLink)childElement);
 				} else
-				if(childElement is global::Ufba.Ev.Option)
-				{
-					parentElement = GetParentForOption((global::Ufba.Ev.Option)childElement);
-				} else
 				if(childElement is global::Ufba.Ev.Function)
 				{
 					parentElement = GetParentForFunction((global::Ufba.Ev.Function)childElement);
+				} else
+				if(childElement is global::Ufba.Ev.Option)
+				{
+					parentElement = GetParentForOption((global::Ufba.Ev.Option)childElement);
 				} else
 				{
 					parentElement = null;
@@ -464,13 +547,6 @@ namespace Ufba.Ev
 					DslDiagrams::Diagram.FixUpDiagram(parentElement, childElement);
 				}
 			}
-			public static global::Ufba.Ev.EvModel GetParentForOption( global::Ufba.Ev.Option root )
-			{
-				// Segments 0 and 1
-				global::Ufba.Ev.EvModel result = root.EvModel;
-				if ( result == null ) return null;
-				return result;
-			}
 			public static global::Ufba.Ev.EvModel GetParentForFunction( global::Ufba.Ev.Function root )
 			{
 				// Segments 0 and 1
@@ -478,6 +554,13 @@ namespace Ufba.Ev
 				if ( root2 == null ) return null;
 				// Segments 2 and 3
 				global::Ufba.Ev.EvModel result = root2.EvModel;
+				if ( result == null ) return null;
+				return result;
+			}
+			public static global::Ufba.Ev.EvModel GetParentForOption( global::Ufba.Ev.Option root )
+			{
+				// Segments 0 and 1
+				global::Ufba.Ev.EvModel result = root.EvModel;
 				if ( result == null ) return null;
 				return result;
 			}
@@ -566,6 +649,287 @@ namespace Ufba.Ev
 			}
 		}
 		
+		/// <summary>
+		/// Rule to update compartments when an item is added to the list
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.OptionHasProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.OptionHasTypes), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemAddRule : DslModeling::AddRule
+		{
+			/// <summary>
+			/// Called when an element is added. 
+			/// </summary>
+			/// <param name="e"></param>
+			public override void ElementAdded(DslModeling::ElementAddedEventArgs e)
+			{
+				ElementAdded(e, false);
+			}
+	
+			internal static void ElementAdded(DslModeling::ElementAddedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if (e.ModelElement.IsDeleted)
+					return;
+				if(e.ModelElement is global::Ufba.Ev.OptionHasProperties)
+				{
+					global::System.Collections.IEnumerable elements = GetOptionForOptionShapePropertiesFromLastLink((global::Ufba.Ev.OptionHasProperties)e.ModelElement);
+					UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Properties", repaintOnly);
+				}
+				if(e.ModelElement is global::Ufba.Ev.OptionHasTypes)
+				{
+					global::System.Collections.IEnumerable elements = GetOptionForOptionShapeTypesFromLastLink((global::Ufba.Ev.OptionHasTypes)e.ModelElement);
+					UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Types", repaintOnly);
+				}
+			}
+			
+			#region static DomainPath traversal methods to get the list of compartments to update
+			internal static global::System.Collections.ICollection GetOptionForOptionShapePropertiesFromLastLink(global::Ufba.Ev.OptionHasProperties root)
+			{
+				// Segment 0
+				global::Ufba.Ev.Option result = root.Option;
+				if ( result == null ) return new DslModeling::ModelElement[0];
+				return new DslModeling::ModelElement[] {result};
+			}
+			internal static global::System.Collections.ICollection GetOptionForOptionShapeProperties(global::Ufba.Ev.Property root)
+			{
+				// Segments 1 and 0
+				global::Ufba.Ev.Option result = root.Option;
+				if ( result == null ) return new DslModeling::ModelElement[0];
+				return new DslModeling::ModelElement[] {result};
+			}
+			internal static global::System.Collections.ICollection GetOptionForOptionShapeTypesFromLastLink(global::Ufba.Ev.OptionHasTypes root)
+			{
+				// Segment 0
+				global::Ufba.Ev.Option result = root.Option;
+				if ( result == null ) return new DslModeling::ModelElement[0];
+				return new DslModeling::ModelElement[] {result};
+			}
+			internal static global::System.Collections.ICollection GetOptionForOptionShapeTypes(global::Ufba.Ev.Type root)
+			{
+				// Segments 1 and 0
+				global::Ufba.Ev.Option result = root.Option;
+				if ( result == null ) return new DslModeling::ModelElement[0];
+				return new DslModeling::ModelElement[] {result};
+			}
+			#endregion
+	
+			#region helper method to update compartments 
+			/// <summary>
+			/// Updates the compartments for the shapes associated to the given list of model elements
+			/// </summary>
+			/// <param name="elements">List of model elements</param>
+			/// <param name="shapeType">The type of shape that needs updating</param>
+			/// <param name="compartmentName">The name of the compartment to update</param>
+			/// <param name="repaintOnly">If true, the method will only invalidate the shape for a repaint, without re-initializing the shape.</param>
+			internal static void UpdateCompartments(global::System.Collections.IEnumerable elements, global::System.Type shapeType, string compartmentName, bool repaintOnly)
+			{
+				foreach (DslModeling::ModelElement element in elements)
+				{
+					DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> pels = DslDiagrams::PresentationViewsSubject.GetPresentation(element);
+					foreach (DslDiagrams::PresentationElement pel in pels)
+					{
+						DslDiagrams::CompartmentShape compartmentShape = pel as DslDiagrams::CompartmentShape;
+						if (compartmentShape != null && shapeType.IsAssignableFrom(compartmentShape.GetType()))
+						{
+							if (repaintOnly)
+							{
+								compartmentShape.Invalidate();
+							}
+							else
+							{
+								foreach(DslDiagrams::CompartmentMapping mapping in compartmentShape.GetCompartmentMappings())
+								{
+									if(mapping.CompartmentId==compartmentName)
+									{
+										mapping.InitializeCompartmentShape(compartmentShape);
+										break;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			#endregion
+		}
+		
+		/// <summary>
+		/// Rule to update compartments when an items is removed from the list
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.OptionHasProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.OptionHasTypes), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemDeleteRule : DslModeling::DeleteRule
+		{
+			/// <summary>
+			/// Called when an element is deleted
+			/// </summary>
+			/// <param name="e"></param>
+			public override void ElementDeleted(DslModeling::ElementDeletedEventArgs e)
+			{
+				ElementDeleted(e, false);
+			}
+			
+			internal static void ElementDeleted(DslModeling::ElementDeletedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if(e.ModelElement is global::Ufba.Ev.OptionHasProperties)
+				{
+					global::System.Collections.ICollection elements = CompartmentItemAddRule.GetOptionForOptionShapePropertiesFromLastLink((global::Ufba.Ev.OptionHasProperties)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Properties", repaintOnly);
+				}
+				if(e.ModelElement is global::Ufba.Ev.OptionHasTypes)
+				{
+					global::System.Collections.ICollection elements = CompartmentItemAddRule.GetOptionForOptionShapeTypesFromLastLink((global::Ufba.Ev.OptionHasTypes)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Types", repaintOnly);
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Rule to update compartments when the property on an item being displayed changes.
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.Property), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.Type), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemChangeRule : DslModeling::ChangeRule 
+		{
+			/// <summary>
+			/// Called when an element is changed
+			/// </summary>
+			/// <param name="e"></param>
+			public override void ElementPropertyChanged(DslModeling::ElementPropertyChangedEventArgs e)
+			{
+				ElementPropertyChanged(e, false);
+			}
+			
+			internal static void ElementPropertyChanged(DslModeling::ElementPropertyChangedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if(e.ModelElement is global::Ufba.Ev.Property && e.DomainProperty.Id == global::Ufba.Ev.Property.NameDomainPropertyId)
+				{
+					global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetOptionForOptionShapeProperties((global::Ufba.Ev.Property)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Properties", repaintOnly);
+				}
+				if(e.ModelElement is global::Ufba.Ev.Type && e.DomainProperty.Id == global::Ufba.Ev.Type.NameDomainPropertyId)
+				{
+					global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetOptionForOptionShapeTypes((global::Ufba.Ev.Type)e.ModelElement);
+					CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Types", repaintOnly);
+				}
+			}
+		}
+		
+		/// <summary>
+		/// Rule to update compartments when a roleplayer change happens
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.OptionHasProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.OptionHasTypes), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemRolePlayerChangeRule : DslModeling::RolePlayerChangeRule 
+		{
+			/// <summary>
+			/// Called when the roleplayer on a link changes.
+			/// </summary>
+			/// <param name="e"></param>
+			public override void RolePlayerChanged(DslModeling::RolePlayerChangedEventArgs e)
+			{
+				RolePlayerChanged(e, false);
+			}
+			
+			internal static void RolePlayerChanged(DslModeling::RolePlayerChangedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if(typeof(global::Ufba.Ev.OptionHasProperties).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				{
+					if(e.DomainRole.IsSource)
+					{
+						//global::System.Collections.IEnumerable oldElements = CompartmentItemAddRule.GetOptionForOptionShapePropertiesFromLastLink((global::Ufba.Ev.Property)e.OldRolePlayer);
+						//foreach(DslModeling::ModelElement element in oldElements)
+						//{
+						//	DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> pels = DslDiagrams::PresentationViewsSubject.GetPresentation(element);
+						//	foreach(DslDiagrams::PresentationElement pel in pels)
+						//	{
+						//		global::Ufba.Ev.OptionShape compartmentShape = pel as global::Ufba.Ev.OptionShape;
+						//		if(compartmentShape != null)
+						//		{
+						//			compartmentShape.GetCompartmentMappings()[0].InitializeCompartmentShape(compartmentShape);
+						//		}
+						//	}
+						//}
+						
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetOptionForOptionShapePropertiesFromLastLink((global::Ufba.Ev.OptionHasProperties)e.ElementLink);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Properties", repaintOnly);
+					}
+					else 
+					{
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetOptionForOptionShapeProperties((global::Ufba.Ev.Property)e.NewRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Properties", repaintOnly);
+					}
+				}
+				if(typeof(global::Ufba.Ev.OptionHasTypes).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				{
+					if(e.DomainRole.IsSource)
+					{
+						//global::System.Collections.IEnumerable oldElements = CompartmentItemAddRule.GetOptionForOptionShapeTypesFromLastLink((global::Ufba.Ev.Type)e.OldRolePlayer);
+						//foreach(DslModeling::ModelElement element in oldElements)
+						//{
+						//	DslModeling::LinkedElementCollection<DslDiagrams::PresentationElement> pels = DslDiagrams::PresentationViewsSubject.GetPresentation(element);
+						//	foreach(DslDiagrams::PresentationElement pel in pels)
+						//	{
+						//		global::Ufba.Ev.OptionShape compartmentShape = pel as global::Ufba.Ev.OptionShape;
+						//		if(compartmentShape != null)
+						//		{
+						//			compartmentShape.GetCompartmentMappings()[1].InitializeCompartmentShape(compartmentShape);
+						//		}
+						//	}
+						//}
+						
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetOptionForOptionShapeTypesFromLastLink((global::Ufba.Ev.OptionHasTypes)e.ElementLink);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Types", repaintOnly);
+					}
+					else 
+					{
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetOptionForOptionShapeTypes((global::Ufba.Ev.Type)e.NewRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Types", repaintOnly);
+					}
+				}
+			}
+		}
+	
+		/// <summary>
+		/// Rule to update compartments when the order of items in the list changes.
+		/// </summary>
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.OptionHasProperties), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		[DslModeling::RuleOn(typeof(global::Ufba.Ev.OptionHasTypes), FireTime=DslModeling::TimeToFire.TopLevelCommit, InitiallyDisabled=true)]
+		internal sealed class CompartmentItemRolePlayerPositionChangeRule : DslModeling::RolePlayerPositionChangeRule 
+		{
+			/// <summary>
+			/// Called when the order of a roleplayer in a relationship changes
+			/// </summary>
+			/// <param name="e"></param>
+			public override void RolePlayerPositionChanged(DslModeling::RolePlayerOrderChangedEventArgs e)
+			{
+				RolePlayerPositionChanged(e, false);
+			}
+			
+			internal static void RolePlayerPositionChanged(DslModeling::RolePlayerOrderChangedEventArgs e, bool repaintOnly)
+			{
+				if(e==null) throw new global::System.ArgumentNullException("e");
+				if(typeof(global::Ufba.Ev.OptionHasProperties).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				{
+					if(!e.CounterpartDomainRole.IsSource)
+					{
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetOptionForOptionShapeProperties((global::Ufba.Ev.Property)e.CounterpartRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Properties", repaintOnly);
+					}
+				}
+				if(typeof(global::Ufba.Ev.OptionHasTypes).IsAssignableFrom(e.DomainRelationship.ImplementationClass))
+				{
+					if(!e.CounterpartDomainRole.IsSource)
+					{
+						global::System.Collections.IEnumerable elements = CompartmentItemAddRule.GetOptionForOptionShapeTypes((global::Ufba.Ev.Type)e.CounterpartRolePlayer);
+						CompartmentItemAddRule.UpdateCompartments(elements, typeof(global::Ufba.Ev.OptionShape), "Types", repaintOnly);
+					}
+				}
+			}
+		}
 	
 		/// <summary>
 		/// A rule which fires when data mapped to outer text decorators has changed,
@@ -581,7 +945,7 @@ namespace Ufba.Ev
 				
 				if (e.DomainProperty.Id == global::Ufba.Ev.OptionHasFunctions.VarDomainPropertyId)
 				{
-					DslDiagrams::Decorator decorator = global::Ufba.Ev.ExampleConnector.FindExampleConnectorDecorator("Var");
+					DslDiagrams::Decorator decorator = global::Ufba.Ev.OptionConnector.FindOptionConnectorDecorator("Var");
 					if(decorator != null)
 					{
 						decorator.UpdateDecoratorHostShapes(e.ModelElement, global::Ufba.Ev.OptionHasFunctions.DomainClassId);

@@ -165,6 +165,38 @@
     <value>Name</value>
     <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Function&apos;</comment>
   </data>
+  <data name="Ufba.Ev.Property.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.Property</value>
+    <comment>Description for DomainClass &apos;Property&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.Property.DisplayName" xml:space="preserve">
+    <value>Property</value>
+    <comment>DisplayName for DomainClass &apos;Property&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.Property/Name.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.Property.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;Property&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.Property/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Property&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.Type.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.Type</value>
+    <comment>Description for DomainClass &apos;Type&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.Type.DisplayName" xml:space="preserve">
+    <value>Type</value>
+    <comment>DisplayName for DomainClass &apos;Type&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.Type/Name.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.Type.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;Type&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.Type/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Type&apos;</comment>
+  </data>
   <data name="Ufba.Ev.EvModelHasElements.Description" xml:space="preserve">
     <value>Embedding relationship between the Model and Elements</value>
     <comment>Description for DomainClass &apos;EvModelHasElements&apos;</comment>
@@ -237,17 +269,69 @@
     <value>Option</value>
     <comment>PropertyDisplayName for DomainRole &apos;Function&apos; on DomainRelationship &apos;OptionHasFunctions&apos;</comment>
   </data>
-  <data name="Ufba.Ev.OptionShape.Description" xml:space="preserve">
-    <value>Shape used to represent ExampleElements on a Diagram.</value>
-    <comment>Description for DomainClass &apos;OptionShape&apos;</comment>
+  <data name="Ufba.Ev.OptionHasProperties.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.OptionHasProperties</value>
+    <comment>Description for DomainClass &apos;OptionHasProperties&apos;</comment>
   </data>
-  <data name="Ufba.Ev.OptionShape.DisplayName" xml:space="preserve">
-    <value>Option Shape</value>
-    <comment>DisplayName for DomainClass &apos;OptionShape&apos;</comment>
+  <data name="Ufba.Ev.OptionHasProperties.DisplayName" xml:space="preserve">
+    <value>Option Has Properties</value>
+    <comment>DisplayName for DomainClass &apos;OptionHasProperties&apos;</comment>
   </data>
-  <data name="OptionShapeNameDecoratorDefaultText" xml:space="preserve">
-    <value>NameDecorator</value>
-    <comment>Text decorator default text</comment>
+  <data name="Ufba.Ev.OptionHasProperties/Option.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.OptionHasProperties.Option</value>
+    <comment>Description for DomainRole &apos;Option&apos; on DomainRelationship &apos;OptionHasProperties&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasProperties/Option.DisplayName" xml:space="preserve">
+    <value>Option</value>
+    <comment>DisplayName for DomainRole &apos;Option&apos; on DomainRelationship &apos;OptionHasProperties&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasProperties/Option.PropertyDisplayName" xml:space="preserve">
+    <value>Properties</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Option&apos; on DomainRelationship &apos;OptionHasProperties&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasProperties/Property.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.OptionHasProperties.Property</value>
+    <comment>Description for DomainRole &apos;Property&apos; on DomainRelationship &apos;OptionHasProperties&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasProperties/Property.DisplayName" xml:space="preserve">
+    <value>Property</value>
+    <comment>DisplayName for DomainRole &apos;Property&apos; on DomainRelationship &apos;OptionHasProperties&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasProperties/Property.PropertyDisplayName" xml:space="preserve">
+    <value>Option</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Property&apos; on DomainRelationship &apos;OptionHasProperties&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasTypes.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.OptionHasTypes</value>
+    <comment>Description for DomainClass &apos;OptionHasTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasTypes.DisplayName" xml:space="preserve">
+    <value>Option Has Types</value>
+    <comment>DisplayName for DomainClass &apos;OptionHasTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasTypes/Option.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.OptionHasTypes.Option</value>
+    <comment>Description for DomainRole &apos;Option&apos; on DomainRelationship &apos;OptionHasTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasTypes/Option.DisplayName" xml:space="preserve">
+    <value>Option</value>
+    <comment>DisplayName for DomainRole &apos;Option&apos; on DomainRelationship &apos;OptionHasTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasTypes/Option.PropertyDisplayName" xml:space="preserve">
+    <value>Types</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Option&apos; on DomainRelationship &apos;OptionHasTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasTypes/Type.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.OptionHasTypes.Type</value>
+    <comment>Description for DomainRole &apos;Type&apos; on DomainRelationship &apos;OptionHasTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasTypes/Type.DisplayName" xml:space="preserve">
+    <value>Type</value>
+    <comment>DisplayName for DomainRole &apos;Type&apos; on DomainRelationship &apos;OptionHasTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionHasTypes/Type.PropertyDisplayName" xml:space="preserve">
+    <value>Option</value>
+    <comment>PropertyDisplayName for DomainRole &apos;Type&apos; on DomainRelationship &apos;OptionHasTypes&apos;</comment>
   </data>
   <data name="Ufba.Ev.FunctionShape.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.FunctionShape</value>
@@ -261,15 +345,35 @@
     <value>Name</value>
     <comment>Text decorator default text</comment>
   </data>
-  <data name="Ufba.Ev.ExampleConnector.Description" xml:space="preserve">
+  <data name="Ufba.Ev.OptionShape.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.OptionShape</value>
+    <comment>Description for DomainClass &apos;OptionShape&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.OptionShape.DisplayName" xml:space="preserve">
+    <value>Option Shape</value>
+    <comment>DisplayName for DomainClass &apos;OptionShape&apos;</comment>
+  </data>
+  <data name="OptionShapePropertiesTitle" xml:space="preserve">
+    <value></value>
+    <comment>Compartment title</comment>
+  </data>
+  <data name="OptionShapeTypesTitle" xml:space="preserve">
+    <value></value>
+    <comment>Compartment title</comment>
+  </data>
+  <data name="OptionShapeNameDefaultText" xml:space="preserve">
+    <value>Name</value>
+    <comment>Text decorator default text</comment>
+  </data>
+  <data name="Ufba.Ev.OptionConnector.Description" xml:space="preserve">
     <value>Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram.</value>
-    <comment>Description for DomainClass &apos;ExampleConnector&apos;</comment>
+    <comment>Description for DomainClass &apos;OptionConnector&apos;</comment>
   </data>
-  <data name="Ufba.Ev.ExampleConnector.DisplayName" xml:space="preserve">
-    <value>Example Connector</value>
-    <comment>DisplayName for DomainClass &apos;ExampleConnector&apos;</comment>
+  <data name="Ufba.Ev.OptionConnector.DisplayName" xml:space="preserve">
+    <value>Option Connector</value>
+    <comment>DisplayName for DomainClass &apos;OptionConnector&apos;</comment>
   </data>
-  <data name="ExampleConnectorVarDefaultText" xml:space="preserve">
+  <data name="OptionConnectorVarDefaultText" xml:space="preserve">
     <value>Var</value>
     <comment>Text decorator default text</comment>
   </data>
