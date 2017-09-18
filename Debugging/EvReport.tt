@@ -3,14 +3,29 @@
 <#@ Ev processor="EvDirectiveProcessor" requires="fileName='Sample.visualEv'" #>
 
 Generated material. Generating code in C#.
-
 <#
-  // When you change the DSL Definition, some of the code below may not work.
-
-  foreach (ExampleElement element in this.ExampleModel.Elements)
-  {
+foreach (Option element in this.EvModel.Elements)
+{
 #>
-	<#= element.Name #>
+
+	add <#= element.Type #>
+		types<#
+	foreach (Property p in element.Properties)
+	{
+	#>
+		<#= p.Name #>,
+	<#
+	}
+	#>
+	
+	<#
+	foreach (Function f in element.Functions)
+	{
+	#>
+		def <#= f.Name #>,
+	<#
+	}
+	#>
 <#    
-  }
+}
 #>

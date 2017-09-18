@@ -21,6 +21,12 @@
         </optionHasTypes>
       </types>
     </option>
-    <option Id="21083822-f835-435e-85f5-27b5367ce412" type="Option2" />
+    <option Id="21083822-f835-435e-85f5-27b5367ce412" type="Option2">
+      <functions>
+        <optionHasFunctions Id="a17f24e5-00da-4dfc-9c08-98b1a0abe9ad" var="Oi">
+          <function Id="8741c85e-d42b-4131-abf3-3aa7664e97dd" />
+        </optionHasFunctions>
+      </functions>
+    </option>
   </elements>
 </evModel>
