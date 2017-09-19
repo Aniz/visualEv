@@ -129,6 +129,8 @@
         </xsd:attribute>
         <!-- Property: Type -->
         <xsd:attribute name="type" type="xsd:string" use="required" />
+        <!-- Property: DomainProperty1 -->
+        <xsd:attribute name="domainProperty1" type="OptionTypes" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -162,7 +164,7 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Name -->
-        <xsd:attribute name="name" type="xsd:string" />
+        <xsd:attribute name="name" type="FunctionTypes" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -416,6 +418,46 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
+  
+  <!-- Enum OptionTypes -->
+  <xsd:simpleType name="OptionTypes">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="User"/>
+      <xsd:enumeration value="Speaker"/>
+      <xsd:enumeration value="Organizer"/>
+      <xsd:enumeration value="Event"/>
+      <xsd:enumeration value="Assignment"/>
+      <xsd:enumeration value="Payment"/>
+      <xsd:enumeration value="Submission"/>
+      <xsd:enumeration value="Reviewer"/>
+      <xsd:enumeration value="Activity"/>
+      <xsd:enumeration value="Author"/>
+      <xsd:enumeration value="Receipt"/>
+      <xsd:enumeration value="CheckingCopy"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- Enum FunctionTypes -->
+  <xsd:simpleType name="FunctionTypes">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="askCardInfo"/>
+      <xsd:enumeration value="sendEmailNotification"/>
+      <xsd:enumeration value="assigmentConflictResolver"/>
+      <xsd:enumeration value="reportsFrequencyPerActivity"/>
+      <xsd:enumeration value="checkingCopyAtestado"/>
+      <xsd:enumeration value="reportsListofAuthors"/>
+      <xsd:enumeration value="checkingCopyCertificado"/>
+      <xsd:enumeration value="program"/>
+      <xsd:enumeration value="importantDates"/>
+      <xsd:enumeration value="generateBoleto"/>
+      <xsd:enumeration value="reportsFrequencyPerEvent"/>
+      <xsd:enumeration value="generateCarne"/>
+      <xsd:enumeration value="sendBugTrackEmail"/>
+      <xsd:enumeration value="notificationsDeadline"/>
+      <xsd:enumeration value="interestConflict"/>
+      <xsd:enumeration value="notificationsAceptanceRejection"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   
 </xsd:schema>
 

@@ -1,18 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <evModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="2b88aaa6-9d55-4e4e-919f-1ab520137a4d" xmlns="http://schemas.microsoft.com/dsltools/Ev">
   <elements>
-    <option Id="b0a07b0d-e890-404b-9e1e-e708f68694b7" type="User">
+    <option Id="b0a07b0d-e890-404b-9e1e-e708f68694b7" type="User" domainProperty1="User">
       <functions>
         <optionHasFunctions Id="ad09e4a3-8af2-40c0-bbaf-3da55cb511bd" var=" Debito">
-          <function Id="7a8e680e-4555-473e-88fe-d5f3c680d7e6" name="askCardInfo" />
+          <function Id="7a8e680e-4555-473e-88fe-d5f3c680d7e6" name="sendEmailNotification" />
         </optionHasFunctions>
         <optionHasFunctions Id="a2c6c7d2-19c7-499e-a56b-62e3e3d910a5">
-          <function Id="41cccc53-0732-41d2-b846-a18c4cf7bb5b" />
+          <function Id="41cccc53-0732-41d2-b846-a18c4cf7bb5b" name="askCardInfo" />
         </optionHasFunctions>
       </functions>
       <properties>
         <optionHasProperties Id="aa839d1a-5d7f-4edd-9c4d-5aa6612a944b">
           <property Id="7fd8a105-ae3f-4c45-88ca-75db5c55770d" name="jiho" />
+        </optionHasProperties>
+        <optionHasProperties Id="f545beae-d670-44f1-ad82-c47373f849d7">
+          <property Id="5f997174-3075-4cc1-b85f-deae0b36e2b4" />
         </optionHasProperties>
       </properties>
       <types>
@@ -21,12 +24,24 @@
         </optionHasTypes>
       </types>
     </option>
-    <option Id="21083822-f835-435e-85f5-27b5367ce412" type="Option2">
+    <option Id="21083822-f835-435e-85f5-27b5367ce412" type="Option2" domainProperty1="Speaker">
       <functions>
         <optionHasFunctions Id="a17f24e5-00da-4dfc-9c08-98b1a0abe9ad" var="Oi">
-          <function Id="8741c85e-d42b-4131-abf3-3aa7664e97dd" />
+          <function Id="8741c85e-d42b-4131-abf3-3aa7664e97dd" name="askCardInfo" />
         </optionHasFunctions>
       </functions>
+    </option>
+    <option Id="142539bb-3bce-4f6d-ad36-c4cbe563e943" type="Option1" domainProperty1="User">
+      <properties>
+        <optionHasProperties Id="1f672191-d472-41c7-9fa8-9af45cf9619a">
+          <property Id="06db8ddf-2393-453d-87f6-204dc1e65d08" />
+        </optionHasProperties>
+      </properties>
+      <types>
+        <optionHasTypes Id="b64a4305-f75d-44b1-aea1-13edaa756498">
+          <type Id="dbe33c92-c264-456d-84c0-ffa9826d58d1" />
+        </optionHasTypes>
+      </types>
     </option>
   </elements>
 </evModel>

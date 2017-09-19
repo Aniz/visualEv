@@ -21,6 +21,11 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="fcf806cf-70b3-4de2-a446-55b545ce206e" Description="Description for Ufba.Ev.Option.Domain Property1" Name="DomainProperty1" DisplayName="Domain Property1">
+          <Type>
+            <DomainEnumerationMoniker Name="OptionTypes" />
+          </Type>
+        </DomainProperty>
       </Properties>
       <ElementMergeDirectives>
         <ElementMergeDirective>
@@ -53,7 +58,7 @@
       <Properties>
         <DomainProperty Id="119461ac-c927-4f97-bb68-11eee99e5d16" Description="Description for Ufba.Ev.Function.Name" Name="Name" DisplayName="Name">
           <Type>
-            <ExternalTypeMoniker Name="/System/String" />
+            <DomainEnumerationMoniker Name="FunctionTypes" />
           </Type>
         </DomainProperty>
       </Properties>
@@ -166,6 +171,42 @@
     <ExternalType Name="Guid" Namespace="System" />
     <ExternalType Name="Boolean" Namespace="System" />
     <ExternalType Name="Char" Namespace="System" />
+    <DomainEnumeration Name="OptionTypes" Namespace="Ufba.Ev" Description="Description for Ufba.Ev.OptionTypes">
+      <Literals>
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.User" Name="User" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Speaker" Name="Speaker" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Organizer" Name="Organizer" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Event" Name="Event" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Assignment" Name="Assignment" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Payment" Name="Payment" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Submission" Name="Submission" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Reviewer" Name="Reviewer" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Activity" Name="Activity" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Author" Name="Author" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.Receipt" Name="Receipt" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.OptionTypes.CheckingCopy" Name="CheckingCopy" Value="" />
+      </Literals>
+    </DomainEnumeration>
+    <DomainEnumeration Name="FunctionTypes" Namespace="Ufba.Ev" Description="Description for Ufba.Ev.FunctionTypes">
+      <Literals>
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.askCardInfo" Name="askCardInfo" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.sendEmailNotification" Name="sendEmailNotification" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.assigmentConflictResolver" Name="assigmentConflictResolver" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerActivity" Name="reportsFrequencyPerActivity" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.checkingCopyAtestado" Name="checkingCopyAtestado" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsListofAuthors" Name="reportsListofAuthors" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.checkingCopyCertificado" Name="checkingCopyCertificado" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.program" Name="program" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.importantDates" Name="importantDates" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.generateBoleto" Name="generateBoleto" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerEvent" Name="reportsFrequencyPerEvent" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.generateCarne" Name="generateCarne" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.sendBugTrackEmail" Name="sendBugTrackEmail" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.notificationsDeadline" Name="notificationsDeadline" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.interestConflict" Name="interestConflict" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.notificationsAceptanceRejection" Name="notificationsAceptanceRejection" Value="" />
+      </Literals>
+    </DomainEnumeration>
   </Types>
   <Shapes>
     <GeometryShape Id="9e94b808-f9f7-45db-89e1-5c609151267f" Description="Description for Ufba.Ev.FunctionShape" Name="FunctionShape" DisplayName="Function Shape" Namespace="Ufba.Ev" FixedTooltipText="Function Shape" FillColor="DarkRed" InitialHeight="0.5" Geometry="Ellipse">
@@ -175,7 +216,7 @@
     </GeometryShape>
     <CompartmentShape Id="1027ef0a-85dd-46fb-9ce6-94cee5533d96" Description="Description for Ufba.Ev.OptionShape" Name="OptionShape" DisplayName="Option Shape" Namespace="Ufba.Ev" FixedTooltipText="Option Shape" FillColor="SkyBlue" InitialHeight="1" Geometry="Rectangle">
       <ShapeHasDecorators Position="InnerTopLeft" HorizontalOffset="0" VerticalOffset="0">
-        <TextDecorator Name="Name" DisplayName="Name" DefaultText="Name" />
+        <TextDecorator Name="Type" DisplayName="Type" DefaultText="Type" />
       </ShapeHasDecorators>
       <Compartment FillColor="Coral" Name="Properties" />
       <Compartment Name="Types" />
@@ -213,6 +254,9 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="types">
             <DomainRelationshipMoniker Name="OptionHasTypes" />
           </XmlRelationshipData>
+          <XmlPropertyData XmlName="domainProperty1">
+            <DomainPropertyMoniker Name="Option/DomainProperty1" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="EvModelHasElements" MonikerAttributeName="" SerializeId="true" MonikerElementName="evModelHasElementsMoniker" ElementName="evModelHasElements" MonikerTypeName="EvModelHasElementsMoniker">
@@ -318,10 +362,10 @@
           <DomainPath>EvModelHasElements.EvModel/!EvModel</DomainPath>
         </ParentElementPath>
         <DecoratorMap>
-          <TextDecoratorMoniker Name="OptionShape/Name" />
+          <TextDecoratorMoniker Name="OptionShape/Type" />
           <PropertyDisplayed>
             <PropertyPath>
-              <DomainPropertyMoniker Name="Option/Type" />
+              <DomainPropertyMoniker Name="Option/DomainProperty1" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>

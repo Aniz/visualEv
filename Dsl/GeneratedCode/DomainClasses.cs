@@ -290,6 +290,93 @@ namespace Ufba.Ev
 		}
 		
 		#endregion
+		#region DomainProperty1 domain property code
+		
+		/// <summary>
+		/// DomainProperty1 domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid DomainProperty1DomainPropertyId = new global::System.Guid(0xfcf806cf, 0x70b3, 0x4de2, 0xa4, 0x46, 0x55, 0xb5, 0x45, 0xce, 0x20, 0x6e);
+		
+		/// <summary>
+		/// Storage for DomainProperty1
+		/// </summary>
+		private OptionTypes domainProperty1PropertyStorage;
+		
+		/// <summary>
+		/// Gets or sets the value of DomainProperty1 domain property.
+		/// Description for Ufba.Ev.Option.Domain Property1
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.Option/DomainProperty1.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.Option/DomainProperty1.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("fcf806cf-70b3-4de2-a446-55b545ce206e")]
+		public OptionTypes DomainProperty1
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return domainProperty1PropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				DomainProperty1PropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Option.DomainProperty1 domain property.
+		/// </summary>
+		internal sealed partial class DomainProperty1PropertyHandler : DslModeling::DomainPropertyValueHandler<Option, OptionTypes>
+		{
+			private DomainProperty1PropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Option.DomainProperty1 domain property value handler.
+			/// </summary>
+			public static readonly DomainProperty1PropertyHandler Instance = new DomainProperty1PropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Option.DomainProperty1 domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return DomainProperty1DomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed OptionTypes GetValue(Option element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.domainProperty1PropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Option element, OptionTypes newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				OptionTypes oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.domainProperty1PropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region EvModel opposite domain role accessor
 		/// <summary>
 		/// Gets or sets EvModel.
@@ -557,7 +644,7 @@ namespace Ufba.Ev
 		/// <summary>
 		/// Storage for Name
 		/// </summary>
-		private global::System.String namePropertyStorage = string.Empty;
+		private FunctionTypes namePropertyStorage;
 		
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
@@ -566,7 +653,7 @@ namespace Ufba.Ev
 		[DslDesign::DisplayNameResource("Ufba.Ev.Function/Name.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Ufba.Ev.Function/Name.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("119461ac-c927-4f97-bb68-11eee99e5d16")]
-		public global::System.String Name
+		public FunctionTypes Name
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -582,7 +669,7 @@ namespace Ufba.Ev
 		/// <summary>
 		/// Value handler for the Function.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Function, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Function, FunctionTypes>
 		{
 			private NamePropertyHandler() { }
 		
@@ -608,7 +695,7 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Function element)
+			public override sealed FunctionTypes GetValue(Function element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -619,11 +706,11 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Function element, global::System.String newValue)
+			public override sealed void SetValue(Function element, FunctionTypes newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
-				global::System.String oldValue = GetValue(element);
+				FunctionTypes oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);

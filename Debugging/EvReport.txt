@@ -3,11 +3,16 @@ Generated material. Generating code in C#.
 
 	add User
 		types		jiho,
+			,
 		
+			def sendEmailNotification,
 			def askCardInfo,
-			def ,
 	
 	add Option2
 		types	
-			def ,
+			def askCardInfo,
+	
+	add Option1
+		types		,
+		
 	

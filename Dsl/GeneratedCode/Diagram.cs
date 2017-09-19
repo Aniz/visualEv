@@ -337,8 +337,8 @@ namespace Ufba.Ev
 				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
 				DslDiagrams::AssociatedPropertyInfo propertyInfo;
 				
-				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ufba.Ev.Option.TypeDomainPropertyId);
-				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "Name").AssociateValueWith(shape.Store, propertyInfo);
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ufba.Ev.Option.DomainProperty1DomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "Type").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		

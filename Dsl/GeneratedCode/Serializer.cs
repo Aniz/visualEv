@@ -942,6 +942,23 @@ namespace Ufba.Ev
 					}
 				}
 			}
+			// DomainProperty1
+			if (!serializationContext.Result.Failed)
+			{
+				string attribDomainProperty1 = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "domainProperty1");
+				if (attribDomainProperty1 != null)
+				{
+					OptionTypes valueOfDomainProperty1;
+					if (DslModeling::SerializationUtilities.TryGetValue<OptionTypes>(serializationContext, attribDomainProperty1, out valueOfDomainProperty1))
+					{
+						instanceOfOption.DomainProperty1 = valueOfDomainProperty1;
+					}
+					else
+					{	// Invalid property value, ignored.
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "domainProperty1", typeof(OptionTypes), attribDomainProperty1);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -1570,6 +1587,16 @@ namespace Ufba.Ev
 					EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "type", propValue);
 				}
 			}
+			// DomainProperty1
+			if (!serializationContext.Result.Failed)
+			{
+				OptionTypes propValue = instanceOfOption.DomainProperty1;
+				string serializedPropValue = DslModeling::SerializationUtilities.GetString<OptionTypes>(serializationContext, propValue);
+				if (!serializationContext.Result.Failed)
+				{
+					EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "domainProperty1", serializedPropValue);
+				}
+			}
 		}
 	
 		/// <summary>
@@ -1890,14 +1917,14 @@ namespace Ufba.Ev
 				string attribName = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "name");
 				if (attribName != null)
 				{
-					global::System.String valueOfName;
-					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribName, out valueOfName))
+					FunctionTypes valueOfName;
+					if (DslModeling::SerializationUtilities.TryGetValue<FunctionTypes>(serializationContext, attribName, out valueOfName))
 					{
 						instanceOfFunction.Name = valueOfName;
 					}
 					else
 					{	// Invalid property value, ignored.
-						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "name", typeof(global::System.String), attribName);
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "name", typeof(FunctionTypes), attribName);
 					}
 				}
 			}
@@ -2329,12 +2356,11 @@ namespace Ufba.Ev
 			// Name
 			if (!serializationContext.Result.Failed)
 			{
-				global::System.String propValue = instanceOfFunction.Name;
+				FunctionTypes propValue = instanceOfFunction.Name;
+				string serializedPropValue = DslModeling::SerializationUtilities.GetString<FunctionTypes>(serializationContext, propValue);
 				if (!serializationContext.Result.Failed)
 				{
-					if (!string.IsNullOrEmpty(propValue))
-						EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "name", propValue);
-	
+					EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "name", serializedPropValue);
 				}
 			}
 		}
