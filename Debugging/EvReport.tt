@@ -8,7 +8,7 @@ foreach (Option element in this.EvModel.Elements)
 {
 #>
 
-	add <#= element.Type #>
+	add <#= element.OptionType #>
 		types<#
 	foreach (Property p in element.Properties)
 	{

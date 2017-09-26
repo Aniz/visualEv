@@ -1,18 +1,34 @@
 ﻿
 Generated material. Generating code in C#.
 
-	add User
+	add Payment
 		types		jiho,
 			,
 		
-			def sendEmailNotification,
 			def askCardInfo,
 	
-	add Option2
+	add User
+		types		Associado,
+			Profissional,
+			Estudante,
+		
+			def sendBugTrackEmail,
+	
+	add Organizer
+		types		ProgramChair,
+			WorkshopChair,
+			TutorialChair,
+			ProceedingsChair,
+			PanelChair,
+		
+	
+	add Reviewer
 		types	
 			def askCardInfo,
 	
-	add Option1
-		types		,
-		
+	add Event
+		types	
+	
+	add Activity
+		types	
 	

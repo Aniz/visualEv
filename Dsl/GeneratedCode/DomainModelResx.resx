@@ -141,21 +141,21 @@
     <value>Option</value>
     <comment>DisplayName for DomainClass &apos;Option&apos;</comment>
   </data>
-  <data name="Ufba.Ev.Option/Type.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.Option.Type</value>
-    <comment>Description for DomainProperty &apos;Type&apos; on DomainClass &apos;Option&apos;</comment>
+  <data name="Ufba.Ev.Option/OptionType.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.Option.Option Type</value>
+    <comment>Description for DomainProperty &apos;OptionType&apos; on DomainClass &apos;Option&apos;</comment>
   </data>
-  <data name="Ufba.Ev.Option/Type.DisplayName" xml:space="preserve">
-    <value>Type</value>
-    <comment>DisplayName for DomainProperty &apos;Type&apos; on DomainClass &apos;Option&apos;</comment>
+  <data name="Ufba.Ev.Option/OptionType.DisplayName" xml:space="preserve">
+    <value>Option Type</value>
+    <comment>DisplayName for DomainProperty &apos;OptionType&apos; on DomainClass &apos;Option&apos;</comment>
   </data>
-  <data name="Ufba.Ev.Option/DomainProperty1.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.Option.Domain Property1</value>
-    <comment>Description for DomainProperty &apos;DomainProperty1&apos; on DomainClass &apos;Option&apos;</comment>
+  <data name="Ufba.Ev.Option/CommandType.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.Option.Command Type</value>
+    <comment>Description for DomainProperty &apos;CommandType&apos; on DomainClass &apos;Option&apos;</comment>
   </data>
-  <data name="Ufba.Ev.Option/DomainProperty1.DisplayName" xml:space="preserve">
-    <value>Domain Property1</value>
-    <comment>DisplayName for DomainProperty &apos;DomainProperty1&apos; on DomainClass &apos;Option&apos;</comment>
+  <data name="Ufba.Ev.Option/CommandType.DisplayName" xml:space="preserve">
+    <value>Command Type</value>
+    <comment>DisplayName for DomainProperty &apos;CommandType&apos; on DomainClass &apos;Option&apos;</comment>
   </data>
   <data name="Ufba.Ev.Function.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.Function</value>
@@ -564,6 +564,46 @@
   <data name="Ufba.Ev.FunctionTypes/notificationsAceptanceRejection.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.FunctionTypes.notificationsAceptanceRejection</value>
     <comment>Description for EnumerationLiteral &apos;notificationsAceptanceRejection&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/Insert.DisplayName" xml:space="preserve">
+    <value>Insert</value>
+    <comment>Display name for EnumerationLiteral &apos;Insert&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/Insert.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.CommandTypes.Insert</value>
+    <comment>Description for EnumerationLiteral &apos;Insert&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/Update.DisplayName" xml:space="preserve">
+    <value>Update</value>
+    <comment>Display name for EnumerationLiteral &apos;Update&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/Update.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.CommandTypes.Update</value>
+    <comment>Description for EnumerationLiteral &apos;Update&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/Search.DisplayName" xml:space="preserve">
+    <value>Search</value>
+    <comment>Display name for EnumerationLiteral &apos;Search&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/Search.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.CommandTypes.Search</value>
+    <comment>Description for EnumerationLiteral &apos;Search&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/Remove.DisplayName" xml:space="preserve">
+    <value>Remove</value>
+    <comment>Display name for EnumerationLiteral &apos;Remove&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/Remove.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.CommandTypes.Remove</value>
+    <comment>Description for EnumerationLiteral &apos;Remove&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/ListAll.DisplayName" xml:space="preserve">
+    <value>ListAll</value>
+    <comment>Display name for EnumerationLiteral &apos;ListAll&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/ListAll.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.CommandTypes.ListAll</value>
+    <comment>Description for EnumerationLiteral &apos;ListAll&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
   </data>
   <data name="Ufba.Ev.FunctionShape.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.FunctionShape</value>

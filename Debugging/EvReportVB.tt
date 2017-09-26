@@ -1,44 +1,31 @@
-﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" language="VB" #>
+﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
 <#@ output extension=".txt" #>
 <#@ Ev processor="EvDirectiveProcessor" requires="fileName='Sample.visualEv'" #>
 
-Report template
-
-<#= this.EvModel.Name #>
-
+Generated material. Generating code in C#.
 <#
-  foreach (ModelType type in this.EvModel.Types)
-  {
+foreach (Option element in this.EvModel.Elements)
+{
 #>
-	<#= type.GetType().Name #> <#= type.Name #>
-<#
-	ModelClass modelClass = type as ModelClass;
-	if (modelClass != null)
+
+	add <#= element.OptionType #>
+		types<#
+	foreach (Property p in element.Properties)
 	{
-	  if (modelClass.Targets.Count > 0)
-	  {
-#>
-		Classes linked by Associations:
-<#
-		// Direct jump to linked elements (compare with the association loop below)
-		foreach (ModelClass target in modelClass.Targets)
-		{
-#>
-			 <#= target.Name #>
-<#	    
-		}
-	
-#>
-		Details of those Associations:
-<#
-		// Step to link, then to its other end
-		foreach (Association association in Association.GetLinksToTargets(modelClass))
-		{
-#>
-			<#= association.GetType().Name #> {<#= association.SourceMultiplicity #> - <#= association.TargetMultiplicity #>}   <#= association.Target.Name #>
-<#	    
-		}
-	  } 
+	#>
+		<#= p.Name #>,
+	<#
 	}
-  }
+	#>
+	
+	<#
+	foreach (Function f in element.Functions)
+	{
+	#>
+		def <#= f.Name #>,
+	<#
+	}
+	#>
+<#    
+}
 #>

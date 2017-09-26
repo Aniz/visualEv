@@ -121,6 +121,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MultiplicityValidation.tt</DependentUpon>
     </Compile>
+    <Compile Include="Validation\OptionConstraints.cs" />
+    <Compile Include="Validation\OptionHasFunctionsConstraints.cs" />
     <Compile Include="GeneratedCode\PropertiesGrid.cs">
       <DependentUpon>PropertiesGrid.tt</DependentUpon>
       <SubType>Code</SubType>

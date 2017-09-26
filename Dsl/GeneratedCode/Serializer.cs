@@ -841,7 +841,7 @@ namespace Ufba.Ev
 		public override string MonikerAttributeName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"type"; }
+			get { return @"Id"; }
 		}
 		#endregion
 	
@@ -925,37 +925,37 @@ namespace Ufba.Ev
 			Option instanceOfOption = element as Option;
 			global::System.Diagnostics.Debug.Assert(instanceOfOption != null, "Expecting an instance of Option");
 	
-			// Type
+			// OptionType
 			if (!serializationContext.Result.Failed)
 			{
-				string attribType = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "type");
-				if (attribType != null)
+				string attribOptionType = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "optionType");
+				if (attribOptionType != null)
 				{
-					global::System.String valueOfType;
-					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribType, out valueOfType))
+					OptionTypes valueOfOptionType;
+					if (DslModeling::SerializationUtilities.TryGetValue<OptionTypes>(serializationContext, attribOptionType, out valueOfOptionType))
 					{
-						instanceOfOption.Type = valueOfType;
+						instanceOfOption.OptionType = valueOfOptionType;
 					}
 					else
 					{	// Invalid property value, ignored.
-						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "type", typeof(global::System.String), attribType);
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "optionType", typeof(OptionTypes), attribOptionType);
 					}
 				}
 			}
-			// DomainProperty1
+			// CommandType
 			if (!serializationContext.Result.Failed)
 			{
-				string attribDomainProperty1 = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "domainProperty1");
-				if (attribDomainProperty1 != null)
+				string attribCommandType = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "commandType");
+				if (attribCommandType != null)
 				{
-					OptionTypes valueOfDomainProperty1;
-					if (DslModeling::SerializationUtilities.TryGetValue<OptionTypes>(serializationContext, attribDomainProperty1, out valueOfDomainProperty1))
+					global::System.String valueOfCommandType;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribCommandType, out valueOfCommandType))
 					{
-						instanceOfOption.DomainProperty1 = valueOfDomainProperty1;
+						instanceOfOption.CommandType = valueOfCommandType;
 					}
 					else
 					{	// Invalid property value, ignored.
-						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "domainProperty1", typeof(OptionTypes), attribDomainProperty1);
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "commandType", typeof(global::System.String), attribCommandType);
 					}
 				}
 			}
@@ -1413,18 +1413,31 @@ namespace Ufba.Ev
 				EvSerializationBehaviorSerializationMessages.MissingMoniker(serializationContext, reader, this.MonikerAttributeName);
 				return null;
 			}
-			DslModeling::DomainRelationshipXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(relDomainClassId) as DslModeling::DomainRelationshipXmlSerializer;
-			global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for DomainRelationship with Id " + relDomainClassId + "!");
-			DslModeling::Moniker result = relSerializer.MonikerizeReference(serializationContext, sourceRolePlayer, Option.DomainClassId, monikerString, partition.Store);
-			// Set location info if possible.
-			result.Location = serializationContext.Location;
-			global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
-			if (xmlLineInfo != null)
-			{
-				result.Line = xmlLineInfo.LineNumber;
-				result.Column = xmlLineInfo.LinePosition;
+			try
+			{	// Normalize the Id.
+				global::System.Guid id = new global::System.Guid(monikerString);
+				monikerString = id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
+				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, Option.DomainClassId, partition.Store), partition.Store);
+				// Set location info if possible.
+				result.Location = serializationContext.Location;
+				global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
+				if (xmlLineInfo != null)
+				{
+					result.Line = xmlLineInfo.LineNumber;
+					result.Column = xmlLineInfo.LinePosition;
+				}
+				return result;
 			}
-			return result;
+			catch (global::System.FormatException /* fEx */)
+			{
+				EvSerializationBehaviorSerializationMessages.InvalidPropertyValue(serializationContext, reader, this.MonikerAttributeName, typeof(global::System.Guid), monikerString);
+				return null;
+			}
+			catch (global::System.OverflowException /* oEx */)
+			{	
+				EvSerializationBehaviorSerializationMessages.InvalidPropertyValue(serializationContext, reader, this.MonikerAttributeName, typeof(global::System.Guid), monikerString);
+				return null;
+			}
 		}
 	
 		/// <summary>
@@ -1495,7 +1508,7 @@ namespace Ufba.Ev
 				throw new global::System.ArgumentNullException ("relSerializer");
 			#endregion
 			
-			string monikerString = relSerializer.SerializeReference(serializationContext, sourceRolePlayer, element);
+			string monikerString = this.CalculateQualifiedName(serializationContext.Directory, element);
 			global::System.Diagnostics.Debug.Assert(!string.IsNullOrEmpty(monikerString));
 			writer.WriteStartElement(this.MonikerTagName);
 			EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, this.MonikerAttributeName, monikerString);
@@ -1578,23 +1591,25 @@ namespace Ufba.Ev
 			Option instanceOfOption = element as Option;
 			global::System.Diagnostics.Debug.Assert(instanceOfOption != null, "Expecting an instance of Option");
 	
-			// Type
+			// OptionType
 			if (!serializationContext.Result.Failed)
 			{
-				global::System.String propValue = instanceOfOption.Type;
-				if (!serializationContext.Result.Failed)
-				{
-					EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "type", propValue);
-				}
-			}
-			// DomainProperty1
-			if (!serializationContext.Result.Failed)
-			{
-				OptionTypes propValue = instanceOfOption.DomainProperty1;
+				OptionTypes propValue = instanceOfOption.OptionType;
 				string serializedPropValue = DslModeling::SerializationUtilities.GetString<OptionTypes>(serializationContext, propValue);
 				if (!serializationContext.Result.Failed)
 				{
-					EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "domainProperty1", serializedPropValue);
+					EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "optionType", serializedPropValue);
+				}
+			}
+			// CommandType
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfOption.CommandType;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "commandType", propValue);
+	
 				}
 			}
 		}
@@ -1704,27 +1719,7 @@ namespace Ufba.Ev
 			Option instance = element as Option;
 			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of Option!");
 	
-			string key = instance.Type;
-			string containerMoniker = null;
-			DslModeling::ModelElement container = instance.EvModel;
-			if(container != null)
-			{
-				DslModeling::DomainClassXmlSerializer containerSerializer = directory.GetSerializer(container.GetDomainClass().Id);
-				global::System.Diagnostics.Debug.Assert(containerSerializer != null, "Cannot find serializer for " + container.GetDomainClass().Name + "!");
-				containerMoniker = containerSerializer.CalculateQualifiedName(directory, container);
-			}
-			if (string.IsNullOrEmpty(containerMoniker))
-			{
-				return string.Format(global::System.Globalization.CultureInfo.CurrentCulture, "/{0}", key);
-			}
-			else if (DslModeling::SimpleMonikerResolver.IsFullyQualified(containerMoniker))
-			{
-				return string.Format(global::System.Globalization.CultureInfo.CurrentCulture, "{0}/{1}", containerMoniker, key);
-			}
-			else
-			{
-				return string.Format(global::System.Globalization.CultureInfo.CurrentCulture, "/{0}/{1}", containerMoniker, key);
-			}
+			return instance.Id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
 		}
 	
 		/// <summary>
@@ -1749,19 +1744,7 @@ namespace Ufba.Ev
 				throw new global::System.ArgumentNullException("element");
 			#endregion	
 			
-			Option instance = element as Option;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of Option!");
-			DslModeling::ModelElement container = instance.EvModel;
-			if(container != null)
-			{
-				DslModeling::DomainClassXmlSerializer containerSerializer = directory.GetSerializer(container.GetDomainClass().Id);
-				global::System.Diagnostics.Debug.Assert(containerSerializer != null, "Cannot find serializer for " + container.GetDomainClass().Name + "!");
-				return containerSerializer.GetMonikerQualifier(directory, container);
-			}
-			else
-			{
-				return string.Empty;
-			}
+			return string.Empty;
 		}
 		#endregion
 	}

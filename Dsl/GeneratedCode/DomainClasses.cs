@@ -171,7 +171,6 @@ namespace Ufba.Ev
 	[DslDesign::DescriptionResource("Ufba.Ev.Option.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Ufba.Ev.EvDomainModel))]
 	[global::System.CLSCompliant(true)]
-	[global::System.Diagnostics.DebuggerDisplay("{GetType().Name,nq} (Type = {typePropertyStorage})")]
 	[DslModeling::DomainObjectId("5898829f-1494-4271-a5e2-ba4fc2f46d92")]
 	public partial class Option : DslModeling::ModelElement
 	{
@@ -201,148 +200,59 @@ namespace Ufba.Ev
 		{
 		}
 		#endregion
-		#region Type domain property code
+		#region OptionType domain property code
 		
 		/// <summary>
-		/// Type domain property Id.
+		/// OptionType domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid TypeDomainPropertyId = new global::System.Guid(0x978af1b3, 0x2cbf, 0x4733, 0x98, 0xa7, 0x7a, 0xba, 0xc8, 0x48, 0xa1, 0x8a);
+		public static readonly global::System.Guid OptionTypeDomainPropertyId = new global::System.Guid(0xfcf806cf, 0x70b3, 0x4de2, 0xa4, 0x46, 0x55, 0xb5, 0x45, 0xce, 0x20, 0x6e);
 		
 		/// <summary>
-		/// Storage for Type
+		/// Storage for OptionType
 		/// </summary>
-		private global::System.String typePropertyStorage = string.Empty;
+		private OptionTypes optionTypePropertyStorage;
 		
 		/// <summary>
-		/// Gets or sets the value of Type domain property.
-		/// Description for Ufba.Ev.Option.Type
+		/// Gets or sets the value of OptionType domain property.
+		/// Description for Ufba.Ev.Option.Option Type
 		/// </summary>
-		[DslDesign::DisplayNameResource("Ufba.Ev.Option/Type.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ufba.Ev.Option/Type.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		[global::System.ComponentModel.DefaultValue("")]
-		[DslModeling::ElementName]
-		[DslModeling::DomainObjectId("978af1b3-2cbf-4733-98a7-7abac848a18a")]
-		public global::System.String Type
-		{
-			[global::System.Diagnostics.DebuggerStepThrough]
-			get
-			{
-				return typePropertyStorage;
-			}
-			[global::System.Diagnostics.DebuggerStepThrough]
-			set
-			{
-				TypePropertyHandler.Instance.SetValue(this, value);
-			}
-		}
-		/// <summary>
-		/// Value handler for the Option.Type domain property.
-		/// </summary>
-		internal sealed partial class TypePropertyHandler : DslModeling::DomainPropertyValueHandler<Option, global::System.String>
-		{
-			private TypePropertyHandler() { }
-		
-			/// <summary>
-			/// Gets the singleton instance of the Option.Type domain property value handler.
-			/// </summary>
-			public static readonly TypePropertyHandler Instance = new TypePropertyHandler();
-		
-			/// <summary>
-			/// Gets the Id of the Option.Type domain property.
-			/// </summary>
-			public sealed override global::System.Guid DomainPropertyId
-			{
-				[global::System.Diagnostics.DebuggerStepThrough]
-				get
-				{
-					return TypeDomainPropertyId;
-				}
-			}
-			
-			/// <summary>
-			/// Gets a strongly-typed value of the property on specified element.
-			/// </summary>
-			/// <param name="element">Element which owns the property.</param>
-			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Option element)
-			{
-				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.typePropertyStorage;
-			}
-		
-			/// <summary>
-			/// Sets property value on an element.
-			/// </summary>
-			/// <param name="element">Element which owns the property.</param>
-			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Option element, global::System.String newValue)
-			{
-				if (element == null) throw new global::System.ArgumentNullException("element");
-		
-				global::System.String oldValue = GetValue(element);
-				if (newValue != oldValue)
-				{
-					ValueChanging(element, oldValue, newValue);
-					element.typePropertyStorage = newValue;
-					ValueChanged(element, oldValue, newValue);
-				}
-			}
-		}
-		
-		#endregion
-		#region DomainProperty1 domain property code
-		
-		/// <summary>
-		/// DomainProperty1 domain property Id.
-		/// </summary>
-		public static readonly global::System.Guid DomainProperty1DomainPropertyId = new global::System.Guid(0xfcf806cf, 0x70b3, 0x4de2, 0xa4, 0x46, 0x55, 0xb5, 0x45, 0xce, 0x20, 0x6e);
-		
-		/// <summary>
-		/// Storage for DomainProperty1
-		/// </summary>
-		private OptionTypes domainProperty1PropertyStorage;
-		
-		/// <summary>
-		/// Gets or sets the value of DomainProperty1 domain property.
-		/// Description for Ufba.Ev.Option.Domain Property1
-		/// </summary>
-		[DslDesign::DisplayNameResource("Ufba.Ev.Option/DomainProperty1.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ufba.Ev.Option/DomainProperty1.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("Ufba.Ev.Option/OptionType.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.Option/OptionType.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("fcf806cf-70b3-4de2-a446-55b545ce206e")]
-		public OptionTypes DomainProperty1
+		public OptionTypes OptionType
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return domainProperty1PropertyStorage;
+				return optionTypePropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DomainProperty1PropertyHandler.Instance.SetValue(this, value);
+				OptionTypePropertyHandler.Instance.SetValue(this, value);
 			}
 		}
 		/// <summary>
-		/// Value handler for the Option.DomainProperty1 domain property.
+		/// Value handler for the Option.OptionType domain property.
 		/// </summary>
-		internal sealed partial class DomainProperty1PropertyHandler : DslModeling::DomainPropertyValueHandler<Option, OptionTypes>
+		internal sealed partial class OptionTypePropertyHandler : DslModeling::DomainPropertyValueHandler<Option, OptionTypes>
 		{
-			private DomainProperty1PropertyHandler() { }
+			private OptionTypePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the Option.DomainProperty1 domain property value handler.
+			/// Gets the singleton instance of the Option.OptionType domain property value handler.
 			/// </summary>
-			public static readonly DomainProperty1PropertyHandler Instance = new DomainProperty1PropertyHandler();
+			public static readonly OptionTypePropertyHandler Instance = new OptionTypePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the Option.DomainProperty1 domain property.
+			/// Gets the Id of the Option.OptionType domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
 				[global::System.Diagnostics.DebuggerStepThrough]
 				get
 				{
-					return DomainProperty1DomainPropertyId;
+					return OptionTypeDomainPropertyId;
 				}
 			}
 			
@@ -354,7 +264,7 @@ namespace Ufba.Ev
 			public override sealed OptionTypes GetValue(Option element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.domainProperty1PropertyStorage;
+				return element.optionTypePropertyStorage;
 			}
 		
 			/// <summary>
@@ -370,7 +280,94 @@ namespace Ufba.Ev
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.domainProperty1PropertyStorage = newValue;
+					element.optionTypePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region CommandType domain property code
+		
+		/// <summary>
+		/// CommandType domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid CommandTypeDomainPropertyId = new global::System.Guid(0x8069a53d, 0xacf8, 0x4913, 0x9e, 0x3b, 0xba, 0x48, 0xb6, 0x80, 0xdb, 0x6c);
+		
+		/// <summary>
+		/// Storage for CommandType
+		/// </summary>
+		private global::System.String commandTypePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of CommandType domain property.
+		/// Description for Ufba.Ev.Option.Command Type
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.Option/CommandType.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.Option/CommandType.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("8069a53d-acf8-4913-9e3b-ba48b680db6c")]
+		public global::System.String CommandType
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return commandTypePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				CommandTypePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Option.CommandType domain property.
+		/// </summary>
+		internal sealed partial class CommandTypePropertyHandler : DslModeling::DomainPropertyValueHandler<Option, global::System.String>
+		{
+			private CommandTypePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Option.CommandType domain property value handler.
+			/// </summary>
+			public static readonly CommandTypePropertyHandler Instance = new CommandTypePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Option.CommandType domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return CommandTypeDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(Option element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.commandTypePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Option element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.commandTypePropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

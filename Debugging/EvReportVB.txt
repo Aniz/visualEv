@@ -1,1 +1,34 @@
-﻿ErrorGeneratingOutput
+﻿
+Generated material. Generating code in C#.
+
+	add Payment
+		types		jiho,
+			,
+		
+			def askCardInfo,
+	
+	add User
+		types		Associado,
+			Profissional,
+			Estudante,
+		
+			def sendBugTrackEmail,
+	
+	add Organizer
+		types		ProgramChair,
+			WorkshopChair,
+			TutorialChair,
+			ProceedingsChair,
+			PanelChair,
+		
+	
+	add Reviewer
+		types	
+			def askCardInfo,
+	
+	add Event
+		types	
+	
+	add Activity
+		types	
+	

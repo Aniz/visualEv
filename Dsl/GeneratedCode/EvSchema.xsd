@@ -127,10 +127,10 @@
             <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <!-- Property: Type -->
-        <xsd:attribute name="type" type="xsd:string" use="required" />
-        <!-- Property: DomainProperty1 -->
-        <xsd:attribute name="domainProperty1" type="OptionTypes" />
+        <!-- Property: OptionType -->
+        <xsd:attribute name="optionType" type="OptionTypes" />
+        <!-- Property: CommandType -->
+        <xsd:attribute name="commandType" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -143,7 +143,7 @@
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
-        <xsd:attribute name="type" type="xsd:string" >
+        <xsd:attribute name="Id" type="xsd:string" >
           <xsd:annotation>
             <xsd:documentation>Attribute to store the moniker string.</xsd:documentation>
           </xsd:annotation>
@@ -456,6 +456,17 @@
       <xsd:enumeration value="notificationsDeadline"/>
       <xsd:enumeration value="interestConflict"/>
       <xsd:enumeration value="notificationsAceptanceRejection"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <!-- Enum CommandTypes -->
+  <xsd:simpleType name="CommandTypes">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Insert"/>
+      <xsd:enumeration value="Update"/>
+      <xsd:enumeration value="Search"/>
+      <xsd:enumeration value="Remove"/>
+      <xsd:enumeration value="ListAll"/>
     </xsd:restriction>
   </xsd:simpleType>
   

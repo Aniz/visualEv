@@ -16,14 +16,14 @@
     </DomainClass>
     <DomainClass Id="5898829f-1494-4271-a5e2-ba4fc2f46d92" Description="Elements embedded in the model. Appear as boxes on the diagram." Name="Option" DisplayName="Option" Namespace="Ufba.Ev">
       <Properties>
-        <DomainProperty Id="978af1b3-2cbf-4733-98a7-7abac848a18a" Description="Description for Ufba.Ev.Option.Type" Name="Type" DisplayName="Type" DefaultValue="" IsElementName="true">
-          <Type>
-            <ExternalTypeMoniker Name="/System/String" />
-          </Type>
-        </DomainProperty>
-        <DomainProperty Id="fcf806cf-70b3-4de2-a446-55b545ce206e" Description="Description for Ufba.Ev.Option.Domain Property1" Name="DomainProperty1" DisplayName="Domain Property1">
+        <DomainProperty Id="fcf806cf-70b3-4de2-a446-55b545ce206e" Description="Description for Ufba.Ev.Option.Option Type" Name="OptionType" DisplayName="Option Type">
           <Type>
             <DomainEnumerationMoniker Name="OptionTypes" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="8069a53d-acf8-4913-9e3b-ba48b680db6c" Description="Description for Ufba.Ev.Option.Command Type" Name="CommandType" DisplayName="Command Type">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
       </Properties>
@@ -207,6 +207,15 @@
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.notificationsAceptanceRejection" Name="notificationsAceptanceRejection" Value="" />
       </Literals>
     </DomainEnumeration>
+    <DomainEnumeration Name="CommandTypes" Namespace="Ufba.Ev" Description="Description for Ufba.Ev.CommandTypes">
+      <Literals>
+        <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Insert" Name="Insert" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Update" Name="Update" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Search" Name="Search" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Remove" Name="Remove" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.ListAll" Name="ListAll" Value="" />
+      </Literals>
+    </DomainEnumeration>
   </Types>
   <Shapes>
     <GeometryShape Id="9e94b808-f9f7-45db-89e1-5c609151267f" Description="Description for Ufba.Ev.FunctionShape" Name="FunctionShape" DisplayName="Function Shape" Namespace="Ufba.Ev" FixedTooltipText="Function Shape" FillColor="DarkRed" InitialHeight="0.5" Geometry="Ellipse">
@@ -239,12 +248,9 @@
           </XmlRelationshipData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="Option" MonikerAttributeName="type" SerializeId="true" MonikerElementName="optionMoniker" ElementName="option" MonikerTypeName="OptionMoniker">
+      <XmlClassData TypeName="Option" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionMoniker" ElementName="option" MonikerTypeName="OptionMoniker">
         <DomainClassMoniker Name="Option" />
         <ElementData>
-          <XmlPropertyData XmlName="type" IsMonikerKey="true">
-            <DomainPropertyMoniker Name="Option/Type" />
-          </XmlPropertyData>
           <XmlRelationshipData UseFullForm="true" RoleElementName="functions">
             <DomainRelationshipMoniker Name="OptionHasFunctions" />
           </XmlRelationshipData>
@@ -254,8 +260,11 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="types">
             <DomainRelationshipMoniker Name="OptionHasTypes" />
           </XmlRelationshipData>
-          <XmlPropertyData XmlName="domainProperty1">
-            <DomainPropertyMoniker Name="Option/DomainProperty1" />
+          <XmlPropertyData XmlName="optionType">
+            <DomainPropertyMoniker Name="Option/OptionType" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="commandType">
+            <DomainPropertyMoniker Name="Option/CommandType" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
@@ -365,7 +374,7 @@
           <TextDecoratorMoniker Name="OptionShape/Type" />
           <PropertyDisplayed>
             <PropertyPath>
-              <DomainPropertyMoniker Name="Option/DomainProperty1" />
+              <DomainPropertyMoniker Name="Option/OptionType" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
@@ -427,7 +436,7 @@
         <DomainClassMoniker Name="Function" />
       </ElementTool>
     </ToolboxTab>
-    <Validation UsesMenu="false" UsesOpen="false" UsesSave="false" UsesLoad="false" />
+    <Validation UsesMenu="true" UsesOpen="true" UsesSave="true" UsesCustom="true" UsesLoad="true" />
     <DiagramMoniker Name="EvDiagram" />
   </Designer>
   <Explorer ExplorerGuid="32284ea2-41db-409c-b31b-4df79fabcf65" Title="Ev Explorer">
