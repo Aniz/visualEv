@@ -1,30 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <evModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="2b88aaa6-9d55-4e4e-919f-1ab520137a4d" xmlns="http://schemas.microsoft.com/dsltools/Ev">
   <elements>
-    <option Id="b0a07b0d-e890-404b-9e1e-e708f68694b7" optionType="Payment">
+    <option Id="b0a07b0d-e890-404b-9e1e-e708f68694b7" optionType="Payment" commandType="Insert">
       <functions>
         <optionHasFunctions Id="ad09e4a3-8af2-40c0-bbaf-3da55cb511bd" var=" Debito">
           <function Id="7a8e680e-4555-473e-88fe-d5f3c680d7e6" name="askCardInfo" />
         </optionHasFunctions>
-        <optionHasFunctions Id="5c50744f-ada7-43d1-8222-b236c61752a3">
-          <function Id="86880373-e553-47e8-8706-52158081da38" name="askCardInfo" />
-        </optionHasFunctions>
       </functions>
-      <properties>
-        <optionHasProperties Id="aa839d1a-5d7f-4edd-9c4d-5aa6612a944b">
-          <property Id="7fd8a105-ae3f-4c45-88ca-75db5c55770d" name="jiho" />
-        </optionHasProperties>
-        <optionHasProperties Id="f545beae-d670-44f1-ad82-c47373f849d7">
-          <property Id="5f997174-3075-4cc1-b85f-deae0b36e2b4" />
-        </optionHasProperties>
-      </properties>
       <types>
         <optionHasTypes Id="444c0221-412e-4ba1-a869-0534b106065a">
           <type Id="67c05001-e3ae-4551-8a51-6e6430cb7b89" name="mmçç" />
         </optionHasTypes>
       </types>
     </option>
-    <option Id="21083822-f835-435e-85f5-27b5367ce412" optionType="User">
+    <option Id="21083822-f835-435e-85f5-27b5367ce412" optionType="User" commandType="Insert">
       <functions>
         <optionHasFunctions Id="43de66db-0986-40cc-b8c4-f0d932157a1e">
           <function Id="93ea94d3-129c-4fcb-aa4c-bc97cf21cfbb" name="sendBugTrackEmail" />
@@ -50,7 +39,7 @@
         </optionHasTypes>
       </types>
     </option>
-    <option Id="d72b560d-ff55-4f8d-b796-9cf5fe406f39" optionType="Organizer">
+    <option Id="d72b560d-ff55-4f8d-b796-9cf5fe406f39" optionType="Organizer" commandType="Insert">
       <properties>
         <optionHasProperties Id="fba37d0e-039f-43cc-8bfa-9803e39dd32a">
           <property Id="2fb54cf5-af87-49ab-9b9d-107c5b668017" name="ProgramChair" />
@@ -74,14 +63,25 @@
         </optionHasTypes>
       </types>
     </option>
-    <option Id="d39a6520-627c-46b8-9ce5-71d7ba5a2acf" optionType="Reviewer">
+    <option Id="d39a6520-627c-46b8-9ce5-71d7ba5a2acf" optionType="Reviewer" commandType="Insert">
       <functions>
         <optionHasFunctions Id="25fa66d4-a704-4b0b-a4e4-95254f1c1024">
           <function Id="ba1f61ec-a7b4-4212-ba08-3ebcc105f713" name="askCardInfo" />
         </optionHasFunctions>
       </functions>
+      <properties>
+        <optionHasProperties Id="b34be696-7b59-43da-be75-eae4a59989c6">
+          <property Id="eb714eb5-88c6-4126-bbcd-1f2c6e89dd01" />
+        </optionHasProperties>
+      </properties>
     </option>
-    <option Id="f42af1dc-7fa7-4e2c-a776-66a0fd28a8ae" optionType="Event" />
-    <option Id="26318b58-6f03-4a4b-b83f-df3b5373c93e" optionType="Activity" />
+    <option Id="f42af1dc-7fa7-4e2c-a776-66a0fd28a8ae" optionType="Event" commandType="Insert">
+      <functions>
+        <optionHasFunctions Id="67bbaa17-b175-413f-8342-326509634401" var=" n klnklnkl">
+          <function Id="56c220d1-5786-4707-8fc7-1e34eb1dd40d" name="sendEmailNotification" />
+        </optionHasFunctions>
+      </functions>
+    </option>
+    <option Id="26318b58-6f03-4a4b-b83f-df3b5373c93e" optionType="Activity" commandType="Insert" />
   </elements>
 </evModel>

@@ -297,7 +297,7 @@ namespace Ufba.Ev
 		/// <summary>
 		/// Storage for CommandType
 		/// </summary>
-		private global::System.String commandTypePropertyStorage = string.Empty;
+		private CommandTypes commandTypePropertyStorage;
 		
 		/// <summary>
 		/// Gets or sets the value of CommandType domain property.
@@ -306,7 +306,7 @@ namespace Ufba.Ev
 		[DslDesign::DisplayNameResource("Ufba.Ev.Option/CommandType.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Ufba.Ev.Option/CommandType.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("8069a53d-acf8-4913-9e3b-ba48b680db6c")]
-		public global::System.String CommandType
+		public CommandTypes CommandType
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -322,7 +322,7 @@ namespace Ufba.Ev
 		/// <summary>
 		/// Value handler for the Option.CommandType domain property.
 		/// </summary>
-		internal sealed partial class CommandTypePropertyHandler : DslModeling::DomainPropertyValueHandler<Option, global::System.String>
+		internal sealed partial class CommandTypePropertyHandler : DslModeling::DomainPropertyValueHandler<Option, CommandTypes>
 		{
 			private CommandTypePropertyHandler() { }
 		
@@ -348,7 +348,7 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Option element)
+			public override sealed CommandTypes GetValue(Option element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.commandTypePropertyStorage;
@@ -359,11 +359,11 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Option element, global::System.String newValue)
+			public override sealed void SetValue(Option element, CommandTypes newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
-				global::System.String oldValue = GetValue(element);
+				CommandTypes oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);

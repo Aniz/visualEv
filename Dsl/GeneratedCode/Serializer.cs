@@ -948,14 +948,14 @@ namespace Ufba.Ev
 				string attribCommandType = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "commandType");
 				if (attribCommandType != null)
 				{
-					global::System.String valueOfCommandType;
-					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribCommandType, out valueOfCommandType))
+					CommandTypes valueOfCommandType;
+					if (DslModeling::SerializationUtilities.TryGetValue<CommandTypes>(serializationContext, attribCommandType, out valueOfCommandType))
 					{
 						instanceOfOption.CommandType = valueOfCommandType;
 					}
 					else
 					{	// Invalid property value, ignored.
-						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "commandType", typeof(global::System.String), attribCommandType);
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "commandType", typeof(CommandTypes), attribCommandType);
 					}
 				}
 			}
@@ -1604,12 +1604,11 @@ namespace Ufba.Ev
 			// CommandType
 			if (!serializationContext.Result.Failed)
 			{
-				global::System.String propValue = instanceOfOption.CommandType;
+				CommandTypes propValue = instanceOfOption.CommandType;
+				string serializedPropValue = DslModeling::SerializationUtilities.GetString<CommandTypes>(serializationContext, propValue);
 				if (!serializationContext.Result.Failed)
 				{
-					if (!string.IsNullOrEmpty(propValue))
-						EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "commandType", propValue);
-	
+					EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "commandType", serializedPropValue);
 				}
 			}
 		}

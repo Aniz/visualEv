@@ -23,7 +23,7 @@
         </DomainProperty>
         <DomainProperty Id="8069a53d-acf8-4913-9e3b-ba48b680db6c" Description="Description for Ufba.Ev.Option.Command Type" Name="CommandType" DisplayName="Command Type">
           <Type>
-            <ExternalTypeMoniker Name="/System/String" />
+            <DomainEnumerationMoniker Name="CommandTypes" />
           </Type>
         </DomainProperty>
       </Properties>
@@ -214,6 +214,7 @@
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Search" Name="Search" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Remove" Name="Remove" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.ListAll" Name="ListAll" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.All" Name="All" Value="" />
       </Literals>
     </DomainEnumeration>
   </Types>
@@ -429,9 +430,6 @@
       <ElementTool Name="OptionElement" ToolboxIcon="resources\exampleshapetoolbitmap.bmp" Caption="OptionElement" Tooltip="Create an ExampleElement" HelpKeyword="CreateExampleClassF1Keyword">
         <DomainClassMoniker Name="Option" />
       </ElementTool>
-      <ConnectionTool Name="OptionRelationship" ToolboxIcon="resources\exampleconnectortoolbitmap.bmp" Caption="OptionRelationship" Tooltip="Drag between ExampleElements to create an ExampleRelationship" HelpKeyword="ConnectExampleRelationF1Keyword">
-        <ConnectionBuilderMoniker Name="Ev/OptionConn" />
-      </ConnectionTool>
       <ElementTool Name="FunctionElement" ToolboxIcon="C:\Users\ana.ufba\Downloads\Language4\Language4\Dsl\Resources\ImplementationTool.bmp" Caption="FunctionElement" Tooltip="Function Element" HelpKeyword="FunctionElement">
         <DomainClassMoniker Name="Function" />
       </ElementTool>

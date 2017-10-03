@@ -47,10 +47,6 @@ namespace Ufba.Ev
 		/// item filters.
 		/// </remarks>
 		public const string ToolboxFilterString = "Ev.1.0";
-		/// <summary>
-		/// Toolbox item filter string used to identify OptionRelationship connector tool.
-		/// </summary>
-		public const string OptionRelationshipFilterString = "OptionRelationship.1.0";
 
 	
 		private global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem> toolboxItemCache = new global::System.Collections.Generic.Dictionary<string, DslDesign::ModelingToolboxItem>();
@@ -98,7 +94,7 @@ namespace Ufba.Ev
 		{
 			get
 			{
-				return 3;
+				return 2;
 			}
 		}
 		
@@ -163,29 +159,11 @@ namespace Ufba.Ev
 						new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require) 
 						});
 					break;
-				case "Ufba.Ev.OptionRelationshipToolboxItem":
-
-					// Add OptionRelationship connector tool.
-					result = new DslDesign::ModelingToolboxItem(
-						"Ufba.Ev.OptionRelationshipToolboxItem", // Unique identifier (non-localized) for the toolbox item.
-						2, // Position relative to other items in the same toolbox tab.
-						resourceManager.GetString("OptionRelationshipToolboxItem", resourceCulture), // Localized display name for the item.
-						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("OptionRelationshipToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.				
-						"Ufba.Ev.EvToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.
-						resourceManager.GetString("EvToolboxTab", resourceCulture), // Localized display name for the toolbox tab.
-						"ConnectExampleRelationF1Keyword", // F1 help keyword for the toolbox item.
-						resourceManager.GetString("OptionRelationshipToolboxTooltip", resourceCulture), // Localized tooltip text for the toolbox item.
-						null, // Connector toolbox items do not have an underlying data object.
-						new global::System.ComponentModel.ToolboxItemFilterAttribute[] { // Collection of ToolboxItemFilterAttribute objects that determine visibility of the toolbox item.
-							new global::System.ComponentModel.ToolboxItemFilterAttribute(ToolboxFilterString, global::System.ComponentModel.ToolboxItemFilterType.Require), 
-							new global::System.ComponentModel.ToolboxItemFilterAttribute(OptionRelationshipFilterString)
-						});
-					break;
 				case "Ufba.Ev.FunctionElementToolboxItem":
 					// Add FunctionElement shape tool.
 					result = new DslDesign::ModelingToolboxItem(
 						"Ufba.Ev.FunctionElementToolboxItem", // Unique identifier (non-localized) for the toolbox item.
-						3, // Position relative to other items in the same toolbox tab.
+						2, // Position relative to other items in the same toolbox tab.
 						resourceManager.GetString("FunctionElementToolboxItem", resourceCulture), // Localized display name for the item.
 						(global::System.Drawing.Bitmap)DslDiagrams::ImageHelper.GetImage(resourceManager.GetObject("FunctionElementToolboxBitmap", resourceCulture)), // Image displayed next to the toolbox item.
 						"Ufba.Ev.EvToolboxTab", // Unique identifier (non-localized) for the toolbox item tab.

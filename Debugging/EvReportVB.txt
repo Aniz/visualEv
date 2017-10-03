@@ -2,9 +2,7 @@
 Generated material. Generating code in C#.
 
 	add Payment
-		types		jiho,
-			,
-		
+		types	
 			def askCardInfo,
 	
 	add User
@@ -23,11 +21,13 @@ Generated material. Generating code in C#.
 		
 	
 	add Reviewer
-		types	
+		types		,
+		
 			def askCardInfo,
 	
 	add Event
 		types	
+			def sendEmailNotification,
 	
 	add Activity
 		types	

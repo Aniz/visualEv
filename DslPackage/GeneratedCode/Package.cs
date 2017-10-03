@@ -37,21 +37,13 @@ namespace Ufba.Ev
 					0xff00ff,
 					Index = 0)]
 	[VSShell::ProvideStaticToolboxItem("Ufba.Ev.EvToolboxTab",
-					"@OptionRelationshipToolboxItem;Ufba.Ev.Dsl.dll", 
-					"Ufba.Ev.OptionRelationshipToolboxItem", 
-					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
-					"ConnectExampleRelationF1Keyword", 
-					"@OptionRelationshipToolboxBitmap;Ufba.Ev.Dsl.dll", 
-					0xff00ff,
-					Index = 1)]
-	[VSShell::ProvideStaticToolboxItem("Ufba.Ev.EvToolboxTab",
 					"@FunctionElementToolboxItem;Ufba.Ev.Dsl.dll", 
 					"Ufba.Ev.FunctionElementToolboxItem", 
 					"CF_TOOLBOXITEMCONTAINER,CF_TOOLBOXITEMCONTAINER_HASH,CF_TOOLBOXITEMCONTAINER_CONTENTS", 
 					"FunctionElement", 
 					"@FunctionElementToolboxBitmap;Ufba.Ev.Dsl.dll", 
 					0xff00ff,
-					Index = 2)]
+					Index = 1)]
 	[VSShell::ProvideEditorFactory(typeof(EvEditorFactory), 103, TrustLevel = VSShellInterop::__VSEDITORTRUSTLEVEL.ETL_AlwaysTrusted)]
 	[VSShell::ProvideEditorExtension(typeof(EvEditorFactory), "." + Constants.DesignerFileExtension, 50)]
 	[VSShell::ProvideEditorLogicalView(typeof(EvEditorFactory), "{7651A702-06E5-11D1-8EBD-00A0C90F26EA}")] // Designer logical view GUID i.e. VSConstants.LOGVIEWID_Designer

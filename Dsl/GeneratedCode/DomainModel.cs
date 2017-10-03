@@ -708,6 +708,12 @@ namespace Ufba.Ev
 		/// </summary>
 		[DslDesign::DescriptionResource("Ufba.Ev.CommandTypes/ListAll.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		ListAll,
+		/// <summary>
+		/// All
+		/// Description for Ufba.Ev.CommandTypes.All
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.CommandTypes/All.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		All,
 	}
 }
 

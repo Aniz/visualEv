@@ -362,88 +362,6 @@ namespace Ufba.Ev
 		
 		#endregion
 		
-		#region Connect actions
-		private bool changingMouseAction;
-		private global::Ufba.Ev.OptionRelationshipConnectAction optionRelationshipConnectAction;
-		/// <summary>
-		/// Virtual method to provide a filter when to select the mouse action
-		/// </summary>
-		/// <param name="activeView">Currently active view</param>
-		/// <param name="filter">filter string used to filter the toolbox items</param>
-		protected virtual bool SelectedToolboxItemSupportsFilterString(DslDiagrams::DiagramView activeView, string filter)
-		{
-			return activeView.SelectedToolboxItemSupportsFilterString(filter);
-		}
-		/// <summary>
-		/// Override to provide the right mouse action when trying
-		/// to create links on the diagram
-		/// </summary>
-		/// <param name="pointArgs"></param>
-		public override void OnViewMouseEnter(DslDiagrams::DiagramPointEventArgs pointArgs)
-		{
-			if (pointArgs  == null) throw new global::System.ArgumentNullException("pointArgs");
-		
-			DslDiagrams::DiagramView activeView = this.ActiveDiagramView;
-			if(activeView != null)
-			{
-				DslDiagrams::MouseAction action = null;
-				if (SelectedToolboxItemSupportsFilterString(activeView, global::Ufba.Ev.EvToolboxHelper.OptionRelationshipFilterString))
-				{
-					if (this.optionRelationshipConnectAction == null)
-					{
-						this.optionRelationshipConnectAction = new global::Ufba.Ev.OptionRelationshipConnectAction(this);
-						this.optionRelationshipConnectAction.MouseActionDeactivated += new DslDiagrams::MouseAction.MouseActionDeactivatedEventHandler(OnConnectActionDeactivated);
-					}
-					action = this.optionRelationshipConnectAction;
-				} 
-				else
-				{
-					action = null;
-				}
-				
-				if (pointArgs.DiagramClientView.ActiveMouseAction != action)
-				{
-					try
-					{
-						this.changingMouseAction = true;
-						pointArgs.DiagramClientView.ActiveMouseAction = action;
-					}
-					finally
-					{
-						this.changingMouseAction = false;
-					}
-				}
-			}
-		}
-		
-		/// <summary>
-		/// Snap toolbox selection back to regular pointer after using a custom connect action.
-		/// </summary>
-		private void OnConnectActionDeactivated(object sender, DslDiagrams::DiagramEventArgs e)
-		{
-			OnMouseActionDeactivated();
-		}
-		
-		/// <summary>
-		/// Overridable method to manage the mouse deactivation. The default implementation snap stoolbox selection back to regular pointer 
-		/// after using a custom connect action.
-		/// </summary>
-		protected virtual void OnMouseActionDeactivated()
-		{
-			DslDiagrams::DiagramView activeView = this.ActiveDiagramView;
-		
-			if (activeView != null && activeView.Toolbox != null)
-			{
-				// If we're not changing mouse action due to changing toolbox selection change,
-				// reset toolbox selection.
-				if (!this.changingMouseAction)
-				{
-					activeView.Toolbox.SelectedToolboxItemUsed();
-				}
-			}
-		}
-		#endregion
-		
 		/// <summary>
 		/// Dispose of connect actions.
 		/// </summary>
@@ -453,11 +371,6 @@ namespace Ufba.Ev
 			{
 				if(disposing)
 				{
-					if(this.optionRelationshipConnectAction != null)
-					{
-						this.optionRelationshipConnectAction.Dispose();
-						this.optionRelationshipConnectAction = null;
-					}
 					this.UnsubscribeCompartmentItemsEvents();
 				}
 			}

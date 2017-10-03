@@ -605,6 +605,14 @@
     <value>Description for Ufba.Ev.CommandTypes.ListAll</value>
     <comment>Description for EnumerationLiteral &apos;ListAll&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
   </data>
+  <data name="Ufba.Ev.CommandTypes/All.DisplayName" xml:space="preserve">
+    <value>All</value>
+    <comment>Display name for EnumerationLiteral &apos;All&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/All.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.CommandTypes.All</value>
+    <comment>Description for EnumerationLiteral &apos;All&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
   <data name="Ufba.Ev.FunctionShape.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.FunctionShape</value>
     <comment>Description for DomainClass &apos;FunctionShape&apos;</comment>
@@ -675,14 +683,6 @@
   </data>
   <data name="OptionElementToolboxTooltip" xml:space="preserve">
     <value>Create an ExampleElement</value>
-    <comment>Toolbox tooltip text</comment>
-  </data>
-  <data name="OptionRelationshipToolboxItem" xml:space="preserve">
-    <value>OptionRelationship</value>
-    <comment>Toolbox item name</comment>
-  </data>
-  <data name="OptionRelationshipToolboxTooltip" xml:space="preserve">
-    <value>Drag between ExampleElements to create an ExampleRelationship</value>
     <comment>Toolbox tooltip text</comment>
   </data>
   <data name="FunctionElementToolboxItem" xml:space="preserve">
@@ -820,10 +820,6 @@ A DomainClass can be serialized as a moniker only if
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="OptionElementToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
     <value>..\resources\exampleshapetoolbitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    <comment>Toolbox item image</comment>
-  </data>
-  <data name="OptionRelationshipToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
-    <value>..\resources\exampleconnectortoolbitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Toolbox item image</comment>
   </data>
   <data name="FunctionElementToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">

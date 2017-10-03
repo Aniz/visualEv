@@ -130,7 +130,7 @@
         <!-- Property: OptionType -->
         <xsd:attribute name="optionType" type="OptionTypes" />
         <!-- Property: CommandType -->
-        <xsd:attribute name="commandType" type="xsd:string" />
+        <xsd:attribute name="commandType" type="CommandTypes" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -467,6 +467,7 @@
       <xsd:enumeration value="Search"/>
       <xsd:enumeration value="Remove"/>
       <xsd:enumeration value="ListAll"/>
+      <xsd:enumeration value="All"/>
     </xsd:restriction>
   </xsd:simpleType>
   
