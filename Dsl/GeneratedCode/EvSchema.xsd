@@ -129,8 +129,6 @@
         </xsd:attribute>
         <!-- Property: OptionType -->
         <xsd:attribute name="optionType" type="OptionTypes" />
-        <!-- Property: CommandType -->
-        <xsd:attribute name="commandType" type="CommandTypes" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -232,7 +230,7 @@
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: Name -->
-        <xsd:attribute name="name" type="xsd:string" />
+        <xsd:attribute name="name" type="CommandTypes" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -456,18 +454,19 @@
       <xsd:enumeration value="notificationsDeadline"/>
       <xsd:enumeration value="interestConflict"/>
       <xsd:enumeration value="notificationsAceptanceRejection"/>
+      <xsd:enumeration value="insertAttachment"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <!-- Enum CommandTypes -->
   <xsd:simpleType name="CommandTypes">
     <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="All"/>
       <xsd:enumeration value="Insert"/>
       <xsd:enumeration value="Update"/>
       <xsd:enumeration value="Search"/>
       <xsd:enumeration value="Remove"/>
       <xsd:enumeration value="ListAll"/>
-      <xsd:enumeration value="All"/>
     </xsd:restriction>
   </xsd:simpleType>
   

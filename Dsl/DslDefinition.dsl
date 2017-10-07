@@ -21,11 +21,6 @@
             <DomainEnumerationMoniker Name="OptionTypes" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="8069a53d-acf8-4913-9e3b-ba48b680db6c" Description="Description for Ufba.Ev.Option.Command Type" Name="CommandType" DisplayName="Command Type">
-          <Type>
-            <DomainEnumerationMoniker Name="CommandTypes" />
-          </Type>
-        </DomainProperty>
       </Properties>
       <ElementMergeDirectives>
         <ElementMergeDirective>
@@ -76,7 +71,7 @@
       <Properties>
         <DomainProperty Id="748dea58-1627-4eea-9a80-fb924fc83291" Description="Description for Ufba.Ev.Type.Name" Name="Name" DisplayName="Name">
           <Type>
-            <ExternalTypeMoniker Name="/System/String" />
+            <DomainEnumerationMoniker Name="CommandTypes" />
           </Type>
         </DomainProperty>
       </Properties>
@@ -205,16 +200,17 @@
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.notificationsDeadline" Name="notificationsDeadline" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.interestConflict" Name="interestConflict" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.notificationsAceptanceRejection" Name="notificationsAceptanceRejection" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.insertAttachment" Name="insertAttachment" Value="" />
       </Literals>
     </DomainEnumeration>
     <DomainEnumeration Name="CommandTypes" Namespace="Ufba.Ev" Description="Description for Ufba.Ev.CommandTypes">
       <Literals>
+        <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.All" Name="All" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Insert" Name="Insert" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Update" Name="Update" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Search" Name="Search" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Remove" Name="Remove" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.ListAll" Name="ListAll" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.All" Name="All" Value="" />
       </Literals>
     </DomainEnumeration>
   </Types>
@@ -229,7 +225,7 @@
         <TextDecorator Name="Type" DisplayName="Type" DefaultText="Type" />
       </ShapeHasDecorators>
       <Compartment FillColor="Coral" Name="Properties" />
-      <Compartment Name="Types" />
+      <Compartment Name="Actions" />
     </CompartmentShape>
   </Shapes>
   <Connectors>
@@ -263,9 +259,6 @@
           </XmlRelationshipData>
           <XmlPropertyData XmlName="optionType">
             <DomainPropertyMoniker Name="Option/OptionType" />
-          </XmlPropertyData>
-          <XmlPropertyData XmlName="commandType">
-            <DomainPropertyMoniker Name="Option/CommandType" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
@@ -381,6 +374,17 @@
         </DecoratorMap>
         <CompartmentShapeMoniker Name="OptionShape" />
         <CompartmentMap>
+          <CompartmentMoniker Name="OptionShape/Actions" />
+          <ElementsDisplayed>
+            <DomainPath>OptionHasTypes.Types/!Type</DomainPath>
+          </ElementsDisplayed>
+          <PropertyDisplayed>
+            <PropertyPath>
+              <DomainPropertyMoniker Name="Type/Name" />
+            </PropertyPath>
+          </PropertyDisplayed>
+        </CompartmentMap>
+        <CompartmentMap>
           <CompartmentMoniker Name="OptionShape/Properties" />
           <ElementsDisplayed>
             <DomainPath>OptionHasProperties.Properties/!Property</DomainPath>
@@ -388,17 +392,6 @@
           <PropertyDisplayed>
             <PropertyPath>
               <DomainPropertyMoniker Name="Property/Name" />
-            </PropertyPath>
-          </PropertyDisplayed>
-        </CompartmentMap>
-        <CompartmentMap>
-          <CompartmentMoniker Name="OptionShape/Types" />
-          <ElementsDisplayed>
-            <DomainPath>OptionHasTypes.Types/!Type</DomainPath>
-          </ElementsDisplayed>
-          <PropertyDisplayed>
-            <PropertyPath>
-              <DomainPropertyMoniker Name="Type/Name" />
             </PropertyPath>
           </PropertyDisplayed>
         </CompartmentMap>
@@ -430,7 +423,7 @@
       <ElementTool Name="OptionElement" ToolboxIcon="resources\exampleshapetoolbitmap.bmp" Caption="OptionElement" Tooltip="Create an ExampleElement" HelpKeyword="CreateExampleClassF1Keyword">
         <DomainClassMoniker Name="Option" />
       </ElementTool>
-      <ElementTool Name="FunctionElement" ToolboxIcon="C:\Users\ana.ufba\Downloads\Language4\Language4\Dsl\Resources\ImplementationTool.bmp" Caption="FunctionElement" Tooltip="Function Element" HelpKeyword="FunctionElement">
+      <ElementTool Name="FunctionElement" ToolboxIcon="Resources\ImplementationTool.bmp" Caption="FunctionElement" Tooltip="Function Element" HelpKeyword="FunctionElement">
         <DomainClassMoniker Name="Function" />
       </ElementTool>
     </ToolboxTab>

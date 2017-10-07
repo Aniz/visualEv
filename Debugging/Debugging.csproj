@@ -45,9 +45,15 @@
       <SubType>
       </SubType>
     </None>
+    <None Include="EvReport.ev">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EvReport.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="EvReport.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EvReport.txt</LastGenOutput>
+      <LastGenOutput>EvReport.ev</LastGenOutput>
     </None>
     <None Include="EvReportVB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -66,11 +72,6 @@
     <Service Include="{508349B6-6B84-4df5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EvReport.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EvReport.tt</DependentUpon>
-    </Content>
     <Content Include="EvReportVB.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

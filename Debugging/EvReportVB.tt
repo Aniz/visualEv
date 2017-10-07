@@ -3,29 +3,4 @@
 <#@ Ev processor="EvDirectiveProcessor" requires="fileName='Sample.visualEv'" #>
 
 Generated material. Generating code in C#.
-<#
-foreach (Option element in this.EvModel.Elements)
-{
-#>
 
-	add <#= element.OptionType #>
-		types<#
-	foreach (Property p in element.Properties)
-	{
-	#>
-		<#= p.Name #>,
-	<#
-	}
-	#>
-	
-	<#
-	foreach (Function f in element.Functions)
-	{
-	#>
-		def <#= f.Name #>,
-	<#
-	}
-	#>
-<#    
-}
-#>

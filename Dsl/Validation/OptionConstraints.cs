@@ -54,6 +54,12 @@ namespace Ufba.Ev
 				if (!hasU)
 					context.LogError("[Dependency] Reviewer's dependency (User) not found", "Err 01", this);
 			}
+			if (this.OptionType.ToString() == "Author")
+			{
+				bool hasU = this.EvModel.Elements.Any(op => op.OptionType.ToString() == "User");
+				if (!hasU)
+					context.LogError("[Dependency] Author's dependency (User) not found", "Err 01", this);
+			}
 		}
 	}
 }

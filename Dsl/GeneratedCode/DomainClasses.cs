@@ -287,93 +287,6 @@ namespace Ufba.Ev
 		}
 		
 		#endregion
-		#region CommandType domain property code
-		
-		/// <summary>
-		/// CommandType domain property Id.
-		/// </summary>
-		public static readonly global::System.Guid CommandTypeDomainPropertyId = new global::System.Guid(0x8069a53d, 0xacf8, 0x4913, 0x9e, 0x3b, 0xba, 0x48, 0xb6, 0x80, 0xdb, 0x6c);
-		
-		/// <summary>
-		/// Storage for CommandType
-		/// </summary>
-		private CommandTypes commandTypePropertyStorage;
-		
-		/// <summary>
-		/// Gets or sets the value of CommandType domain property.
-		/// Description for Ufba.Ev.Option.Command Type
-		/// </summary>
-		[DslDesign::DisplayNameResource("Ufba.Ev.Option/CommandType.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ufba.Ev.Option/CommandType.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		[DslModeling::DomainObjectId("8069a53d-acf8-4913-9e3b-ba48b680db6c")]
-		public CommandTypes CommandType
-		{
-			[global::System.Diagnostics.DebuggerStepThrough]
-			get
-			{
-				return commandTypePropertyStorage;
-			}
-			[global::System.Diagnostics.DebuggerStepThrough]
-			set
-			{
-				CommandTypePropertyHandler.Instance.SetValue(this, value);
-			}
-		}
-		/// <summary>
-		/// Value handler for the Option.CommandType domain property.
-		/// </summary>
-		internal sealed partial class CommandTypePropertyHandler : DslModeling::DomainPropertyValueHandler<Option, CommandTypes>
-		{
-			private CommandTypePropertyHandler() { }
-		
-			/// <summary>
-			/// Gets the singleton instance of the Option.CommandType domain property value handler.
-			/// </summary>
-			public static readonly CommandTypePropertyHandler Instance = new CommandTypePropertyHandler();
-		
-			/// <summary>
-			/// Gets the Id of the Option.CommandType domain property.
-			/// </summary>
-			public sealed override global::System.Guid DomainPropertyId
-			{
-				[global::System.Diagnostics.DebuggerStepThrough]
-				get
-				{
-					return CommandTypeDomainPropertyId;
-				}
-			}
-			
-			/// <summary>
-			/// Gets a strongly-typed value of the property on specified element.
-			/// </summary>
-			/// <param name="element">Element which owns the property.</param>
-			/// <returns>Property value.</returns>
-			public override sealed CommandTypes GetValue(Option element)
-			{
-				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.commandTypePropertyStorage;
-			}
-		
-			/// <summary>
-			/// Sets property value on an element.
-			/// </summary>
-			/// <param name="element">Element which owns the property.</param>
-			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Option element, CommandTypes newValue)
-			{
-				if (element == null) throw new global::System.ArgumentNullException("element");
-		
-				CommandTypes oldValue = GetValue(element);
-				if (newValue != oldValue)
-				{
-					ValueChanging(element, oldValue, newValue);
-					element.commandTypePropertyStorage = newValue;
-					ValueChanged(element, oldValue, newValue);
-				}
-			}
-		}
-		
-		#endregion
 		#region EvModel opposite domain role accessor
 		/// <summary>
 		/// Gets or sets EvModel.
@@ -935,7 +848,7 @@ namespace Ufba.Ev
 		/// <summary>
 		/// Storage for Name
 		/// </summary>
-		private global::System.String namePropertyStorage = string.Empty;
+		private CommandTypes namePropertyStorage;
 		
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
@@ -944,7 +857,7 @@ namespace Ufba.Ev
 		[DslDesign::DisplayNameResource("Ufba.Ev.Type/Name.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslDesign::DescriptionResource("Ufba.Ev.Type/Name.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("748dea58-1627-4eea-9a80-fb924fc83291")]
-		public global::System.String Name
+		public CommandTypes Name
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
@@ -960,7 +873,7 @@ namespace Ufba.Ev
 		/// <summary>
 		/// Value handler for the Type.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Type, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Type, CommandTypes>
 		{
 			private NamePropertyHandler() { }
 		
@@ -986,7 +899,7 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Type element)
+			public override sealed CommandTypes GetValue(Type element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -997,11 +910,11 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Type element, global::System.String newValue)
+			public override sealed void SetValue(Type element, CommandTypes newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
-				global::System.String oldValue = GetValue(element);
+				CommandTypes oldValue = GetValue(element);
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);

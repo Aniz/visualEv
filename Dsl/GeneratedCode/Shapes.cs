@@ -488,8 +488,8 @@ namespace Ufba.Ev
 					compartmentDescriptions[localCompartmentsOffset+0] = descriptor;
 				}
 				{
-					string title = global::Ufba.Ev.EvDomainModel.SingletonResourceManager.GetString("OptionShapeTypesTitle");
-					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("Types", title, 
+					string title = global::Ufba.Ev.EvDomainModel.SingletonResourceManager.GetString("OptionShapeActionsTitle");
+					DslDiagrams::ElementListCompartmentDescription descriptor = new DslDiagrams::ElementListCompartmentDescription("Actions", title, 
 						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.LightGray), false, 
 						global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.White), false,
 						null, null,
@@ -535,18 +535,18 @@ namespace Ufba.Ev
 						baseMappings.CopyTo(mappings, 0);
 					}
 					mappings[localCompartmentMappingsOffset+0] = new DslDiagrams::ElementListCompartmentMapping(
-																				"Properties", 
-																				global::Ufba.Ev.Property.NameDomainPropertyId, 
-																				global::Ufba.Ev.Property.DomainClassId, 
-																				GetElementsFromOptionForProperties,
+																				"Actions", 
+																				global::Ufba.Ev.Type.NameDomainPropertyId, 
+																				global::Ufba.Ev.Type.DomainClassId, 
+																				GetElementsFromOptionForActions,
 																				null,
 																				null,
 																				null);
 					mappings[localCompartmentMappingsOffset+1] = new DslDiagrams::ElementListCompartmentMapping(
-																				"Types", 
-																				global::Ufba.Ev.Type.NameDomainPropertyId, 
-																				global::Ufba.Ev.Type.DomainClassId, 
-																				GetElementsFromOptionForTypes,
+																				"Properties", 
+																				global::Ufba.Ev.Property.NameDomainPropertyId, 
+																				global::Ufba.Ev.Property.DomainClassId, 
+																				GetElementsFromOptionForProperties,
 																				null,
 																				null,
 																				null);
@@ -579,18 +579,18 @@ namespace Ufba.Ev
 		}
 		
 			#region DomainPath traversal methods to get the list of elements to display in a compartment.
+			internal static global::System.Collections.IList GetElementsFromOptionForActions(DslModeling::ModelElement rootElement)
+			{
+				global::Ufba.Ev.Option root = (global::Ufba.Ev.Option)rootElement;
+					// Segments 0 and 1
+					DslModeling::LinkedElementCollection<global::Ufba.Ev.Type> result = root.Types;
+				return result;
+			}
 			internal static global::System.Collections.IList GetElementsFromOptionForProperties(DslModeling::ModelElement rootElement)
 			{
 				global::Ufba.Ev.Option root = (global::Ufba.Ev.Option)rootElement;
 					// Segments 0 and 1
 					DslModeling::LinkedElementCollection<global::Ufba.Ev.Property> result = root.Properties;
-				return result;
-			}
-			internal static global::System.Collections.IList GetElementsFromOptionForTypes(DslModeling::ModelElement rootElement)
-			{
-				global::Ufba.Ev.Option root = (global::Ufba.Ev.Option)rootElement;
-					// Segments 0 and 1
-					DslModeling::LinkedElementCollection<global::Ufba.Ev.Type> result = root.Types;
 				return result;
 			}
 			#endregion

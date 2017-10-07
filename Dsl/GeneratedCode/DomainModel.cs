@@ -100,7 +100,6 @@ namespace Ufba.Ev
 			return new DomainMemberInfo[]
 			{
 				new DomainMemberInfo(typeof(Option), "OptionType", Option.OptionTypeDomainPropertyId, typeof(Option.OptionTypePropertyHandler)),
-				new DomainMemberInfo(typeof(Option), "CommandType", Option.CommandTypeDomainPropertyId, typeof(Option.CommandTypePropertyHandler)),
 				new DomainMemberInfo(typeof(Function), "Name", Function.NameDomainPropertyId, typeof(Function.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Property), "Name", Property.NameDomainPropertyId, typeof(Property.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Type), "Name", Type.NameDomainPropertyId, typeof(Type.NamePropertyHandler)),
@@ -667,6 +666,12 @@ namespace Ufba.Ev
 		/// </summary>
 		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/notificationsAceptanceRejection.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		notificationsAceptanceRejection,
+		/// <summary>
+		/// insertAttachment
+		/// Description for Ufba.Ev.FunctionTypes.insertAttachment
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/insertAttachment.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		insertAttachment,
 	}
 }
 namespace Ufba.Ev
@@ -678,6 +683,12 @@ namespace Ufba.Ev
 	[global::System.CLSCompliant(true)]
 	public enum CommandTypes
 	{
+		/// <summary>
+		/// All
+		/// Description for Ufba.Ev.CommandTypes.All
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.CommandTypes/All.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		All,
 		/// <summary>
 		/// Insert
 		/// Description for Ufba.Ev.CommandTypes.Insert
@@ -708,12 +719,6 @@ namespace Ufba.Ev
 		/// </summary>
 		[DslDesign::DescriptionResource("Ufba.Ev.CommandTypes/ListAll.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		ListAll,
-		/// <summary>
-		/// All
-		/// Description for Ufba.Ev.CommandTypes.All
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.CommandTypes/All.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		All,
 	}
 }
 

@@ -1,34 +1,3 @@
 ﻿
 Generated material. Generating code in C#.
 
-	add Payment
-		types	
-			def askCardInfo,
-	
-	add User
-		types		Associado,
-			Profissional,
-			Estudante,
-		
-			def sendBugTrackEmail,
-	
-	add Organizer
-		types		ProgramChair,
-			WorkshopChair,
-			TutorialChair,
-			ProceedingsChair,
-			PanelChair,
-		
-	
-	add Reviewer
-		types		,
-		
-			def askCardInfo,
-	
-	add Event
-		types	
-			def sendEmailNotification,
-	
-	add Activity
-		types	
-	

@@ -149,14 +149,6 @@
     <value>Option Type</value>
     <comment>DisplayName for DomainProperty &apos;OptionType&apos; on DomainClass &apos;Option&apos;</comment>
   </data>
-  <data name="Ufba.Ev.Option/CommandType.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.Option.Command Type</value>
-    <comment>Description for DomainProperty &apos;CommandType&apos; on DomainClass &apos;Option&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.Option/CommandType.DisplayName" xml:space="preserve">
-    <value>Command Type</value>
-    <comment>DisplayName for DomainProperty &apos;CommandType&apos; on DomainClass &apos;Option&apos;</comment>
-  </data>
   <data name="Ufba.Ev.Function.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.Function</value>
     <comment>Description for DomainClass &apos;Function&apos;</comment>
@@ -565,6 +557,22 @@
     <value>Description for Ufba.Ev.FunctionTypes.notificationsAceptanceRejection</value>
     <comment>Description for EnumerationLiteral &apos;notificationsAceptanceRejection&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
+  <data name="Ufba.Ev.FunctionTypes/insertAttachment.DisplayName" xml:space="preserve">
+    <value>insertAttachment</value>
+    <comment>Display name for EnumerationLiteral &apos;insertAttachment&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/insertAttachment.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.insertAttachment</value>
+    <comment>Description for EnumerationLiteral &apos;insertAttachment&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/All.DisplayName" xml:space="preserve">
+    <value>All</value>
+    <comment>Display name for EnumerationLiteral &apos;All&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/All.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.CommandTypes.All</value>
+    <comment>Description for EnumerationLiteral &apos;All&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
   <data name="Ufba.Ev.CommandTypes/Insert.DisplayName" xml:space="preserve">
     <value>Insert</value>
     <comment>Display name for EnumerationLiteral &apos;Insert&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
@@ -605,14 +613,6 @@
     <value>Description for Ufba.Ev.CommandTypes.ListAll</value>
     <comment>Description for EnumerationLiteral &apos;ListAll&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
   </data>
-  <data name="Ufba.Ev.CommandTypes/All.DisplayName" xml:space="preserve">
-    <value>All</value>
-    <comment>Display name for EnumerationLiteral &apos;All&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.CommandTypes/All.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.CommandTypes.All</value>
-    <comment>Description for EnumerationLiteral &apos;All&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
-  </data>
   <data name="Ufba.Ev.FunctionShape.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.FunctionShape</value>
     <comment>Description for DomainClass &apos;FunctionShape&apos;</comment>
@@ -637,7 +637,7 @@
     <value></value>
     <comment>Compartment title</comment>
   </data>
-  <data name="OptionShapeTypesTitle" xml:space="preserve">
+  <data name="OptionShapeActionsTitle" xml:space="preserve">
     <value></value>
     <comment>Compartment title</comment>
   </data>
@@ -823,7 +823,7 @@ A DomainClass can be serialized as a moniker only if
     <comment>Toolbox item image</comment>
   </data>
   <data name="FunctionElementToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
-    <value>..\..\..\..\..\..\Downloads\Language4\Language4\Dsl\Resources\ImplementationTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\ImplementationTool.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Toolbox item image</comment>
   </data>
 </root>

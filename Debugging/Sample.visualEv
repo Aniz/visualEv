@@ -1,19 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <evModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="2b88aaa6-9d55-4e4e-919f-1ab520137a4d" xmlns="http://schemas.microsoft.com/dsltools/Ev">
   <elements>
-    <option Id="b0a07b0d-e890-404b-9e1e-e708f68694b7" optionType="Payment" commandType="Insert">
+    <option Id="b0a07b0d-e890-404b-9e1e-e708f68694b7" optionType="Payment">
       <functions>
         <optionHasFunctions Id="ad09e4a3-8af2-40c0-bbaf-3da55cb511bd" var=" Debito">
-          <function Id="7a8e680e-4555-473e-88fe-d5f3c680d7e6" name="askCardInfo" />
+          <function Id="7a8e680e-4555-473e-88fe-d5f3c680d7e6" name="generateBoleto" />
+        </optionHasFunctions>
+        <optionHasFunctions Id="6ff3ba4c-2a78-4499-9e17-3f7d6d43a28e" var="Credito">
+          <function Id="6ed348e7-1a9e-4d9d-8365-c0f4310419d6" name="askCardInfo" />
+        </optionHasFunctions>
+        <optionHasFunctions Id="a231dd57-d220-466e-9fe5-643aa9f5f347" var="Avista">
+          <function Id="cc8f0ef8-d2ee-48a9-9993-db3a5db55e23" name="generateCarne" />
         </optionHasFunctions>
       </functions>
+      <properties>
+        <optionHasProperties Id="173edd68-bd02-4e83-a60d-be9174c33c18">
+          <property Id="50987ba3-0e50-4f67-bbcb-3d6740397ca3" name=" Avista" />
+        </optionHasProperties>
+        <optionHasProperties Id="707539eb-9034-4fe0-b40b-148f48e3fb4e">
+          <property Id="74fe39fc-dd2f-4f4b-bf4d-2ce830595127" name="Debito" />
+        </optionHasProperties>
+        <optionHasProperties Id="68aafc5b-a23e-44e0-8226-6d9cee9b550e">
+          <property Id="dca4daad-c66e-4915-93a6-590a144633c0" name="Credito" />
+        </optionHasProperties>
+      </properties>
       <types>
-        <optionHasTypes Id="444c0221-412e-4ba1-a869-0534b106065a">
-          <type Id="67c05001-e3ae-4551-8a51-6e6430cb7b89" name="mmçç" />
+        <optionHasTypes Id="e18af9f5-31aa-4d4d-b0c1-3c9cc1f9dcb8">
+          <type Id="4ea77876-7973-43b4-aca9-75df358f7036" name="All" />
         </optionHasTypes>
       </types>
     </option>
-    <option Id="21083822-f835-435e-85f5-27b5367ce412" optionType="User" commandType="Insert">
+    <option Id="21083822-f835-435e-85f5-27b5367ce412" optionType="User">
       <functions>
         <optionHasFunctions Id="43de66db-0986-40cc-b8c4-f0d932157a1e">
           <function Id="93ea94d3-129c-4fcb-aa4c-bc97cf21cfbb" name="sendBugTrackEmail" />
@@ -31,15 +48,12 @@
         </optionHasProperties>
       </properties>
       <types>
-        <optionHasTypes Id="810bc0fc-8af6-471f-8d20-c5e0d9475ac0">
-          <type Id="0ca3e244-da8f-448e-8a8a-436b7984078c" name="Update" />
-        </optionHasTypes>
-        <optionHasTypes Id="b0ac2f53-0bfd-48ef-b302-786a22866b75">
-          <type Id="69987b82-5ae7-4bb6-aac2-bb5b11a3b1e7" name="Insert" />
+        <optionHasTypes Id="68e0ece6-0cb3-4be7-afa0-23f1f42bc39e">
+          <type Id="adf3ca0e-0d2c-461b-ac8c-94fc9cf6dc12" name="All" />
         </optionHasTypes>
       </types>
     </option>
-    <option Id="d72b560d-ff55-4f8d-b796-9cf5fe406f39" optionType="Organizer" commandType="Insert">
+    <option Id="d72b560d-ff55-4f8d-b796-9cf5fe406f39" optionType="Organizer">
       <properties>
         <optionHasProperties Id="fba37d0e-039f-43cc-8bfa-9803e39dd32a">
           <property Id="2fb54cf5-af87-49ab-9b9d-107c5b668017" name="ProgramChair" />
@@ -59,11 +73,11 @@
       </properties>
       <types>
         <optionHasTypes Id="1497c1c2-7cc1-4368-9b80-90cc901f6994">
-          <type Id="fc028a1f-60fe-443e-998a-47a185814629" />
+          <type Id="fc028a1f-60fe-443e-998a-47a185814629" name="All" />
         </optionHasTypes>
       </types>
     </option>
-    <option Id="d39a6520-627c-46b8-9ce5-71d7ba5a2acf" optionType="Reviewer" commandType="Insert">
+    <option Id="d39a6520-627c-46b8-9ce5-71d7ba5a2acf" optionType="Reviewer">
       <functions>
         <optionHasFunctions Id="25fa66d4-a704-4b0b-a4e4-95254f1c1024">
           <function Id="ba1f61ec-a7b4-4212-ba08-3ebcc105f713" name="askCardInfo" />
@@ -74,14 +88,98 @@
           <property Id="eb714eb5-88c6-4126-bbcd-1f2c6e89dd01" />
         </optionHasProperties>
       </properties>
+      <types>
+        <optionHasTypes Id="11c363df-93dc-42a0-8f0d-78590b0188a8">
+          <type Id="29f0905b-82d5-4204-81f6-31abaa7fd314" name="All" />
+        </optionHasTypes>
+      </types>
     </option>
-    <option Id="f42af1dc-7fa7-4e2c-a776-66a0fd28a8ae" optionType="Event" commandType="Insert">
+    <option Id="f42af1dc-7fa7-4e2c-a776-66a0fd28a8ae" optionType="Event">
       <functions>
-        <optionHasFunctions Id="67bbaa17-b175-413f-8342-326509634401" var=" n klnklnkl">
-          <function Id="56c220d1-5786-4707-8fc7-1e34eb1dd40d" name="sendEmailNotification" />
+        <optionHasFunctions Id="67bbaa17-b175-413f-8342-326509634401">
+          <function Id="56c220d1-5786-4707-8fc7-1e34eb1dd40d" name="program" />
+        </optionHasFunctions>
+        <optionHasFunctions Id="06c2d149-6956-4624-9c0b-cbe3c5875920">
+          <function Id="1aec2669-3302-40d6-a8c1-7366f7d410fb" name="reportsFrequencyPerEvent" />
+        </optionHasFunctions>
+        <optionHasFunctions Id="38e2f0ea-cfac-48f6-be35-293f0adf308a">
+          <function Id="f995459b-d302-4f5c-a462-cb05e122bcca" name="importantDates" />
         </optionHasFunctions>
       </functions>
     </option>
-    <option Id="26318b58-6f03-4a4b-b83f-df3b5373c93e" optionType="Activity" commandType="Insert" />
+    <option Id="26318b58-6f03-4a4b-b83f-df3b5373c93e" optionType="Activity">
+      <properties>
+        <optionHasProperties Id="09c239ba-f3af-4f8f-9c66-19ae798a697a">
+          <property Id="3ba5d00a-39ce-42bc-bb86-13893fcdb39c" name="MiniCurso = Mini " />
+        </optionHasProperties>
+        <optionHasProperties Id="2c5a51f7-add4-4754-8d1e-54a564afd6b5">
+          <property Id="91944140-13bb-42b4-9a4b-fa4c8ae08a26" name="Tutorial" />
+        </optionHasProperties>
+        <optionHasProperties Id="d36a23b3-7139-48b2-907b-76d352a3658b">
+          <property Id="3706d1f1-c9e8-4089-b56b-368daac0620e" name="Painel" />
+        </optionHasProperties>
+        <optionHasProperties Id="82af2a8f-0531-4e3a-84f9-278bebeb28ef">
+          <property Id="662a3faf-6f0a-49bf-9c51-8a4403890f4f" name="Workshop" />
+        </optionHasProperties>
+        <optionHasProperties Id="e4ef132d-892b-41cc-9437-bca3552ee0d6">
+          <property Id="4ac29766-bbb0-4cbc-be3d-2a8ec2c41904" name="MainTrack = hidden" />
+        </optionHasProperties>
+      </properties>
+      <types>
+        <optionHasTypes Id="c4a26f9d-f075-4ec6-a5ef-6a805a835bd2">
+          <type Id="5ee3a054-8365-4e00-b521-de6ae0f28649" name="All" />
+        </optionHasTypes>
+      </types>
+    </option>
+    <option Id="6fad9de0-906d-46e6-9d3b-ba2c48c1de97" optionType="Submission">
+      <functions>
+        <optionHasFunctions Id="0f2fa484-4624-480b-9685-e0dcefdd421c" var="Completa">
+          <function Id="1a5f06a3-55dd-472b-939f-db4eb1438a3c" name="insertAttachment" />
+        </optionHasFunctions>
+      </functions>
+      <properties>
+        <optionHasProperties Id="937f6913-fcb0-49e8-a105-6d7c071d5294">
+          <property Id="972ef66e-4163-4d8a-9663-c88706be28a5" name="Completa" />
+        </optionHasProperties>
+        <optionHasProperties Id="4142d71d-2923-4eb2-a83d-dd0fd127e1ee">
+          <property Id="522baf56-4c6f-4bbf-8877-c993b5700574" name="Parcial" />
+        </optionHasProperties>
+      </properties>
+      <types>
+        <optionHasTypes Id="08e87e69-c2be-454a-aaf3-f102430df037">
+          <type Id="6096df6f-b8e1-4fb3-bbb5-0885c8decc52" name="Search" />
+        </optionHasTypes>
+        <optionHasTypes Id="df158b70-c0fa-4349-b0bb-d741357b21f1">
+          <type Id="cc55c342-3964-40c9-9ebe-6c91f98cf8d6" name="Remove" />
+        </optionHasTypes>
+        <optionHasTypes Id="ea7fa535-1236-4302-b27c-9902fcbe67b2">
+          <type Id="69f5fd11-157e-4b99-a897-e01191fa0ace" name="ListAll" />
+        </optionHasTypes>
+      </types>
+    </option>
+    <option Id="9b032f4a-e184-499a-95df-a6daab37b841" optionType="Author" />
+    <option Id="657d4f3e-1581-42bf-bdf8-bf4c279d8dcc" optionType="CheckingCopy">
+      <functions>
+        <optionHasFunctions Id="82474b31-d029-401e-a3c8-634106e0fa4b" var="Atestado">
+          <function Id="5a828baf-b25f-447f-ad33-fc53a2f6c940" name="checkingCopyAtestado" />
+        </optionHasFunctions>
+        <optionHasFunctions Id="f7ec301b-b415-4bab-b04c-7f7a4d2946a2" var="Certificado">
+          <function Id="966f33be-365b-4a63-bf17-eddcead08ae0" name="checkingCopyCertificado" />
+        </optionHasFunctions>
+      </functions>
+      <properties>
+        <optionHasProperties Id="f40f041d-ee6b-4413-9ced-747d80c07509">
+          <property Id="41ed5eec-2e7f-4911-9f41-80323f15f3a6" name="Atestado" />
+        </optionHasProperties>
+        <optionHasProperties Id="c4a35d9a-887e-4a17-8643-bce4fd4ccc9f">
+          <property Id="b965b160-5312-4128-9945-fa6ee684fffb" name="Certificado" />
+        </optionHasProperties>
+      </properties>
+      <types>
+        <optionHasTypes Id="a5a5243b-53ac-41c6-bd63-86e8b0f4995b">
+          <type Id="1ab1062e-7580-4d29-9503-e78c0533c013" name="All" />
+        </optionHasTypes>
+      </types>
+    </option>
   </elements>
 </evModel>

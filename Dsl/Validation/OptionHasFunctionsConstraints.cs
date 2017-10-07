@@ -91,7 +91,7 @@ namespace Ufba.Ev
                     {
                         context.LogError("[Function - Parameter] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " needs a parameter", "Err 02", func);
                     }
-                    var PaymentArray = new[] { "generatCarne", "generateBoleto", "askCardInfo" };
+                    var PaymentArray = new[] { "generateCarne", "generateBoleto", "askCardInfo" };
                     if (!PaymentArray.Contains(func.Name.ToString()))
                         context.LogError("[Function] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " not allowed", "Err 03", func);
                 }
