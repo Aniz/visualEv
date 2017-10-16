@@ -2,6 +2,23 @@
 <Dsl xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="10960b28-2a5c-4690-bc14-a4463850e3d4" Description="Description for Ufba.Ev.Ev" Name="Ev" DisplayName="Ev" Namespace="Ufba.Ev" ProductName="Ev" CompanyName="Ufba" PackageGuid="623cb3cb-ecfa-457c-8465-c0634384012d" PackageNamespace="Ufba.Ev" xmlns="http://schemas.microsoft.com/VisualStudio/2005/DslTools/DslDefinitionModel">
   <Classes>
     <DomainClass Id="2f5d49ad-6ddd-4b45-bfe7-98718ee823d3" Description="The root in which all other elements are embedded. Appears as a diagram." Name="EvModel" DisplayName="Ev Model" Namespace="Ufba.Ev">
+      <Properties>
+        <DomainProperty Id="8982ec97-3ed1-4f4b-9a4a-7ce12d2a6219" Description="Description for Ufba.Ev.EvModel.Name" Name="Name" DisplayName="Name">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="22d24a26-9ac8-4ef3-8d4c-cdfe7a094e8f" Description="Description for Ufba.Ev.EvModel.Email" Name="Email" DisplayName="Email">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="4868407a-5eb0-440e-bb82-34e75cb53fdf" Description="Description for Ufba.Ev.EvModel.Password" Name="Password" DisplayName="Password">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+      </Properties>
       <ElementMergeDirectives>
         <ElementMergeDirective>
           <Notes>Creates an embedding link when an element is dropped onto a model. </Notes>
@@ -243,6 +260,15 @@
           <XmlRelationshipData RoleElementName="elements">
             <DomainRelationshipMoniker Name="EvModelHasElements" />
           </XmlRelationshipData>
+          <XmlPropertyData XmlName="name">
+            <DomainPropertyMoniker Name="EvModel/Name" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="email">
+            <DomainPropertyMoniker Name="EvModel/Email" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="password">
+            <DomainPropertyMoniker Name="EvModel/Password" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="Option" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionMoniker" ElementName="option" MonikerTypeName="OptionMoniker">

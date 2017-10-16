@@ -133,6 +133,30 @@
     <value>Ev Model</value>
     <comment>DisplayName for DomainClass &apos;EvModel&apos;</comment>
   </data>
+  <data name="Ufba.Ev.EvModel/Name.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.EvModel.Name</value>
+    <comment>Description for DomainProperty &apos;Name&apos; on DomainClass &apos;EvModel&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.EvModel/Name.DisplayName" xml:space="preserve">
+    <value>Name</value>
+    <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;EvModel&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.EvModel/Email.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.EvModel.Email</value>
+    <comment>Description for DomainProperty &apos;Email&apos; on DomainClass &apos;EvModel&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.EvModel/Email.DisplayName" xml:space="preserve">
+    <value>Email</value>
+    <comment>DisplayName for DomainProperty &apos;Email&apos; on DomainClass &apos;EvModel&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.EvModel/Password.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.EvModel.Password</value>
+    <comment>Description for DomainProperty &apos;Password&apos; on DomainClass &apos;EvModel&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.EvModel/Password.DisplayName" xml:space="preserve">
+    <value>Password</value>
+    <comment>DisplayName for DomainProperty &apos;Password&apos; on DomainClass &apos;EvModel&apos;</comment>
+  </data>
   <data name="Ufba.Ev.Option.Description" xml:space="preserve">
     <value>Elements embedded in the model. Appear as boxes on the diagram.</value>
     <comment>Description for DomainClass &apos;Option&apos;</comment>

@@ -48,6 +48,267 @@ namespace Ufba.Ev
 		{
 		}
 		#endregion
+		#region Name domain property code
+		
+		/// <summary>
+		/// Name domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid NameDomainPropertyId = new global::System.Guid(0x8982ec97, 0x3ed1, 0x4f4b, 0x9a, 0x4a, 0x7c, 0xe1, 0x2d, 0x2a, 0x62, 0x19);
+		
+		/// <summary>
+		/// Storage for Name
+		/// </summary>
+		private global::System.String namePropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Name domain property.
+		/// Description for Ufba.Ev.EvModel.Name
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.EvModel/Name.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.EvModel/Name.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("8982ec97-3ed1-4f4b-9a4a-7ce12d2a6219")]
+		public global::System.String Name
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return namePropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				NamePropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EvModel.Name domain property.
+		/// </summary>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<EvModel, global::System.String>
+		{
+			private NamePropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EvModel.Name domain property value handler.
+			/// </summary>
+			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EvModel.Name domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return NameDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EvModel element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.namePropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EvModel element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Email domain property code
+		
+		/// <summary>
+		/// Email domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid EmailDomainPropertyId = new global::System.Guid(0x22d24a26, 0x9ac8, 0x4ef3, 0x8d, 0x4c, 0xcd, 0xfe, 0x7a, 0x09, 0x4e, 0x8f);
+		
+		/// <summary>
+		/// Storage for Email
+		/// </summary>
+		private global::System.String emailPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Email domain property.
+		/// Description for Ufba.Ev.EvModel.Email
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.EvModel/Email.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.EvModel/Email.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("22d24a26-9ac8-4ef3-8d4c-cdfe7a094e8f")]
+		public global::System.String Email
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return emailPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				EmailPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EvModel.Email domain property.
+		/// </summary>
+		internal sealed partial class EmailPropertyHandler : DslModeling::DomainPropertyValueHandler<EvModel, global::System.String>
+		{
+			private EmailPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EvModel.Email domain property value handler.
+			/// </summary>
+			public static readonly EmailPropertyHandler Instance = new EmailPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EvModel.Email domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return EmailDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EvModel element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.emailPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EvModel element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.emailPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region Password domain property code
+		
+		/// <summary>
+		/// Password domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid PasswordDomainPropertyId = new global::System.Guid(0x4868407a, 0x5eb0, 0x440e, 0xbb, 0x82, 0x34, 0xe7, 0x5c, 0xb5, 0x3f, 0xdf);
+		
+		/// <summary>
+		/// Storage for Password
+		/// </summary>
+		private global::System.String passwordPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of Password domain property.
+		/// Description for Ufba.Ev.EvModel.Password
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.EvModel/Password.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.EvModel/Password.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("4868407a-5eb0-440e-bb82-34e75cb53fdf")]
+		public global::System.String Password
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return passwordPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				PasswordPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the EvModel.Password domain property.
+		/// </summary>
+		internal sealed partial class PasswordPropertyHandler : DslModeling::DomainPropertyValueHandler<EvModel, global::System.String>
+		{
+			private PasswordPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the EvModel.Password domain property value handler.
+			/// </summary>
+			public static readonly PasswordPropertyHandler Instance = new PasswordPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the EvModel.Password domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return PasswordDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(EvModel element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.passwordPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(EvModel element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.passwordPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region Elements opposite domain role accessor
 		
 		/// <summary>

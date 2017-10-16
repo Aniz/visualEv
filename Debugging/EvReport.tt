@@ -4,6 +4,7 @@
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
 
+Create <#= this.EvModel.Name #> <#= this.EvModel.Email #> <#= this.EvModel.Password #>
 <#
 foreach (Option element in this.EvModel.Elements)
 {

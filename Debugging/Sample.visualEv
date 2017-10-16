@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<evModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="2b88aaa6-9d55-4e4e-919f-1ab520137a4d" xmlns="http://schemas.microsoft.com/dsltools/Ev">
+<evModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="2b88aaa6-9d55-4e4e-919f-1ab520137a4d" name="RiseEvent" email="email@r.com" password="pass" xmlns="http://schemas.microsoft.com/dsltools/Ev">
   <elements>
     <option Id="b0a07b0d-e890-404b-9e1e-e708f68694b7" optionType="Payment">
       <functions>

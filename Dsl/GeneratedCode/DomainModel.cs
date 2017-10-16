@@ -99,6 +99,9 @@ namespace Ufba.Ev
 		{
 			return new DomainMemberInfo[]
 			{
+				new DomainMemberInfo(typeof(EvModel), "Name", EvModel.NameDomainPropertyId, typeof(EvModel.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(EvModel), "Email", EvModel.EmailDomainPropertyId, typeof(EvModel.EmailPropertyHandler)),
+				new DomainMemberInfo(typeof(EvModel), "Password", EvModel.PasswordDomainPropertyId, typeof(EvModel.PasswordPropertyHandler)),
 				new DomainMemberInfo(typeof(Option), "OptionType", Option.OptionTypeDomainPropertyId, typeof(Option.OptionTypePropertyHandler)),
 				new DomainMemberInfo(typeof(Function), "Name", Function.NameDomainPropertyId, typeof(Function.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Property), "Name", Property.NameDomainPropertyId, typeof(Property.NamePropertyHandler)),

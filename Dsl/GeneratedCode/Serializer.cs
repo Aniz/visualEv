@@ -103,7 +103,7 @@ namespace Ufba.Ev
 			
 			// Read properties serialized as XML attributes.
 			ReadPropertiesFromAttributes(serializationContext, element, reader);
-				
+	
 			// Read nested XML elements.
 			if (!serializationContext.Result.Failed)
 			{
@@ -151,7 +151,60 @@ namespace Ufba.Ev
 			// Always call the base class so any extensions are deserialized
 			base.ReadPropertiesFromAttributes(serializationContext, element, reader);
 	
-			// There is no property to read; do nothing
+			EvModel instanceOfEvModel = element as EvModel;
+			global::System.Diagnostics.Debug.Assert(instanceOfEvModel != null, "Expecting an instance of EvModel");
+	
+			// Name
+			if (!serializationContext.Result.Failed)
+			{
+				string attribName = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "name");
+				if (attribName != null)
+				{
+					global::System.String valueOfName;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribName, out valueOfName))
+					{
+						instanceOfEvModel.Name = valueOfName;
+					}
+					else
+					{	// Invalid property value, ignored.
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "name", typeof(global::System.String), attribName);
+					}
+				}
+			}
+			// Email
+			if (!serializationContext.Result.Failed)
+			{
+				string attribEmail = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "email");
+				if (attribEmail != null)
+				{
+					global::System.String valueOfEmail;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribEmail, out valueOfEmail))
+					{
+						instanceOfEvModel.Email = valueOfEmail;
+					}
+					else
+					{	// Invalid property value, ignored.
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "email", typeof(global::System.String), attribEmail);
+					}
+				}
+			}
+			// Password
+			if (!serializationContext.Result.Failed)
+			{
+				string attribPassword = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "password");
+				if (attribPassword != null)
+				{
+					global::System.String valueOfPassword;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribPassword, out valueOfPassword))
+					{
+						instanceOfEvModel.Password = valueOfPassword;
+					}
+					else
+					{	// Invalid property value, ignored.
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "password", typeof(global::System.String), attribPassword);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -665,7 +718,42 @@ namespace Ufba.Ev
 			// Always call the base class so any extensions are serialized
 			base.WritePropertiesAsAttributes(serializationContext, element, writer);
 	
-			// There are no properties; do nothing
+			EvModel instanceOfEvModel = element as EvModel;
+			global::System.Diagnostics.Debug.Assert(instanceOfEvModel != null, "Expecting an instance of EvModel");
+	
+			// Name
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEvModel.Name;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "name", propValue);
+	
+				}
+			}
+			// Email
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEvModel.Email;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "email", propValue);
+	
+				}
+			}
+			// Password
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.String propValue = instanceOfEvModel.Password;
+				if (!serializationContext.Result.Failed)
+				{
+					if (!string.IsNullOrEmpty(propValue))
+						EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "password", propValue);
+	
+				}
+			}
 		}
 	
 		/// <summary>
