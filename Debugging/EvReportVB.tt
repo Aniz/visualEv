@@ -1,6 +1,41 @@
 ﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
-<#@ output extension=".txt" #>
+<#@ output extension=".ev" #>
 <#@ Ev processor="EvDirectiveProcessor" requires="fileName='Sample.visualEv'" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
 
-Generated material. Generating code in C#.
+<#
+foreach (Option element in this.EvModel.Elements)
+{
+	string types = "";
+	string show = "";
+#>
 
+add <#= element.OptionType #>
+	<#	types = string.Join(
+                ",", //Change the value here to separate the strings.
+                (from property in element.Properties
+                 select property.Name).ToArray());
+	if(types != string.Empty){
+		types = "types " + types + ".";
+	}
+	#>	
+	<#= types #>
+	<#	show = string.Join(
+                ",", //Change the value here to separate the strings.
+                (from property in element.Types
+                 select property.Name).ToArray());
+	if(show == "All" ){
+		show = "show Insert,Update,Search,Remove,ListAll,Management.";
+	}
+	else if(show != string.Empty){
+		show = "show " + show + ".";
+	}
+
+	#>	
+	<#= show #>
+	<# foreach(OptionHasFunctions assoc in OptionHasFunctions.GetLinksToFunctions(element)){ #>
+	<# if (assoc.Function.hasView) { #> def <# }else{ #> if <# } #><#= assoc.Option.OptionType #><# if (assoc.Param != string.Empty){ #>.<#=assoc.Param #><#}#>-><#= assoc.Function.Name #><# } #>
+<#    
+}
+#>

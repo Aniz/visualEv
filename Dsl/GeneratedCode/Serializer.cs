@@ -1883,6 +1883,23 @@ namespace Ufba.Ev
 					}
 				}
 			}
+			// hasView
+			if (!serializationContext.Result.Failed)
+			{
+				string attribhasView = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "hasView");
+				if (attribhasView != null)
+				{
+					global::System.Boolean valueOfhasView;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.Boolean>(serializationContext, attribhasView, out valueOfhasView))
+					{
+						instanceOfFunction.hasView = valueOfhasView;
+					}
+					else
+					{	// Invalid property value, ignored.
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "hasView", typeof(global::System.Boolean), attribhasView);
+					}
+				}
+			}
 		}
 	
 		/// <summary>
@@ -2316,6 +2333,16 @@ namespace Ufba.Ev
 				if (!serializationContext.Result.Failed)
 				{
 					EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "name", serializedPropValue);
+				}
+			}
+			// hasView
+			if (!serializationContext.Result.Failed)
+			{
+				global::System.Boolean propValue = instanceOfFunction.hasView;
+				string serializedPropValue = DslModeling::SerializationUtilities.GetString<global::System.Boolean>(serializationContext, propValue);
+				if (!serializationContext.Result.Failed)
+				{
+					EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "hasView", serializedPropValue);
 				}
 			}
 		}
@@ -4660,20 +4687,20 @@ namespace Ufba.Ev
 			OptionHasFunctions instanceOfOptionHasFunctions = element as OptionHasFunctions;
 			global::System.Diagnostics.Debug.Assert(instanceOfOptionHasFunctions != null, "Expecting an instance of OptionHasFunctions");
 	
-			// Var
+			// Param
 			if (!serializationContext.Result.Failed)
 			{
-				string attribVar = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "var");
-				if (attribVar != null)
+				string attribParam = EvSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "param");
+				if (attribParam != null)
 				{
-					global::System.String valueOfVar;
-					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribVar, out valueOfVar))
+					global::System.String valueOfParam;
+					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribParam, out valueOfParam))
 					{
-						instanceOfOptionHasFunctions.Var = valueOfVar;
+						instanceOfOptionHasFunctions.Param = valueOfParam;
 					}
 					else
 					{	// Invalid property value, ignored.
-						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "var", typeof(global::System.String), attribVar);
+						EvSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "param", typeof(global::System.String), attribParam);
 					}
 				}
 			}
@@ -5163,14 +5190,14 @@ namespace Ufba.Ev
 			OptionHasFunctions instanceOfOptionHasFunctions = element as OptionHasFunctions;
 			global::System.Diagnostics.Debug.Assert(instanceOfOptionHasFunctions != null, "Expecting an instance of OptionHasFunctions");
 	
-			// Var
+			// Param
 			if (!serializationContext.Result.Failed)
 			{
-				global::System.String propValue = instanceOfOptionHasFunctions.Var;
+				global::System.String propValue = instanceOfOptionHasFunctions.Param;
 				if (!serializationContext.Result.Failed)
 				{
 					if (!string.IsNullOrEmpty(propValue))
-						EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "var", propValue);
+						EvSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "param", propValue);
 	
 				}
 			}

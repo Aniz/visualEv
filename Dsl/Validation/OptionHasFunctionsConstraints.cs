@@ -26,7 +26,7 @@ namespace Ufba.Ev
 
                 if (op.OptionType.ToString() == "Registration")
                 {
-                    if (!String.IsNullOrEmpty(this.Var))
+                    if (!String.IsNullOrEmpty(this.Param))
                         context.LogWarning("[Function - Parameter] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " dont use parameter", "Err 02", func);
 
                     var RegistrationArray = new[] { "reportsFrequencyPerActivity", "reportsListofAuthors" };
@@ -36,47 +36,53 @@ namespace Ufba.Ev
                 }
                 if (op.OptionType.ToString() == "Event")
                 {
-                    if (!String.IsNullOrEmpty(this.Var))
+                    if (!String.IsNullOrEmpty(this.Param))
                         context.LogWarning("[Function - Parameter] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " dont use parameter", "Err 02", func);
 
-                    var EventArray = new[] { "program", "importantDates", "reportsFrequencyPerEvent" };
+                    var EventArray = new[] { "eventProgram", "eventImportantDates", "reportsFrequencyPerEvent" };
                     if (!EventArray.Contains(func.Name.ToString()))
                         context.LogError("[Function] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " not allowed", "Err 03", func);
 
                 }
-                if (op.OptionType.ToString() == "Assigment")
+				if (op.OptionType.ToString() == "Reviewer")
+				{
+					var EventArray = new[] { "reviewerRoundofReview"};
+					if (!EventArray.Contains(func.Name.ToString()))
+						context.LogError("[Function] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " not allowed", "Err 03", func);
+				}
+				if (op.OptionType.ToString() == "Assigment")
                 {
-                    if (!String.IsNullOrEmpty(this.Var))
+                    if (!String.IsNullOrEmpty(this.Param))
                         context.LogWarning("[Function - Parameter] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " dont use parameter", "Err 02", func);
 
-                    var AssigmentArray = new[] { "notificationsDeadline", "notificationsPaperAssignemnt", "notificationsAceptanceRejection", "interestConflict" };
+                    var AssigmentArray = new[] { "notificationsDeadline", "notificationsPaperAssignemnt", "notificationsAceptanceRejection", "assignmentInterestConflict" };
                     if (!AssigmentArray.Contains(func.Name.ToString()))
                         context.LogError("[Function] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " not allowed", "Err 03", func);
 
                 }
                 if (op.OptionType.ToString() == "User")
                 {
-                    if (!String.IsNullOrEmpty(this.Var))
+                    if (!String.IsNullOrEmpty(this.Param))
                         context.LogWarning("[Function - Parameter] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " dont use parameter", "Err 02", func);
-                    if (func.Name.ToString() != "sendBugTrackEmail")
+                    if (func.Name.ToString() != "userSendBugTrackEmail")
                         context.LogError("[Function] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " not allowed", "Err 03", func);
                  }
 
                 //Needs Parameters
                 if (op.OptionType.ToString() == "Submission")
                 {
-                    if (String.IsNullOrEmpty(this.Var))
+                    if (String.IsNullOrEmpty(this.Param) && func.Name.ToString() == "submissionInsertAttachment")
                     {
                         context.LogError("[Function - Parameter] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " needs a parameter", "Err 02", func);
                     }
-                    var SubmissionArray = new[] { "insertAttachment" };
+                    var SubmissionArray = new[] { "submissionInsertAttachment", "submissionCompleteInsert", "submissionPartialInsert" };
                     if (!SubmissionArray.Contains(func.Name.ToString()))
                         context.LogError("[Function] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " not allowed", "Err 03", func);
 
                 }
                 if (op.OptionType.ToString() == "CheckingCopy")
                 {
-                    if (String.IsNullOrEmpty(this.Var))
+                    if (String.IsNullOrEmpty(this.Param))
                     {
                         context.LogError("[Function - Parameter] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " needs a parameter", "Err 02", func);
                     }
@@ -87,7 +93,7 @@ namespace Ufba.Ev
                 }
                 if (op.OptionType.ToString() == "Payment")
                 {
-                    if (String.IsNullOrEmpty(this.Var))
+                    if (String.IsNullOrEmpty(this.Param))
                     {
                         context.LogError("[Function - Parameter] " + func.Name.ToString() + " on " + op.OptionType.ToString() + " needs a parameter", "Err 02", func);
                     }

@@ -101,9 +101,10 @@ namespace Ufba.Ev
 			{
 				new DomainMemberInfo(typeof(Option), "OptionType", Option.OptionTypeDomainPropertyId, typeof(Option.OptionTypePropertyHandler)),
 				new DomainMemberInfo(typeof(Function), "Name", Function.NameDomainPropertyId, typeof(Function.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(Function), "hasView", Function.hasViewDomainPropertyId, typeof(Function.hasViewPropertyHandler)),
 				new DomainMemberInfo(typeof(Property), "Name", Property.NameDomainPropertyId, typeof(Property.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Type), "Name", Type.NameDomainPropertyId, typeof(Type.NamePropertyHandler)),
-				new DomainMemberInfo(typeof(OptionHasFunctions), "Var", OptionHasFunctions.VarDomainPropertyId, typeof(OptionHasFunctions.VarPropertyHandler)),
+				new DomainMemberInfo(typeof(OptionHasFunctions), "Param", OptionHasFunctions.ParamDomainPropertyId, typeof(OptionHasFunctions.ParamPropertyHandler)),
 			};
 		}
 		/// <summary>
@@ -577,65 +578,11 @@ namespace Ufba.Ev
 		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/askCardInfo.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		askCardInfo,
 		/// <summary>
-		/// sendEmailNotification
-		/// Description for Ufba.Ev.FunctionTypes.sendEmailNotification
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/sendEmailNotification.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		sendEmailNotification,
-		/// <summary>
-		/// assigmentConflictResolver
-		/// Description for Ufba.Ev.FunctionTypes.assigmentConflictResolver
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/assigmentConflictResolver.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		assigmentConflictResolver,
-		/// <summary>
-		/// reportsFrequencyPerActivity
-		/// Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerActivity
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reportsFrequencyPerActivity.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		reportsFrequencyPerActivity,
-		/// <summary>
-		/// checkingCopyAtestado
-		/// Description for Ufba.Ev.FunctionTypes.checkingCopyAtestado
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/checkingCopyAtestado.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		checkingCopyAtestado,
-		/// <summary>
-		/// reportsListofAuthors
-		/// Description for Ufba.Ev.FunctionTypes.reportsListofAuthors
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reportsListofAuthors.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		reportsListofAuthors,
-		/// <summary>
-		/// checkingCopyCertificado
-		/// Description for Ufba.Ev.FunctionTypes.checkingCopyCertificado
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/checkingCopyCertificado.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		checkingCopyCertificado,
-		/// <summary>
-		/// program
-		/// Description for Ufba.Ev.FunctionTypes.program
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/program.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		program,
-		/// <summary>
-		/// importantDates
-		/// Description for Ufba.Ev.FunctionTypes.importantDates
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/importantDates.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		importantDates,
-		/// <summary>
 		/// generateBoleto
 		/// Description for Ufba.Ev.FunctionTypes.generateBoleto
 		/// </summary>
 		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/generateBoleto.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		generateBoleto,
-		/// <summary>
-		/// reportsFrequencyPerEvent
-		/// Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerEvent
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reportsFrequencyPerEvent.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		reportsFrequencyPerEvent,
 		/// <summary>
 		/// generateCarne
 		/// Description for Ufba.Ev.FunctionTypes.generateCarne
@@ -643,11 +590,53 @@ namespace Ufba.Ev
 		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/generateCarne.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		generateCarne,
 		/// <summary>
-		/// sendBugTrackEmail
-		/// Description for Ufba.Ev.FunctionTypes.sendBugTrackEmail
+		/// reportsFrequencyPerActivity
+		/// Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerActivity
 		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/sendBugTrackEmail.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		sendBugTrackEmail,
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reportsFrequencyPerActivity.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		reportsFrequencyPerActivity,
+		/// <summary>
+		/// reportsListofAuthors
+		/// Description for Ufba.Ev.FunctionTypes.reportsListofAuthors
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reportsListofAuthors.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		reportsListofAuthors,
+		/// <summary>
+		/// checkingCopyAtestado
+		/// Description for Ufba.Ev.FunctionTypes.checkingCopyAtestado
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/checkingCopyAtestado.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		checkingCopyAtestado,
+		/// <summary>
+		/// checkingCopyCertificado
+		/// Description for Ufba.Ev.FunctionTypes.checkingCopyCertificado
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/checkingCopyCertificado.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		checkingCopyCertificado,
+		/// <summary>
+		/// eventProgram
+		/// Description for Ufba.Ev.FunctionTypes.eventProgram
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/eventProgram.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		eventProgram,
+		/// <summary>
+		/// eventImportantDates
+		/// Description for Ufba.Ev.FunctionTypes.eventImportantDates
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/eventImportantDates.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		eventImportantDates,
+		/// <summary>
+		/// reportsFrequencyPerEvent
+		/// Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerEvent
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reportsFrequencyPerEvent.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		reportsFrequencyPerEvent,
+		/// <summary>
+		/// assignmentInterestConflict
+		/// Description for Ufba.Ev.FunctionTypes.assignmentInterestConflict
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/assignmentInterestConflict.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		assignmentInterestConflict,
 		/// <summary>
 		/// notificationsDeadline
 		/// Description for Ufba.Ev.FunctionTypes.notificationsDeadline
@@ -655,23 +644,47 @@ namespace Ufba.Ev
 		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/notificationsDeadline.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		notificationsDeadline,
 		/// <summary>
-		/// interestConflict
-		/// Description for Ufba.Ev.FunctionTypes.interestConflict
-		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/interestConflict.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		interestConflict,
-		/// <summary>
 		/// notificationsAceptanceRejection
 		/// Description for Ufba.Ev.FunctionTypes.notificationsAceptanceRejection
 		/// </summary>
 		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/notificationsAceptanceRejection.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		notificationsAceptanceRejection,
 		/// <summary>
-		/// insertAttachment
-		/// Description for Ufba.Ev.FunctionTypes.insertAttachment
+		/// notificationPaperAssignment
+		/// Description for Ufba.Ev.FunctionTypes.notificationPaperAssignment
 		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/insertAttachment.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		insertAttachment,
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/notificationPaperAssignment.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		notificationPaperAssignment,
+		/// <summary>
+		/// reviewerRoundofReview
+		/// Description for Ufba.Ev.FunctionTypes.reviewerRoundofReview
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reviewerRoundofReview.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		reviewerRoundofReview,
+		/// <summary>
+		/// submissionInsertAttachment
+		/// Description for Ufba.Ev.FunctionTypes.submissionInsertAttachment
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/submissionInsertAttachment.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		submissionInsertAttachment,
+		/// <summary>
+		/// submissionCompleteInsert
+		/// Description for Ufba.Ev.FunctionTypes.submissionCompleteInsert
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/submissionCompleteInsert.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		submissionCompleteInsert,
+		/// <summary>
+		/// submissionPartialInsert
+		/// Description for Ufba.Ev.FunctionTypes.submissionPartialInsert
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/submissionPartialInsert.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		submissionPartialInsert,
+		/// <summary>
+		/// userSendBugTrackEmail
+		/// Description for Ufba.Ev.FunctionTypes.userSendBugTrackEmail
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/userSendBugTrackEmail.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		userSendBugTrackEmail,
 	}
 }
 namespace Ufba.Ev
@@ -719,6 +732,12 @@ namespace Ufba.Ev
 		/// </summary>
 		[DslDesign::DescriptionResource("Ufba.Ev.CommandTypes/ListAll.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		ListAll,
+		/// <summary>
+		/// Management
+		/// Description for Ufba.Ev.CommandTypes.Management
+		/// </summary>
+		[DslDesign::DescriptionResource("Ufba.Ev.CommandTypes/Management.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		Management,
 	}
 }
 

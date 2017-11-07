@@ -163,6 +163,8 @@
         </xsd:attribute>
         <!-- Property: Name -->
         <xsd:attribute name="name" type="FunctionTypes" />
+        <!-- Property: hasView -->
+        <xsd:attribute name="hasView" type="xsd:boolean" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -314,8 +316,8 @@
             <xsd:documentation>Instance Guid of this element, needed because SerializeId is set to true.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <!-- Property: Var -->
-        <xsd:attribute name="var" type="xsd:string" />
+        <!-- Property: Param -->
+        <xsd:attribute name="param" type="xsd:string" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -439,22 +441,24 @@
   <xsd:simpleType name="FunctionTypes">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="askCardInfo"/>
-      <xsd:enumeration value="sendEmailNotification"/>
-      <xsd:enumeration value="assigmentConflictResolver"/>
-      <xsd:enumeration value="reportsFrequencyPerActivity"/>
-      <xsd:enumeration value="checkingCopyAtestado"/>
-      <xsd:enumeration value="reportsListofAuthors"/>
-      <xsd:enumeration value="checkingCopyCertificado"/>
-      <xsd:enumeration value="program"/>
-      <xsd:enumeration value="importantDates"/>
       <xsd:enumeration value="generateBoleto"/>
-      <xsd:enumeration value="reportsFrequencyPerEvent"/>
       <xsd:enumeration value="generateCarne"/>
-      <xsd:enumeration value="sendBugTrackEmail"/>
+      <xsd:enumeration value="reportsFrequencyPerActivity"/>
+      <xsd:enumeration value="reportsListofAuthors"/>
+      <xsd:enumeration value="checkingCopyAtestado"/>
+      <xsd:enumeration value="checkingCopyCertificado"/>
+      <xsd:enumeration value="eventProgram"/>
+      <xsd:enumeration value="eventImportantDates"/>
+      <xsd:enumeration value="reportsFrequencyPerEvent"/>
+      <xsd:enumeration value="assignmentInterestConflict"/>
       <xsd:enumeration value="notificationsDeadline"/>
-      <xsd:enumeration value="interestConflict"/>
       <xsd:enumeration value="notificationsAceptanceRejection"/>
-      <xsd:enumeration value="insertAttachment"/>
+      <xsd:enumeration value="notificationPaperAssignment"/>
+      <xsd:enumeration value="reviewerRoundofReview"/>
+      <xsd:enumeration value="submissionInsertAttachment"/>
+      <xsd:enumeration value="submissionCompleteInsert"/>
+      <xsd:enumeration value="submissionPartialInsert"/>
+      <xsd:enumeration value="userSendBugTrackEmail"/>
     </xsd:restriction>
   </xsd:simpleType>
   
@@ -467,6 +471,7 @@
       <xsd:enumeration value="Search"/>
       <xsd:enumeration value="Remove"/>
       <xsd:enumeration value="ListAll"/>
+      <xsd:enumeration value="Management"/>
     </xsd:restriction>
   </xsd:simpleType>
   

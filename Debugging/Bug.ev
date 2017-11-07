@@ -1,0 +1,94 @@
+﻿
+Create RiseEvent email@r.com pass
+	
+add Payment
+		
+	types  Avista,Debito,Credito.
+		
+	show Insert,Update,Search,Remove,ListAll.
+	
+		
+	if Payment.PayPal->generateBoleto 	
+	if Payment.Credito->askCardInfo 	
+	if Payment.Avista->generateCarne 
+	
+add User
+		
+	types Associado,Profissional,Estudante.
+		
+	show Insert,Update,Search,Remove,ListAll.
+	
+		
+	def User -> sendBugTrackEmail 
+	
+add Organizer
+		
+	types ProgramChair,WorkshopChair,TutorialChair,ProceedingsChair,PanelChair.
+		
+	show Insert,Update,Search,Remove,ListAll.
+	
+		
+	def Organizer -> askCardInfo 
+	
+add Reviewer
+		
+	
+		
+	show Insert,Update,Search,Remove,ListAll.
+	
+		
+	def Reviewer -> askCardInfo 
+	
+add Event
+		
+	
+		
+	
+	
+		
+	def Event -> program 	
+	def Event -> reportsFrequencyPerEvent 	
+	def Event -> importantDates 
+	
+add Activity
+		
+	types MiniCurso = Mini ,Tutorial,Painel,Workshop,MainTrack = hidden.
+		
+	show Insert,Update,Search,Remove,ListAll.
+	
+	
+	
+add Submission
+		
+	types Completa,Parcial.
+		
+	show Search,Remove,ListAll.
+	
+		
+	def Submission -> insertAttachment 
+	
+add Speaker
+		
+	
+		
+	show Insert,Update,Search,Remove,ListAll.
+	
+	
+	
+add CheckingCopy
+		
+	types Atestado,Certificado.
+		
+	show Insert,Update,Search,Remove,ListAll.
+	
+		
+	if CheckingCopy.Atestado->checkingCopyAtestado 	
+	if CheckingCopy.Atestado->checkingCopyCertificado 
+	
+add User
+		
+	
+		
+	
+	
+	

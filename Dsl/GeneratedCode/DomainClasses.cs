@@ -631,6 +631,93 @@ namespace Ufba.Ev
 		}
 		
 		#endregion
+		#region hasView domain property code
+		
+		/// <summary>
+		/// hasView domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid hasViewDomainPropertyId = new global::System.Guid(0xa7b16c49, 0x61bf, 0x4130, 0x82, 0x55, 0xa2, 0x53, 0xce, 0xbf, 0x15, 0xa1);
+		
+		/// <summary>
+		/// Storage for hasView
+		/// </summary>
+		private global::System.Boolean hasViewPropertyStorage;
+		
+		/// <summary>
+		/// Gets or sets the value of hasView domain property.
+		/// Description for Ufba.Ev.Function.Has View
+		/// </summary>
+		[DslDesign::DisplayNameResource("Ufba.Ev.Function/hasView.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.Function/hasView.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("a7b16c49-61bf-4130-8255-a253cebf15a1")]
+		public global::System.Boolean hasView
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return hasViewPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				hasViewPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the Function.hasView domain property.
+		/// </summary>
+		internal sealed partial class hasViewPropertyHandler : DslModeling::DomainPropertyValueHandler<Function, global::System.Boolean>
+		{
+			private hasViewPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the Function.hasView domain property value handler.
+			/// </summary>
+			public static readonly hasViewPropertyHandler Instance = new hasViewPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the Function.hasView domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return hasViewDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.Boolean GetValue(Function element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.hasViewPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(Function element, global::System.Boolean newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.Boolean oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.hasViewPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region Option opposite domain role accessor
 		/// <summary>
 		/// Gets or sets Option.

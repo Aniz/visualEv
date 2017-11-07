@@ -123,7 +123,7 @@ namespace Ufba.Ev
 		{
 			get
 			{
-				return new DslDiagrams::SizeD(1.5, 0.5);
+				return new DslDiagrams::SizeD(1.5, 0.6);
 			}
 		}
 		#endregion
@@ -140,6 +140,11 @@ namespace Ufba.Ev
 			DslDiagrams::BrushSettings backgroundBrush = new DslDiagrams::BrushSettings();
 			backgroundBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.DarkRed);
 			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeBackground, backgroundBrush);
+		
+			// Text brush settings for this shape.
+			DslDiagrams::BrushSettings textBrush = new DslDiagrams::BrushSettings();
+			textBrush.Color = global::System.Drawing.Color.FromKnownColor(global::System.Drawing.KnownColor.White);
+			classStyleSet.OverrideBrush(DslDiagrams::DiagramBrushes.ShapeText, textBrush);
 		
 		}
 		
@@ -170,6 +175,10 @@ namespace Ufba.Ev
 			field1.DefaultAccessibleState = global::System.Windows.Forms.AccessibleStates.Invisible;
 			shapeFields.Add(field1);
 			
+			DslDiagrams::ImageField field2 = new DslDiagrams::ImageField("hasView");
+			field2.DefaultImage = DslDiagrams::ImageHelper.GetImage(global::Ufba.Ev.EvDomainModel.SingletonResourceManager.GetObject("FunctionShapehasViewDefaultImage"));
+			shapeFields.Add(field2);
+			
 		}
 		
 		/// <summary>
@@ -182,8 +191,12 @@ namespace Ufba.Ev
 			base.InitializeDecorators(shapeFields, decorators);
 			
 			DslDiagrams::ShapeField field1 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "Name");
-			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.InnerTopLeft, DslDiagrams::PointD.Empty);
+			DslDiagrams::Decorator decorator1 = new DslDiagrams::ShapeDecorator(field1, DslDiagrams::ShapeDecoratorPosition.Center, DslDiagrams::PointD.Empty);
 			decorators.Add(decorator1);
+				
+			DslDiagrams::ShapeField field2 = DslDiagrams::ShapeElement.FindShapeField(shapeFields, "hasView");
+			DslDiagrams::Decorator decorator2 = new DslDiagrams::ShapeDecorator(field2, DslDiagrams::ShapeDecoratorPosition.InnerTopCenter, DslDiagrams::PointD.Empty);
+			decorators.Add(decorator2);
 				
 		}
 		

@@ -321,6 +321,9 @@ namespace Ufba.Ev
 				
 				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ufba.Ev.Function.NameDomainPropertyId);
 				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "Name").AssociateValueWith(shape.Store, propertyInfo);
+		
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ufba.Ev.Function.hasViewDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "hasView").AssociateVisibilityWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -355,8 +358,8 @@ namespace Ufba.Ev
 				DslDiagrams::ShapeElement shape = (DslDiagrams::ShapeElement)sender;
 				DslDiagrams::AssociatedPropertyInfo propertyInfo;
 				
-				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ufba.Ev.OptionHasFunctions.VarDomainPropertyId);
-				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "Var").AssociateValueWith(shape.Store, propertyInfo);
+				propertyInfo = new DslDiagrams::AssociatedPropertyInfo(global::Ufba.Ev.OptionHasFunctions.ParamDomainPropertyId);
+				DslDiagrams::ShapeElement.FindDecorator(shape.Decorators, "Param").AssociateValueWith(shape.Store, propertyInfo);
 			}
 		}
 		
@@ -856,9 +859,9 @@ namespace Ufba.Ev
 			{
 				if(e == null) throw new global::System.ArgumentNullException("e");
 				
-				if (e.DomainProperty.Id == global::Ufba.Ev.OptionHasFunctions.VarDomainPropertyId)
+				if (e.DomainProperty.Id == global::Ufba.Ev.OptionHasFunctions.ParamDomainPropertyId)
 				{
-					DslDiagrams::Decorator decorator = global::Ufba.Ev.OptionConnector.FindOptionConnectorDecorator("Var");
+					DslDiagrams::Decorator decorator = global::Ufba.Ev.OptionConnector.FindOptionConnectorDecorator("Param");
 					if(decorator != null)
 					{
 						decorator.UpdateDecoratorHostShapes(e.ModelElement, global::Ufba.Ev.OptionHasFunctions.DomainClassId);

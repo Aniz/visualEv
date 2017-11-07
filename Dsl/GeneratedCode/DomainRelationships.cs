@@ -413,59 +413,59 @@ namespace Ufba.Ev
 			return GetRoleCollection<DslModeling::LinkedElementCollection<Function>, Function>(element, OptionDomainRoleId);
 		}
 		#endregion
-		#region Var domain property code
+		#region Param domain property code
 		
 		/// <summary>
-		/// Var domain property Id.
+		/// Param domain property Id.
 		/// </summary>
-		public static readonly global::System.Guid VarDomainPropertyId = new global::System.Guid(0x5ac66e02, 0xfcce, 0x4a77, 0xa9, 0x29, 0x71, 0xcc, 0x68, 0xea, 0x7a, 0xc1);
+		public static readonly global::System.Guid ParamDomainPropertyId = new global::System.Guid(0x5ac66e02, 0xfcce, 0x4a77, 0xa9, 0x29, 0x71, 0xcc, 0x68, 0xea, 0x7a, 0xc1);
 		
 		/// <summary>
-		/// Storage for Var
+		/// Storage for Param
 		/// </summary>
-		private global::System.String varPropertyStorage = string.Empty;
+		private global::System.String paramPropertyStorage = string.Empty;
 		
 		/// <summary>
-		/// Gets or sets the value of Var domain property.
-		/// Description for Ufba.Ev.OptionHasFunctions.Var
+		/// Gets or sets the value of Param domain property.
+		/// Description for Ufba.Ev.OptionHasFunctions.Param
 		/// </summary>
-		[DslDesign::DisplayNameResource("Ufba.Ev.OptionHasFunctions/Var.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ufba.Ev.OptionHasFunctions/Var.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("Ufba.Ev.OptionHasFunctions/Param.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.OptionHasFunctions/Param.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("5ac66e02-fcce-4a77-a929-71cc68ea7ac1")]
-		public global::System.String Var
+		public global::System.String Param
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return varPropertyStorage;
+				return paramPropertyStorage;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				VarPropertyHandler.Instance.SetValue(this, value);
+				ParamPropertyHandler.Instance.SetValue(this, value);
 			}
 		}
 		/// <summary>
-		/// Value handler for the OptionHasFunctions.Var domain property.
+		/// Value handler for the OptionHasFunctions.Param domain property.
 		/// </summary>
-		internal sealed partial class VarPropertyHandler : DslModeling::DomainPropertyValueHandler<OptionHasFunctions, global::System.String>
+		internal sealed partial class ParamPropertyHandler : DslModeling::DomainPropertyValueHandler<OptionHasFunctions, global::System.String>
 		{
-			private VarPropertyHandler() { }
+			private ParamPropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the OptionHasFunctions.Var domain property value handler.
+			/// Gets the singleton instance of the OptionHasFunctions.Param domain property value handler.
 			/// </summary>
-			public static readonly VarPropertyHandler Instance = new VarPropertyHandler();
+			public static readonly ParamPropertyHandler Instance = new ParamPropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the OptionHasFunctions.Var domain property.
+			/// Gets the Id of the OptionHasFunctions.Param domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
 				[global::System.Diagnostics.DebuggerStepThrough]
 				get
 				{
-					return VarDomainPropertyId;
+					return ParamDomainPropertyId;
 				}
 			}
 			
@@ -477,7 +477,7 @@ namespace Ufba.Ev
 			public override sealed global::System.String GetValue(OptionHasFunctions element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
-				return element.varPropertyStorage;
+				return element.paramPropertyStorage;
 			}
 		
 			/// <summary>
@@ -493,7 +493,7 @@ namespace Ufba.Ev
 				if (newValue != oldValue)
 				{
 					ValueChanging(element, oldValue, newValue);
-					element.varPropertyStorage = newValue;
+					element.paramPropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}

@@ -166,8 +166,8 @@ namespace Ufba.Ev
 		{
 			base.InitializeDecorators(shapeFields, decorators);
 			
-			DslDiagrams::TextField field1 = new DslDiagrams::TextField("Var");
-			field1.DefaultText = global::Ufba.Ev.EvDomainModel.SingletonResourceManager.GetString("OptionConnectorVarDefaultText");
+			DslDiagrams::TextField field1 = new DslDiagrams::TextField("Param");
+			field1.DefaultText = global::Ufba.Ev.EvDomainModel.SingletonResourceManager.GetString("OptionConnectorParamDefaultText");
 			field1.DefaultFocusable = true;
 			field1.DefaultAutoSize = true;
 			field1.AnchoringBehavior.MinimumHeightInLines = 1;

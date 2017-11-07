@@ -165,6 +165,14 @@
     <value>Name</value>
     <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;Function&apos;</comment>
   </data>
+  <data name="Ufba.Ev.Function/hasView.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.Function.Has View</value>
+    <comment>Description for DomainProperty &apos;hasView&apos; on DomainClass &apos;Function&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.Function/hasView.DisplayName" xml:space="preserve">
+    <value>Has View</value>
+    <comment>DisplayName for DomainProperty &apos;hasView&apos; on DomainClass &apos;Function&apos;</comment>
+  </data>
   <data name="Ufba.Ev.Property.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.Property</value>
     <comment>Description for DomainClass &apos;Property&apos;</comment>
@@ -237,13 +245,13 @@
     <value>Option Has Functions</value>
     <comment>DisplayName for DomainClass &apos;OptionHasFunctions&apos;</comment>
   </data>
-  <data name="Ufba.Ev.OptionHasFunctions/Var.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.OptionHasFunctions.Var</value>
-    <comment>Description for DomainProperty &apos;Var&apos; on DomainClass &apos;OptionHasFunctions&apos;</comment>
+  <data name="Ufba.Ev.OptionHasFunctions/Param.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.OptionHasFunctions.Param</value>
+    <comment>Description for DomainProperty &apos;Param&apos; on DomainClass &apos;OptionHasFunctions&apos;</comment>
   </data>
-  <data name="Ufba.Ev.OptionHasFunctions/Var.DisplayName" xml:space="preserve">
-    <value>Var</value>
-    <comment>DisplayName for DomainProperty &apos;Var&apos; on DomainClass &apos;OptionHasFunctions&apos;</comment>
+  <data name="Ufba.Ev.OptionHasFunctions/Param.DisplayName" xml:space="preserve">
+    <value>Param</value>
+    <comment>DisplayName for DomainProperty &apos;Param&apos; on DomainClass &apos;OptionHasFunctions&apos;</comment>
   </data>
   <data name="Ufba.Ev.OptionHasFunctions/Option.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.OptionHasFunctions.Option</value>
@@ -437,70 +445,6 @@
     <value>Description for Ufba.Ev.FunctionTypes.askCardInfo</value>
     <comment>Description for EnumerationLiteral &apos;askCardInfo&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
-  <data name="Ufba.Ev.FunctionTypes/sendEmailNotification.DisplayName" xml:space="preserve">
-    <value>sendEmailNotification</value>
-    <comment>Display name for EnumerationLiteral &apos;sendEmailNotification&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/sendEmailNotification.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.sendEmailNotification</value>
-    <comment>Description for EnumerationLiteral &apos;sendEmailNotification&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/assigmentConflictResolver.DisplayName" xml:space="preserve">
-    <value>assigmentConflictResolver</value>
-    <comment>Display name for EnumerationLiteral &apos;assigmentConflictResolver&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/assigmentConflictResolver.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.assigmentConflictResolver</value>
-    <comment>Description for EnumerationLiteral &apos;assigmentConflictResolver&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/reportsFrequencyPerActivity.DisplayName" xml:space="preserve">
-    <value>reportsFrequencyPerActivity</value>
-    <comment>Display name for EnumerationLiteral &apos;reportsFrequencyPerActivity&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/reportsFrequencyPerActivity.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerActivity</value>
-    <comment>Description for EnumerationLiteral &apos;reportsFrequencyPerActivity&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/checkingCopyAtestado.DisplayName" xml:space="preserve">
-    <value>checkingCopyAtestado</value>
-    <comment>Display name for EnumerationLiteral &apos;checkingCopyAtestado&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/checkingCopyAtestado.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.checkingCopyAtestado</value>
-    <comment>Description for EnumerationLiteral &apos;checkingCopyAtestado&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/reportsListofAuthors.DisplayName" xml:space="preserve">
-    <value>reportsListofAuthors</value>
-    <comment>Display name for EnumerationLiteral &apos;reportsListofAuthors&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/reportsListofAuthors.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.reportsListofAuthors</value>
-    <comment>Description for EnumerationLiteral &apos;reportsListofAuthors&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/checkingCopyCertificado.DisplayName" xml:space="preserve">
-    <value>checkingCopyCertificado</value>
-    <comment>Display name for EnumerationLiteral &apos;checkingCopyCertificado&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/checkingCopyCertificado.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.checkingCopyCertificado</value>
-    <comment>Description for EnumerationLiteral &apos;checkingCopyCertificado&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/program.DisplayName" xml:space="preserve">
-    <value>program</value>
-    <comment>Display name for EnumerationLiteral &apos;program&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/program.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.program</value>
-    <comment>Description for EnumerationLiteral &apos;program&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/importantDates.DisplayName" xml:space="preserve">
-    <value>importantDates</value>
-    <comment>Display name for EnumerationLiteral &apos;importantDates&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/importantDates.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.importantDates</value>
-    <comment>Description for EnumerationLiteral &apos;importantDates&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
   <data name="Ufba.Ev.FunctionTypes/generateBoleto.DisplayName" xml:space="preserve">
     <value>generateBoleto</value>
     <comment>Display name for EnumerationLiteral &apos;generateBoleto&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
@@ -508,14 +452,6 @@
   <data name="Ufba.Ev.FunctionTypes/generateBoleto.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.FunctionTypes.generateBoleto</value>
     <comment>Description for EnumerationLiteral &apos;generateBoleto&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/reportsFrequencyPerEvent.DisplayName" xml:space="preserve">
-    <value>reportsFrequencyPerEvent</value>
-    <comment>Display name for EnumerationLiteral &apos;reportsFrequencyPerEvent&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/reportsFrequencyPerEvent.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerEvent</value>
-    <comment>Description for EnumerationLiteral &apos;reportsFrequencyPerEvent&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
   <data name="Ufba.Ev.FunctionTypes/generateCarne.DisplayName" xml:space="preserve">
     <value>generateCarne</value>
@@ -525,13 +461,69 @@
     <value>Description for Ufba.Ev.FunctionTypes.generateCarne</value>
     <comment>Description for EnumerationLiteral &apos;generateCarne&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
-  <data name="Ufba.Ev.FunctionTypes/sendBugTrackEmail.DisplayName" xml:space="preserve">
-    <value>sendBugTrackEmail</value>
-    <comment>Display name for EnumerationLiteral &apos;sendBugTrackEmail&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  <data name="Ufba.Ev.FunctionTypes/reportsFrequencyPerActivity.DisplayName" xml:space="preserve">
+    <value>reportsFrequencyPerActivity</value>
+    <comment>Display name for EnumerationLiteral &apos;reportsFrequencyPerActivity&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
-  <data name="Ufba.Ev.FunctionTypes/sendBugTrackEmail.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.sendBugTrackEmail</value>
-    <comment>Description for EnumerationLiteral &apos;sendBugTrackEmail&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  <data name="Ufba.Ev.FunctionTypes/reportsFrequencyPerActivity.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerActivity</value>
+    <comment>Description for EnumerationLiteral &apos;reportsFrequencyPerActivity&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/reportsListofAuthors.DisplayName" xml:space="preserve">
+    <value>reportsListofAuthors</value>
+    <comment>Display name for EnumerationLiteral &apos;reportsListofAuthors&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/reportsListofAuthors.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.reportsListofAuthors</value>
+    <comment>Description for EnumerationLiteral &apos;reportsListofAuthors&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/checkingCopyAtestado.DisplayName" xml:space="preserve">
+    <value>checkingCopyAtestado</value>
+    <comment>Display name for EnumerationLiteral &apos;checkingCopyAtestado&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/checkingCopyAtestado.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.checkingCopyAtestado</value>
+    <comment>Description for EnumerationLiteral &apos;checkingCopyAtestado&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/checkingCopyCertificado.DisplayName" xml:space="preserve">
+    <value>checkingCopyCertificado</value>
+    <comment>Display name for EnumerationLiteral &apos;checkingCopyCertificado&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/checkingCopyCertificado.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.checkingCopyCertificado</value>
+    <comment>Description for EnumerationLiteral &apos;checkingCopyCertificado&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/eventProgram.DisplayName" xml:space="preserve">
+    <value>eventProgram</value>
+    <comment>Display name for EnumerationLiteral &apos;eventProgram&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/eventProgram.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.eventProgram</value>
+    <comment>Description for EnumerationLiteral &apos;eventProgram&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/eventImportantDates.DisplayName" xml:space="preserve">
+    <value>eventImportantDates</value>
+    <comment>Display name for EnumerationLiteral &apos;eventImportantDates&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/eventImportantDates.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.eventImportantDates</value>
+    <comment>Description for EnumerationLiteral &apos;eventImportantDates&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/reportsFrequencyPerEvent.DisplayName" xml:space="preserve">
+    <value>reportsFrequencyPerEvent</value>
+    <comment>Display name for EnumerationLiteral &apos;reportsFrequencyPerEvent&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/reportsFrequencyPerEvent.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerEvent</value>
+    <comment>Description for EnumerationLiteral &apos;reportsFrequencyPerEvent&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/assignmentInterestConflict.DisplayName" xml:space="preserve">
+    <value>assignmentInterestConflict</value>
+    <comment>Display name for EnumerationLiteral &apos;assignmentInterestConflict&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/assignmentInterestConflict.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.assignmentInterestConflict</value>
+    <comment>Description for EnumerationLiteral &apos;assignmentInterestConflict&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
   <data name="Ufba.Ev.FunctionTypes/notificationsDeadline.DisplayName" xml:space="preserve">
     <value>notificationsDeadline</value>
@@ -541,14 +533,6 @@
     <value>Description for Ufba.Ev.FunctionTypes.notificationsDeadline</value>
     <comment>Description for EnumerationLiteral &apos;notificationsDeadline&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
-  <data name="Ufba.Ev.FunctionTypes/interestConflict.DisplayName" xml:space="preserve">
-    <value>interestConflict</value>
-    <comment>Display name for EnumerationLiteral &apos;interestConflict&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
-  <data name="Ufba.Ev.FunctionTypes/interestConflict.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.interestConflict</value>
-    <comment>Description for EnumerationLiteral &apos;interestConflict&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
-  </data>
   <data name="Ufba.Ev.FunctionTypes/notificationsAceptanceRejection.DisplayName" xml:space="preserve">
     <value>notificationsAceptanceRejection</value>
     <comment>Display name for EnumerationLiteral &apos;notificationsAceptanceRejection&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
@@ -557,13 +541,53 @@
     <value>Description for Ufba.Ev.FunctionTypes.notificationsAceptanceRejection</value>
     <comment>Description for EnumerationLiteral &apos;notificationsAceptanceRejection&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
-  <data name="Ufba.Ev.FunctionTypes/insertAttachment.DisplayName" xml:space="preserve">
-    <value>insertAttachment</value>
-    <comment>Display name for EnumerationLiteral &apos;insertAttachment&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  <data name="Ufba.Ev.FunctionTypes/notificationPaperAssignment.DisplayName" xml:space="preserve">
+    <value>notificationPaperAssignment</value>
+    <comment>Display name for EnumerationLiteral &apos;notificationPaperAssignment&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
-  <data name="Ufba.Ev.FunctionTypes/insertAttachment.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.insertAttachment</value>
-    <comment>Description for EnumerationLiteral &apos;insertAttachment&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  <data name="Ufba.Ev.FunctionTypes/notificationPaperAssignment.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.notificationPaperAssignment</value>
+    <comment>Description for EnumerationLiteral &apos;notificationPaperAssignment&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/reviewerRoundofReview.DisplayName" xml:space="preserve">
+    <value>reviewerRoundofReview</value>
+    <comment>Display name for EnumerationLiteral &apos;reviewerRoundofReview&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/reviewerRoundofReview.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.reviewerRoundofReview</value>
+    <comment>Description for EnumerationLiteral &apos;reviewerRoundofReview&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/submissionInsertAttachment.DisplayName" xml:space="preserve">
+    <value>submissionInsertAttachment</value>
+    <comment>Display name for EnumerationLiteral &apos;submissionInsertAttachment&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/submissionInsertAttachment.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.submissionInsertAttachment</value>
+    <comment>Description for EnumerationLiteral &apos;submissionInsertAttachment&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/submissionCompleteInsert.DisplayName" xml:space="preserve">
+    <value>submissionCompleteInsert</value>
+    <comment>Display name for EnumerationLiteral &apos;submissionCompleteInsert&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/submissionCompleteInsert.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.submissionCompleteInsert</value>
+    <comment>Description for EnumerationLiteral &apos;submissionCompleteInsert&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/submissionPartialInsert.DisplayName" xml:space="preserve">
+    <value>submissionPartialInsert</value>
+    <comment>Display name for EnumerationLiteral &apos;submissionPartialInsert&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/submissionPartialInsert.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.submissionPartialInsert</value>
+    <comment>Description for EnumerationLiteral &apos;submissionPartialInsert&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/userSendBugTrackEmail.DisplayName" xml:space="preserve">
+    <value>userSendBugTrackEmail</value>
+    <comment>Display name for EnumerationLiteral &apos;userSendBugTrackEmail&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.FunctionTypes/userSendBugTrackEmail.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.userSendBugTrackEmail</value>
+    <comment>Description for EnumerationLiteral &apos;userSendBugTrackEmail&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
   <data name="Ufba.Ev.CommandTypes/All.DisplayName" xml:space="preserve">
     <value>All</value>
@@ -613,6 +637,14 @@
     <value>Description for Ufba.Ev.CommandTypes.ListAll</value>
     <comment>Description for EnumerationLiteral &apos;ListAll&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
   </data>
+  <data name="Ufba.Ev.CommandTypes/Management.DisplayName" xml:space="preserve">
+    <value>Management</value>
+    <comment>Display name for EnumerationLiteral &apos;Management&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
+  <data name="Ufba.Ev.CommandTypes/Management.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.CommandTypes.Management</value>
+    <comment>Description for EnumerationLiteral &apos;Management&apos; on DomainEnumeration &apos;CommandTypes&apos;</comment>
+  </data>
   <data name="Ufba.Ev.FunctionShape.Description" xml:space="preserve">
     <value>Description for Ufba.Ev.FunctionShape</value>
     <comment>Description for DomainClass &apos;FunctionShape&apos;</comment>
@@ -653,8 +685,8 @@
     <value>Option Connector</value>
     <comment>DisplayName for DomainClass &apos;OptionConnector&apos;</comment>
   </data>
-  <data name="OptionConnectorVarDefaultText" xml:space="preserve">
-    <value>Var</value>
+  <data name="OptionConnectorParamDefaultText" xml:space="preserve">
+    <value>Param</value>
     <comment>Text decorator default text</comment>
   </data>
   <data name="FormatList" xml:space="preserve">
@@ -818,6 +850,10 @@ A DomainClass can be serialized as a moniker only if
     <comment>Message when validation errors are found on save that will cause file to become unloadable</comment>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="FunctionShapehasViewDefaultImage" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
+    <value>..\Resources\view.gif;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <comment>Icon decorator default image</comment>
+  </data>
   <data name="OptionElementToolboxBitmap" type="System.Resources.ResXFileRef, System.Windows.Forms" xml:space="preserve">
     <value>..\resources\exampleshapetoolbitmap.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
     <comment>Toolbox item image</comment>

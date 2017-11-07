@@ -56,6 +56,11 @@
             <DomainEnumerationMoniker Name="FunctionTypes" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="a7b16c49-61bf-4130-8255-a253cebf15a1" Description="Description for Ufba.Ev.Function.Has View" Name="hasView" DisplayName="Has View">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Boolean" />
+          </Type>
+        </DomainProperty>
       </Properties>
     </DomainClass>
     <DomainClass Id="6a78b38d-b370-45fc-992c-ce5f1193a4a7" Description="Description for Ufba.Ev.Property" Name="Property" DisplayName="Property" Namespace="Ufba.Ev">
@@ -96,7 +101,7 @@
     </DomainRelationship>
     <DomainRelationship Id="7c7047b7-f435-4984-b739-c6603a21f7c1" Description="Description for Ufba.Ev.OptionHasFunctions" Name="OptionHasFunctions" DisplayName="Option Has Functions" Namespace="Ufba.Ev" IsEmbedding="true">
       <Properties>
-        <DomainProperty Id="5ac66e02-fcce-4a77-a929-71cc68ea7ac1" Description="Description for Ufba.Ev.OptionHasFunctions.Var" Name="Var" DisplayName="Var">
+        <DomainProperty Id="5ac66e02-fcce-4a77-a929-71cc68ea7ac1" Description="Description for Ufba.Ev.OptionHasFunctions.Param" Name="Param" DisplayName="Param">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
@@ -185,22 +190,24 @@
     <DomainEnumeration Name="FunctionTypes" Namespace="Ufba.Ev" Description="Description for Ufba.Ev.FunctionTypes">
       <Literals>
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.askCardInfo" Name="askCardInfo" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.sendEmailNotification" Name="sendEmailNotification" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.assigmentConflictResolver" Name="assigmentConflictResolver" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerActivity" Name="reportsFrequencyPerActivity" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.checkingCopyAtestado" Name="checkingCopyAtestado" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsListofAuthors" Name="reportsListofAuthors" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.checkingCopyCertificado" Name="checkingCopyCertificado" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.program" Name="program" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.importantDates" Name="importantDates" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.generateBoleto" Name="generateBoleto" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerEvent" Name="reportsFrequencyPerEvent" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.generateCarne" Name="generateCarne" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.sendBugTrackEmail" Name="sendBugTrackEmail" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerActivity" Name="reportsFrequencyPerActivity" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsListofAuthors" Name="reportsListofAuthors" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.checkingCopyAtestado" Name="checkingCopyAtestado" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.checkingCopyCertificado" Name="checkingCopyCertificado" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.eventProgram" Name="eventProgram" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.eventImportantDates" Name="eventImportantDates" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerEvent" Name="reportsFrequencyPerEvent" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.assignmentInterestConflict" Name="assignmentInterestConflict" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.notificationsDeadline" Name="notificationsDeadline" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.interestConflict" Name="interestConflict" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.notificationsAceptanceRejection" Name="notificationsAceptanceRejection" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.insertAttachment" Name="insertAttachment" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.notificationPaperAssignment" Name="notificationPaperAssignment" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reviewerRoundofReview" Name="reviewerRoundofReview" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.submissionInsertAttachment" Name="submissionInsertAttachment" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.submissionCompleteInsert" Name="submissionCompleteInsert" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.submissionPartialInsert" Name="submissionPartialInsert" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.userSendBugTrackEmail" Name="userSendBugTrackEmail" Value="" />
       </Literals>
     </DomainEnumeration>
     <DomainEnumeration Name="CommandTypes" Namespace="Ufba.Ev" Description="Description for Ufba.Ev.CommandTypes">
@@ -211,13 +218,17 @@
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Search" Name="Search" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Remove" Name="Remove" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.ListAll" Name="ListAll" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.CommandTypes.Management" Name="Management" Value="" />
       </Literals>
     </DomainEnumeration>
   </Types>
   <Shapes>
-    <GeometryShape Id="9e94b808-f9f7-45db-89e1-5c609151267f" Description="Description for Ufba.Ev.FunctionShape" Name="FunctionShape" DisplayName="Function Shape" Namespace="Ufba.Ev" FixedTooltipText="Function Shape" FillColor="DarkRed" InitialHeight="0.5" Geometry="Ellipse">
-      <ShapeHasDecorators Position="InnerTopLeft" HorizontalOffset="0" VerticalOffset="0">
+    <GeometryShape Id="9e94b808-f9f7-45db-89e1-5c609151267f" Description="Description for Ufba.Ev.FunctionShape" Name="FunctionShape" DisplayName="Function Shape" Namespace="Ufba.Ev" FixedTooltipText="Function Shape" TextColor="White" FillColor="DarkRed" InitialHeight="0.6" Geometry="Ellipse">
+      <ShapeHasDecorators Position="Center" HorizontalOffset="0" VerticalOffset="0">
         <TextDecorator Name="Name" DisplayName="Name" DefaultText="Name" />
+      </ShapeHasDecorators>
+      <ShapeHasDecorators Position="InnerTopCenter" HorizontalOffset="0" VerticalOffset="0">
+        <IconDecorator Name="hasView" DisplayName="Has View" DefaultIcon="Resources\view.gif" />
       </ShapeHasDecorators>
     </GeometryShape>
     <CompartmentShape Id="1027ef0a-85dd-46fb-9ce6-94cee5533d96" Description="Description for Ufba.Ev.OptionShape" Name="OptionShape" DisplayName="Option Shape" Namespace="Ufba.Ev" FixedTooltipText="Option Shape" FillColor="SkyBlue" InitialHeight="1" Geometry="Rectangle">
@@ -231,7 +242,7 @@
   <Connectors>
     <Connector Id="ce04cb6b-f0cc-46b9-8ed0-eacd62889875" Description="Connector between the ExampleShapes. Represents ExampleRelationships on the Diagram." Name="OptionConnector" DisplayName="Option Connector" Namespace="Ufba.Ev" FixedTooltipText="Option Connector" Color="Fuchsia" TargetEndStyle="EmptyArrow" Thickness="0.01">
       <ConnectorHasDecorators Position="SourceTop" OffsetFromShape="0" OffsetFromLine="0">
-        <TextDecorator Name="Var" DisplayName="Var" DefaultText="Var" />
+        <TextDecorator Name="Param" DisplayName="Param" DefaultText="Param" />
       </ConnectorHasDecorators>
     </Connector>
   </Connectors>
@@ -274,8 +285,8 @@
       <XmlClassData TypeName="OptionHasFunctions" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionHasFunctionsMoniker" ElementName="optionHasFunctions" MonikerTypeName="OptionHasFunctionsMoniker">
         <DomainRelationshipMoniker Name="OptionHasFunctions" />
         <ElementData>
-          <XmlPropertyData XmlName="var">
-            <DomainPropertyMoniker Name="OptionHasFunctions/Var" />
+          <XmlPropertyData XmlName="param">
+            <DomainPropertyMoniker Name="OptionHasFunctions/Param" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
@@ -284,6 +295,9 @@
         <ElementData>
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="Function/Name" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="hasView">
+            <DomainPropertyMoniker Name="Function/hasView" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
@@ -357,6 +371,12 @@
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
+        <DecoratorMap>
+          <IconDecoratorMoniker Name="FunctionShape/hasView" />
+          <VisibilityPropertyPath>
+            <DomainPropertyMoniker Name="Function/hasView" />
+          </VisibilityPropertyPath>
+        </DecoratorMap>
         <GeometryShapeMoniker Name="FunctionShape" />
       </ShapeMap>
       <CompartmentShapeMap>
@@ -402,10 +422,10 @@
         <ConnectorMoniker Name="OptionConnector" />
         <DomainRelationshipMoniker Name="OptionHasFunctions" />
         <DecoratorMap>
-          <TextDecoratorMoniker Name="OptionConnector/Var" />
+          <TextDecoratorMoniker Name="OptionConnector/Param" />
           <PropertyDisplayed>
             <PropertyPath>
-              <DomainPropertyMoniker Name="OptionHasFunctions/Var" />
+              <DomainPropertyMoniker Name="OptionHasFunctions/Param" />
             </PropertyPath>
           </PropertyDisplayed>
         </DecoratorMap>
