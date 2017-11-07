@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<evModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="484339b8-d51d-4815-bf0e-ee2a37d5b026" xmlns="http://schemas.microsoft.com/dsltools/Ev">
+<evModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="484339b8-d51d-4815-bf0e-ee2a37d5b026" name="RiseEvents" password="password" email="rise" xmlns="http://schemas.microsoft.com/dsltools/Ev">
   <elements>
     <option Id="d50b1af2-b32b-4d5d-8884-7976d7fd2b7b" optionType="User">
       <functions>
@@ -263,6 +263,9 @@
         </optionHasFunctions>
         <optionHasFunctions Id="1ce82717-bb55-464b-a6b5-7b1100cc40fe">
           <function Id="a99a3884-ece8-40f9-bbf9-2066acfd9d1b" name="assignmentInterestConflict" hasView="false" />
+        </optionHasFunctions>
+        <optionHasFunctions Id="4d616f36-f5e5-401f-bf3e-02d8d42b9f58">
+          <function Id="1e4020d6-9459-47b7-860b-b38a96735c52" name="notificationsDeadline" hasView="false" />
         </optionHasFunctions>
       </functions>
       <types>

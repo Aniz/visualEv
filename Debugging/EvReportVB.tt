@@ -1,9 +1,10 @@
 ﻿<#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>
 <#@ output extension=".ev" #>
-<#@ Ev processor="EvDirectiveProcessor" requires="fileName='Sample.visualEv'" #>
+<#@ Ev processor="EvDirectiveProcessor" requires="fileName='Test.visualEv'" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
 
+Create <#= this.EvModel.Name #> <#= this.EvModel.Email #> <#= this.EvModel.Password #>
 <#
 foreach (Option element in this.EvModel.Elements)
 {
