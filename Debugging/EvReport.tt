@@ -4,6 +4,7 @@
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
 
+Create <#= this.EvModel.Name #> <#= this.EvModel.Email #> <#= this.EvModel.Password #>
 <#
 foreach (Option element in this.EvModel.Elements)
 {
@@ -26,10 +27,10 @@ add <#= element.OptionType #>
                 (from property in element.Types
                  select property.Name).ToArray());
 	if(show == "All" ){
-		show = "show Insert,Update,Search,Remove,ListAll,Management.";
+		show = "show Insert Update Search Remove ListAll Management";
 	}
 	else if(show != string.Empty){
-		show = "show " + show + ".";
+		show = "show " + show + " ";
 	}
 
 	#>	

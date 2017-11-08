@@ -599,11 +599,11 @@ namespace Ufba.Ev
 		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reportsFrequencyPerActivity.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		reportsFrequencyPerActivity,
 		/// <summary>
-		/// reportsListofAuthors
-		/// Description for Ufba.Ev.FunctionTypes.reportsListofAuthors
+		/// reportsListOfAuthors
+		/// Description for Ufba.Ev.FunctionTypes.reportsListOfAuthors
 		/// </summary>
-		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reportsListofAuthors.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		reportsListofAuthors,
+		[DslDesign::DescriptionResource("Ufba.Ev.FunctionTypes/reportsListOfAuthors.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		reportsListOfAuthors,
 		/// <summary>
 		/// checkingCopyAtestado
 		/// Description for Ufba.Ev.FunctionTypes.checkingCopyAtestado

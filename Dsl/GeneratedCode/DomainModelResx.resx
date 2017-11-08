@@ -493,13 +493,13 @@
     <value>Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerActivity</value>
     <comment>Description for EnumerationLiteral &apos;reportsFrequencyPerActivity&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
-  <data name="Ufba.Ev.FunctionTypes/reportsListofAuthors.DisplayName" xml:space="preserve">
-    <value>reportsListofAuthors</value>
-    <comment>Display name for EnumerationLiteral &apos;reportsListofAuthors&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  <data name="Ufba.Ev.FunctionTypes/reportsListOfAuthors.DisplayName" xml:space="preserve">
+    <value>reportsListOfAuthors</value>
+    <comment>Display name for EnumerationLiteral &apos;reportsListOfAuthors&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
-  <data name="Ufba.Ev.FunctionTypes/reportsListofAuthors.Description" xml:space="preserve">
-    <value>Description for Ufba.Ev.FunctionTypes.reportsListofAuthors</value>
-    <comment>Description for EnumerationLiteral &apos;reportsListofAuthors&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
+  <data name="Ufba.Ev.FunctionTypes/reportsListOfAuthors.Description" xml:space="preserve">
+    <value>Description for Ufba.Ev.FunctionTypes.reportsListOfAuthors</value>
+    <comment>Description for EnumerationLiteral &apos;reportsListOfAuthors&apos; on DomainEnumeration &apos;FunctionTypes&apos;</comment>
   </data>
   <data name="Ufba.Ev.FunctionTypes/checkingCopyAtestado.DisplayName" xml:space="preserve">
     <value>checkingCopyAtestado</value>

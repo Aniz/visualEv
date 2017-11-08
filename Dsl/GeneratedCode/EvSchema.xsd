@@ -450,7 +450,7 @@
       <xsd:enumeration value="generateBoleto"/>
       <xsd:enumeration value="generateCarne"/>
       <xsd:enumeration value="reportsFrequencyPerActivity"/>
-      <xsd:enumeration value="reportsListofAuthors"/>
+      <xsd:enumeration value="reportsListOfAuthors"/>
       <xsd:enumeration value="checkingCopyAtestado"/>
       <xsd:enumeration value="checkingCopyCertificado"/>
       <xsd:enumeration value="eventProgram"/>

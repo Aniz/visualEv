@@ -6,17 +6,13 @@
 
 Create <#= this.EvModel.Name #> <#= this.EvModel.Email #> <#= this.EvModel.Password #>
 <#
-foreach (Option element in this.EvModel.Elements)
-{
+foreach (Option element in this.EvModel.Elements){
 	string types = "";
 	string show = "";
 #>
 
 add <#= element.OptionType #>
-	<#	types = string.Join(
-                ",", //Change the value here to separate the strings.
-                (from property in element.Properties
-                 select property.Name).ToArray());
+	<#	types = string.Join(",",(from property in element.Properties select property.Name).ToArray());
 	if(types != string.Empty){
 		types = "types " + types + ".";
 	}
@@ -27,10 +23,10 @@ add <#= element.OptionType #>
                 (from property in element.Types
                  select property.Name).ToArray());
 	if(show == "All" ){
-		show = "show Insert,Update,Search,Remove,ListAll,Management.";
+		show = "show Insert Update Search Remove ListAll Management";
 	}
 	else if(show != string.Empty){
-		show = "show " + show + ".";
+		show = "show " + show + " ";
 	}
 
 	#>	

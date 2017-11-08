@@ -210,7 +210,7 @@
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.generateBoleto" Name="generateBoleto" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.generateCarne" Name="generateCarne" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsFrequencyPerActivity" Name="reportsFrequencyPerActivity" Value="" />
-        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsListofAuthors" Name="reportsListofAuthors" Value="" />
+        <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.reportsListOfAuthors" Name="reportsListOfAuthors" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.checkingCopyAtestado" Name="checkingCopyAtestado" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.checkingCopyCertificado" Name="checkingCopyCertificado" Value="" />
         <EnumerationLiteral Description="Description for Ufba.Ev.FunctionTypes.eventProgram" Name="eventProgram" Value="" />
