@@ -12,7 +12,7 @@ foreach (Option element in this.EvModel.Elements){
 #>
 
 add <#= element.OptionType #>
-	<#	types = string.Join(",",(from property in element.Properties select property.Name).ToArray());
+	<#	types = string.Join(",",(from category in element.Categories select category.Name).ToArray());
 	if(types != string.Empty){
 		types = "types " + types + ".";
 	}
@@ -20,8 +20,8 @@ add <#= element.OptionType #>
 	<#= types #>
 	<#	show = string.Join(
                 ",", //Change the value here to separate the strings.
-                (from property in element.Types
-                 select property.Name).ToArray());
+                (from command in element.Commands
+                 select command.Name).ToArray());
 	if(show == "All" ){
 		show = "show Insert Update Search Remove ListAll Management";
 	}
@@ -31,6 +31,7 @@ add <#= element.OptionType #>
 
 	#>	
 	<#= show #>
+
 	<# foreach(OptionHasFunctions assoc in OptionHasFunctions.GetLinksToFunctions(element)){ #>
 	<# if (assoc.Function.hasView) { #> def <# }else{ #> if <# } #><#= assoc.Option.OptionType #><# if (assoc.Param != string.Empty){ #>.<#=assoc.Param #><#}#>-><#= assoc.Function.Name #><# } #>
 <#    

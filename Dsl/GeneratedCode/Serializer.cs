@@ -1094,28 +1094,28 @@ namespace Ufba.Ev
 							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </functions>
 						}
 						break;
-					case "properties":	// Relationship "OptionHasProperties"
+					case "categories":	// Relationship "OptionHasCategories"
 						if (reader.IsEmptyElement)
 						{	// No instance of this relationship, just skip
 							DslModeling::SerializationUtilities.Skip(reader);
 						}
 						else
 						{
-							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <properties>
-							ReadOptionHasPropertiesInstances(serializationContext, element, reader);
-							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </properties>
+							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <categories>
+							ReadOptionHasCategoriesInstances(serializationContext, element, reader);
+							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </categories>
 						}
 						break;
-					case "types":	// Relationship "OptionHasTypes"
+					case "commands":	// Relationship "OptionHasCommands"
 						if (reader.IsEmptyElement)
 						{	// No instance of this relationship, just skip
 							DslModeling::SerializationUtilities.Skip(reader);
 						}
 						else
 						{
-							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <types>
-							ReadOptionHasTypesInstances(serializationContext, element, reader);
-							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </types>
+							DslModeling::SerializationUtilities.SkipToFirstChild(reader);  // Skip the open tag of <commands>
+							ReadOptionHasCommandsInstances(serializationContext, element, reader);
+							DslModeling::SerializationUtilities.Skip(reader);  // Skip the close tag of </commands>
 						}
 						break;
 					default:
@@ -1171,7 +1171,7 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Reads all instances of relationship OptionHasProperties.
+		/// Reads all instances of relationship OptionHasCategories.
 		/// </summary>
 		/// <remarks>
 		/// The caller will position the reader at the open tag of the first XML element inside the relationship tag, so it can be
@@ -1181,32 +1181,32 @@ namespace Ufba.Ev
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="element">In-memory Option instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		private static void ReadOptionHasPropertiesInstances(DslModeling::SerializationContext serializationContext, Option element, global::System.Xml.XmlReader reader)
+		private static void ReadOptionHasCategoriesInstances(DslModeling::SerializationContext serializationContext, Option element, global::System.Xml.XmlReader reader)
 		{
 			while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 			{
-				DslModeling::DomainClassXmlSerializer newOptionHasPropertiesSerializer = serializationContext.Directory.GetSerializer(OptionHasProperties.DomainClassId);
-				global::System.Diagnostics.Debug.Assert(newOptionHasPropertiesSerializer != null, "Cannot find serializer for OptionHasProperties!");
-				OptionHasProperties newOptionHasProperties = newOptionHasPropertiesSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as OptionHasProperties;
-				if (newOptionHasProperties != null)
+				DslModeling::DomainClassXmlSerializer newOptionHasCategoriesSerializer = serializationContext.Directory.GetSerializer(OptionHasCategories.DomainClassId);
+				global::System.Diagnostics.Debug.Assert(newOptionHasCategoriesSerializer != null, "Cannot find serializer for OptionHasCategories!");
+				OptionHasCategories newOptionHasCategories = newOptionHasCategoriesSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as OptionHasCategories;
+				if (newOptionHasCategories != null)
 				{
-					DslModeling::DomainRoleInfo.SetRolePlayer (newOptionHasProperties, OptionHasProperties.OptionDomainRoleId, element);
-					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newOptionHasProperties.GetDomainClass().Id);	
-					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newOptionHasProperties.GetDomainClass().Name + "!");
-					targetSerializer.Read(serializationContext, newOptionHasProperties, reader);
+					DslModeling::DomainRoleInfo.SetRolePlayer (newOptionHasCategories, OptionHasCategories.OptionDomainRoleId, element);
+					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newOptionHasCategories.GetDomainClass().Id);	
+					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newOptionHasCategories.GetDomainClass().Name + "!");
+					targetSerializer.Read(serializationContext, newOptionHasCategories, reader);
 				}
 				else
 				{	// Maybe the relationship is serialized in short-form by mistake.
-					DslModeling::DomainClassXmlSerializer newPropertyOfOptionHasPropertiesSerializer = serializationContext.Directory.GetSerializer(Property.DomainClassId);
-					global::System.Diagnostics.Debug.Assert(newPropertyOfOptionHasPropertiesSerializer != null, "Cannot find serializer for Property!");
-					Property newPropertyOfOptionHasProperties = newPropertyOfOptionHasPropertiesSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as Property;
-					if (newPropertyOfOptionHasProperties != null)
+					DslModeling::DomainClassXmlSerializer newCategoryOfOptionHasCategoriesSerializer = serializationContext.Directory.GetSerializer(Category.DomainClassId);
+					global::System.Diagnostics.Debug.Assert(newCategoryOfOptionHasCategoriesSerializer != null, "Cannot find serializer for Category!");
+					Category newCategoryOfOptionHasCategories = newCategoryOfOptionHasCategoriesSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as Category;
+					if (newCategoryOfOptionHasCategories != null)
 					{
-						EvSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(OptionHasProperties));
-						element.Properties.Add(newPropertyOfOptionHasProperties);
-						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newPropertyOfOptionHasProperties.GetDomainClass().Id);	
-						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newPropertyOfOptionHasProperties.GetDomainClass().Name + "!");
-						targetSerializer.Read(serializationContext, newPropertyOfOptionHasProperties, reader);
+						EvSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(OptionHasCategories));
+						element.Categories.Add(newCategoryOfOptionHasCategories);
+						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newCategoryOfOptionHasCategories.GetDomainClass().Id);	
+						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newCategoryOfOptionHasCategories.GetDomainClass().Name + "!");
+						targetSerializer.Read(serializationContext, newCategoryOfOptionHasCategories, reader);
 					}
 					else
 					{	// Unknown element, skip.
@@ -1217,7 +1217,7 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Reads all instances of relationship OptionHasTypes.
+		/// Reads all instances of relationship OptionHasCommands.
 		/// </summary>
 		/// <remarks>
 		/// The caller will position the reader at the open tag of the first XML element inside the relationship tag, so it can be
@@ -1227,32 +1227,32 @@ namespace Ufba.Ev
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="element">In-memory Option instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		private static void ReadOptionHasTypesInstances(DslModeling::SerializationContext serializationContext, Option element, global::System.Xml.XmlReader reader)
+		private static void ReadOptionHasCommandsInstances(DslModeling::SerializationContext serializationContext, Option element, global::System.Xml.XmlReader reader)
 		{
 			while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 			{
-				DslModeling::DomainClassXmlSerializer newOptionHasTypesSerializer = serializationContext.Directory.GetSerializer(OptionHasTypes.DomainClassId);
-				global::System.Diagnostics.Debug.Assert(newOptionHasTypesSerializer != null, "Cannot find serializer for OptionHasTypes!");
-				OptionHasTypes newOptionHasTypes = newOptionHasTypesSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as OptionHasTypes;
-				if (newOptionHasTypes != null)
+				DslModeling::DomainClassXmlSerializer newOptionHasCommandsSerializer = serializationContext.Directory.GetSerializer(OptionHasCommands.DomainClassId);
+				global::System.Diagnostics.Debug.Assert(newOptionHasCommandsSerializer != null, "Cannot find serializer for OptionHasCommands!");
+				OptionHasCommands newOptionHasCommands = newOptionHasCommandsSerializer.TryCreateInstance (serializationContext, reader, element.Partition) as OptionHasCommands;
+				if (newOptionHasCommands != null)
 				{
-					DslModeling::DomainRoleInfo.SetRolePlayer (newOptionHasTypes, OptionHasTypes.OptionDomainRoleId, element);
-					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newOptionHasTypes.GetDomainClass().Id);	
-					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newOptionHasTypes.GetDomainClass().Name + "!");
-					targetSerializer.Read(serializationContext, newOptionHasTypes, reader);
+					DslModeling::DomainRoleInfo.SetRolePlayer (newOptionHasCommands, OptionHasCommands.OptionDomainRoleId, element);
+					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newOptionHasCommands.GetDomainClass().Id);	
+					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newOptionHasCommands.GetDomainClass().Name + "!");
+					targetSerializer.Read(serializationContext, newOptionHasCommands, reader);
 				}
 				else
 				{	// Maybe the relationship is serialized in short-form by mistake.
-					DslModeling::DomainClassXmlSerializer newTypeOfOptionHasTypesSerializer = serializationContext.Directory.GetSerializer(Type.DomainClassId);
-					global::System.Diagnostics.Debug.Assert(newTypeOfOptionHasTypesSerializer != null, "Cannot find serializer for Type!");
-					Type newTypeOfOptionHasTypes = newTypeOfOptionHasTypesSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as Type;
-					if (newTypeOfOptionHasTypes != null)
+					DslModeling::DomainClassXmlSerializer newCommandOfOptionHasCommandsSerializer = serializationContext.Directory.GetSerializer(Command.DomainClassId);
+					global::System.Diagnostics.Debug.Assert(newCommandOfOptionHasCommandsSerializer != null, "Cannot find serializer for Command!");
+					Command newCommandOfOptionHasCommands = newCommandOfOptionHasCommandsSerializer.TryCreateInstance(serializationContext, reader, element.Partition) as Command;
+					if (newCommandOfOptionHasCommands != null)
 					{
-						EvSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(OptionHasTypes));
-						element.Types.Add(newTypeOfOptionHasTypes);
-						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newTypeOfOptionHasTypes.GetDomainClass().Id);	
-						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newTypeOfOptionHasTypes.GetDomainClass().Name + "!");
-						targetSerializer.Read(serializationContext, newTypeOfOptionHasTypes, reader);
+						EvSerializationBehaviorSerializationMessages.ExpectingFullFormRelationship(serializationContext, reader, typeof(OptionHasCommands));
+						element.Commands.Add(newCommandOfOptionHasCommands);
+						DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (newCommandOfOptionHasCommands.GetDomainClass().Id);	
+						global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + newCommandOfOptionHasCommands.GetDomainClass().Name + "!");
+						targetSerializer.Read(serializationContext, newCommandOfOptionHasCommands, reader);
 					}
 					else
 					{	// Unknown element, skip.
@@ -1721,36 +1721,36 @@ namespace Ufba.Ev
 				writer.WriteEndElement();
 			}
 	
-			// OptionHasProperties
-			global::System.Collections.ObjectModel.ReadOnlyCollection<OptionHasProperties> allOptionHasPropertiesInstances = OptionHasProperties.GetLinksToProperties(element);
-			if (!serializationContext.Result.Failed && allOptionHasPropertiesInstances.Count > 0)
+			// OptionHasCategories
+			global::System.Collections.ObjectModel.ReadOnlyCollection<OptionHasCategories> allOptionHasCategoriesInstances = OptionHasCategories.GetLinksToCategories(element);
+			if (!serializationContext.Result.Failed && allOptionHasCategoriesInstances.Count > 0)
 			{
-				writer.WriteStartElement("properties");
-				foreach (OptionHasProperties eachOptionHasPropertiesInstance in allOptionHasPropertiesInstances)
+				writer.WriteStartElement("categories");
+				foreach (OptionHasCategories eachOptionHasCategoriesInstance in allOptionHasCategoriesInstances)
 				{
 					if (serializationContext.Result.Failed)
 						break;
 	
-					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachOptionHasPropertiesInstance.GetDomainClass().Id);
-					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachOptionHasPropertiesInstance.GetDomainClass().Name + "!");
-					relSerializer.Write(serializationContext, eachOptionHasPropertiesInstance, writer);
+					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachOptionHasCategoriesInstance.GetDomainClass().Id);
+					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachOptionHasCategoriesInstance.GetDomainClass().Name + "!");
+					relSerializer.Write(serializationContext, eachOptionHasCategoriesInstance, writer);
 				}
 				writer.WriteEndElement();
 			}
 	
-			// OptionHasTypes
-			global::System.Collections.ObjectModel.ReadOnlyCollection<OptionHasTypes> allOptionHasTypesInstances = OptionHasTypes.GetLinksToTypes(element);
-			if (!serializationContext.Result.Failed && allOptionHasTypesInstances.Count > 0)
+			// OptionHasCommands
+			global::System.Collections.ObjectModel.ReadOnlyCollection<OptionHasCommands> allOptionHasCommandsInstances = OptionHasCommands.GetLinksToCommands(element);
+			if (!serializationContext.Result.Failed && allOptionHasCommandsInstances.Count > 0)
 			{
-				writer.WriteStartElement("types");
-				foreach (OptionHasTypes eachOptionHasTypesInstance in allOptionHasTypesInstances)
+				writer.WriteStartElement("commands");
+				foreach (OptionHasCommands eachOptionHasCommandsInstance in allOptionHasCommandsInstances)
 				{
 					if (serializationContext.Result.Failed)
 						break;
 	
-					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachOptionHasTypesInstance.GetDomainClass().Id);
-					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachOptionHasTypesInstance.GetDomainClass().Name + "!");
-					relSerializer.Write(serializationContext, eachOptionHasTypesInstance, writer);
+					DslModeling::DomainClassXmlSerializer relSerializer = serializationContext.Directory.GetSerializer(eachOptionHasCommandsInstance.GetDomainClass().Id);
+					global::System.Diagnostics.Debug.Assert(relSerializer != null, "Cannot find serializer for " + eachOptionHasCommandsInstance.GetDomainClass().Name + "!");
+					relSerializer.Write(serializationContext, eachOptionHasCommandsInstance, writer);
 				}
 				writer.WriteEndElement();
 			}
@@ -2505,15 +2505,15 @@ namespace Ufba.Ev
 namespace Ufba.Ev
 {
 	/// <summary>
-	/// Serializer PropertySerializer for DomainClass Property.
+	/// Serializer CategorySerializer for DomainClass Category.
 	/// </summary>
-	public partial class PropertySerializer : DslModeling::DomainClassXmlSerializer
+	public partial class CategorySerializer : DslModeling::DomainClassXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// PropertySerializer Constructor
+		/// CategorySerializer Constructor
 		/// </summary>
-		public PropertySerializer ()
+		public CategorySerializer ()
 			: base ()
 		{
 		}
@@ -2539,25 +2539,25 @@ namespace Ufba.Ev
 	
 		#region Public Properties
 		/// <summary>
-		/// This is the XML tag name used to serialize an instance of Property.
+		/// This is the XML tag name used to serialize an instance of Category.
 		/// </summary>
 		public override string XmlTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"property"; }
+			get { return @"category"; }
 		}
 	
 		/// <summary>
-		/// This is the XML tag name used to serialize a monikerized instance of Property.
+		/// This is the XML tag name used to serialize a monikerized instance of Category.
 		/// </summary>
 		public override string MonikerTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"propertyMoniker"; }
+			get { return @"categoryMoniker"; }
 		}
 		
 		/// <summary>
-		/// This is the name of the XML attribute that stores the moniker of Property in a serialized monikerized instance.
+		/// This is the name of the XML attribute that stores the moniker of Category in a serialized monikerized instance.
 		/// </summary>
 		public override string MonikerAttributeName
 		{
@@ -2568,16 +2568,16 @@ namespace Ufba.Ev
 	
 		#region Read Methods
 		/// <summary>
-		/// Public Read() method that deserializes one Property instance from XML.
+		/// Public Read() method that deserializes one Category instance from XML.
 		/// </summary>
 		/// <remarks>
 		/// When this method is called, caller guarantees that the passed-in XML reader is positioned at the open XML tag
-		/// of the Property element that is about to be deserialized. 
+		/// of the Category element that is about to be deserialized. 
 		/// The method needs to ensure that when it returns, the reader is positioned at the open XML tag of the next sibling element,
 		/// or the close tag of the parent element (or EOF).
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory Property instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory Category instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		public override void Read(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -2635,7 +2635,7 @@ namespace Ufba.Ev
 		/// The caller will guarantee that the reader is positioned on the open XML tag of the current element being deserialized.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory Property instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory Category instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void ReadPropertiesFromAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
@@ -2643,8 +2643,8 @@ namespace Ufba.Ev
 			// Always call the base class so any extensions are deserialized
 			base.ReadPropertiesFromAttributes(serializationContext, element, reader);
 	
-			Property instanceOfProperty = element as Property;
-			global::System.Diagnostics.Debug.Assert(instanceOfProperty != null, "Expecting an instance of Property");
+			Category instanceOfCategory = element as Category;
+			global::System.Diagnostics.Debug.Assert(instanceOfCategory != null, "Expecting an instance of Category");
 	
 			// Name
 			if (!serializationContext.Result.Failed)
@@ -2655,7 +2655,7 @@ namespace Ufba.Ev
 					global::System.String valueOfName;
 					if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribName, out valueOfName))
 					{
-						instanceOfProperty.Name = valueOfName;
+						instanceOfCategory.Name = valueOfName;
 					}
 					else
 					{	// Invalid property value, ignored.
@@ -2679,7 +2679,7 @@ namespace Ufba.Ev
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory Property instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory Category instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -2690,8 +2690,8 @@ namespace Ufba.Ev
 	
 		#region TryCreateInstance
 		/// <summary>
-		/// This method creates a correct instance of Property based on the tag currently pointed by the reader. If the reader
-		/// is positioned at a serialized Property, a new Property instance will be created in the given partition, otherwise 
+		/// This method creates a correct instance of Category based on the tag currently pointed by the reader. If the reader
+		/// is positioned at a serialized Category, a new Category instance will be created in the given partition, otherwise 
 		/// null is returned.
 		/// </summary>
 		/// <remarks>
@@ -2701,7 +2701,7 @@ namespace Ufba.Ev
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>	
-		/// <returns>Created Property instance, or null if the reader is not pointing to a serialized Property instance.</returns>
+		/// <returns>Created Category instance, or null if the reader is not pointing to a serialized Category instance.</returns>
 		public override DslModeling::ModelElement TryCreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -2721,18 +2721,18 @@ namespace Ufba.Ev
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.XmlTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "Property" instance.
+				{	// New "Category" instance.
 					result = this.CreateInstance(serializationContext, reader, partition);
 				}
 				else
-				{	// Check for derived classes of "Property".
+				{	// Check for derived classes of "Category".
 					if (this.derivedClasses == null)
 						this.ConstructDerivedClassesLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert (this.derivedClasses != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						PropertySerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as PropertySerializer;
+						CategorySerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CategorySerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -2743,8 +2743,8 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// This method creates an instance of Property based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
-		/// to be pointed at a serialized instance of Property.
+		/// This method creates an instance of Category based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
+		/// to be pointed at a serialized instance of Category.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the ModelRoot instance being read. This method should
@@ -2752,8 +2752,8 @@ namespace Ufba.Ev
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		/// <param name="partition">Partition in which new Property instance should be created.</param>	
-		/// <returns>Created Property instance.</returns>
+		/// <param name="partition">Partition in which new Category instance should be created.</param>	
+		/// <returns>Created Category instance.</returns>
 		protected override DslModeling::ModelElement CreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			string idStr = reader.GetAttribute ("Id");
@@ -2769,7 +2769,7 @@ namespace Ufba.Ev
 				{
 					id = new global::System.Guid (idStr);
 				}
-				return new Property(partition, new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id));
+				return new Category(partition, new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id));
 			}
 			catch (global::System.ArgumentNullException /* anEx */)
 			{	
@@ -2787,12 +2787,12 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from Property, created on demand.
+		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from Category, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClasses;
 	
 		/// <summary>
-		/// Construct the apping from XmlTagName to DomainClassInfo that derives from Property.
+		/// Construct the apping from XmlTagName to DomainClassInfo that derives from Category.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -2801,7 +2801,7 @@ namespace Ufba.Ev
 			global::System.Diagnostics.Debug.Assert(this.derivedClasses == null); // Shouldn't construct the table more than once.
 			this.derivedClasses = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(Property.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(Category.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -2833,7 +2833,7 @@ namespace Ufba.Ev
 	
 		#region TryCreateMonikerInstance
 		/// <summary>
-		/// This method creates a Moniker of the correct derived (including Property itself) instance of Property based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of the correct derived (including Category itself) instance of Category based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -2867,18 +2867,18 @@ namespace Ufba.Ev
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.MonikerTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "Property" moniker instance.
+				{	// New "Category" moniker instance.
 					result = this.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 				}
 				else
-				{	// Check for derived classes of "Property".
+				{	// Check for derived classes of "Category".
 					if (this.derivedClassMonikers == null)
 						this.ConstructDerivedClassMonikersLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						PropertySerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as PropertySerializer;
+						CategorySerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CategorySerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -2889,7 +2889,7 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// This method creates a Moniker of Property based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of Category based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -2914,7 +2914,7 @@ namespace Ufba.Ev
 			{	// Normalize the Id.
 				global::System.Guid id = new global::System.Guid(monikerString);
 				monikerString = id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
-				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, Property.DomainClassId, partition.Store), partition.Store);
+				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, Category.DomainClassId, partition.Store), partition.Store);
 				// Set location info if possible.
 				result.Location = serializationContext.Location;
 				global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
@@ -2938,12 +2938,12 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from Property, created on demand.
+		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from Category, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClassMonikers;
 	
 		/// <summary>
-		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from Property.
+		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from Category.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -2952,7 +2952,7 @@ namespace Ufba.Ev
 			global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers == null); // Shouldn't construct the table more than once.
 			this.derivedClassMonikers = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(Property.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(Category.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -2978,13 +2978,13 @@ namespace Ufba.Ev
 	
 		#region Write Methods
 		/// <summary>
-		/// Public WriteMoniker() method that writes a monikerized Property instance into XML.
+		/// Public WriteMoniker() method that writes a monikerized Category instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">Property instance to be monikerized.</param>
+		/// <param name="element">Category instance to be monikerized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
-		/// <param name="sourceRolePlayer">Source element that references the Property instance being monikerized.</param>
-		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the Property instance being monikerized.</param>
+		/// <param name="sourceRolePlayer">Source element that references the Category instance being monikerized.</param>
+		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the Category instance being monikerized.</param>
 		public override void WriteMoniker(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer, DslModeling::ModelElement sourceRolePlayer, DslModeling::DomainRelationshipXmlSerializer relSerializer)
 		{
 			#region Check Parameters
@@ -3013,10 +3013,10 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// Public Write() method that serializes one Property instance into XML.
+		/// Public Write() method that serializes one Category instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">Property instance to be serialized.</param>
+		/// <param name="element">Category instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
 		/// <param name="rootElementSettings">
 		/// The root element settings if the passed in element is serialized as a root element in the XML. The root element contains additional
@@ -3077,7 +3077,7 @@ namespace Ufba.Ev
 		/// Write all properties that need to be serialized as XML attributes.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">Property instance to be serialized.</param>
+		/// <param name="element">Category instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param> 
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void WritePropertiesAsAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
@@ -3085,13 +3085,13 @@ namespace Ufba.Ev
 			// Always call the base class so any extensions are serialized
 			base.WritePropertiesAsAttributes(serializationContext, element, writer);
 	
-			Property instanceOfProperty = element as Property;
-			global::System.Diagnostics.Debug.Assert(instanceOfProperty != null, "Expecting an instance of Property");
+			Category instanceOfCategory = element as Category;
+			global::System.Diagnostics.Debug.Assert(instanceOfCategory != null, "Expecting an instance of Category");
 	
 			// Name
 			if (!serializationContext.Result.Failed)
 			{
-				global::System.String propValue = instanceOfProperty.Name;
+				global::System.String propValue = instanceOfCategory.Name;
 				if (!serializationContext.Result.Failed)
 				{
 					if (!string.IsNullOrEmpty(propValue))
@@ -3105,7 +3105,7 @@ namespace Ufba.Ev
 		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">Property instance to be serialized.</param>
+		/// <param name="element">Category instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>        
 		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
 		{
@@ -3118,11 +3118,11 @@ namespace Ufba.Ev
 	
 		#region Moniker Support
 		/// <summary>
-		/// This method calculates a moniker to a given Property instance.
+		/// This method calculates a moniker to a given Category instance.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">Property instance to calculate qualified name for.</param>
-		/// <returns>A fully qualified string moniker to the Property instance.</returns>
+		/// <param name="element">Category instance to calculate qualified name for.</param>
+		/// <returns>A fully qualified string moniker to the Category instance.</returns>
 		public override string CalculateQualifiedName(DslModeling::DomainXmlSerializerDirectory directory, DslModeling::ModelElement element)
 		{
 			#region Check Parameters
@@ -3134,8 +3134,8 @@ namespace Ufba.Ev
 				throw new global::System.ArgumentNullException("element");
 			#endregion	
 			
-			Property instance = element as Property;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of Property!");
+			Category instance = element as Category;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of Category!");
 	
 			return instance.Id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
 		}
@@ -3146,7 +3146,7 @@ namespace Ufba.Ev
 		/// returns empty string.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">Property instance to get moniker qualifier from.</param>
+		/// <param name="element">Category instance to get moniker qualifier from.</param>
 		/// <returns>
 		/// Value of this element's moniker qualifier property, if it has one, or the value of the container's moniker qualifier property. Or empty string if this
 		/// element is not monikerized using standard /qualifier/key mechanism.
@@ -3171,15 +3171,15 @@ namespace Ufba.Ev
 namespace Ufba.Ev
 {
 	/// <summary>
-	/// Serializer TypeSerializer for DomainClass Type.
+	/// Serializer CommandSerializer for DomainClass Command.
 	/// </summary>
-	public partial class TypeSerializer : DslModeling::DomainClassXmlSerializer
+	public partial class CommandSerializer : DslModeling::DomainClassXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// TypeSerializer Constructor
+		/// CommandSerializer Constructor
 		/// </summary>
-		public TypeSerializer ()
+		public CommandSerializer ()
 			: base ()
 		{
 		}
@@ -3205,25 +3205,25 @@ namespace Ufba.Ev
 	
 		#region Public Properties
 		/// <summary>
-		/// This is the XML tag name used to serialize an instance of Type.
+		/// This is the XML tag name used to serialize an instance of Command.
 		/// </summary>
 		public override string XmlTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"type"; }
+			get { return @"command"; }
 		}
 	
 		/// <summary>
-		/// This is the XML tag name used to serialize a monikerized instance of Type.
+		/// This is the XML tag name used to serialize a monikerized instance of Command.
 		/// </summary>
 		public override string MonikerTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"typeMoniker"; }
+			get { return @"commandMoniker"; }
 		}
 		
 		/// <summary>
-		/// This is the name of the XML attribute that stores the moniker of Type in a serialized monikerized instance.
+		/// This is the name of the XML attribute that stores the moniker of Command in a serialized monikerized instance.
 		/// </summary>
 		public override string MonikerAttributeName
 		{
@@ -3234,16 +3234,16 @@ namespace Ufba.Ev
 	
 		#region Read Methods
 		/// <summary>
-		/// Public Read() method that deserializes one Type instance from XML.
+		/// Public Read() method that deserializes one Command instance from XML.
 		/// </summary>
 		/// <remarks>
 		/// When this method is called, caller guarantees that the passed-in XML reader is positioned at the open XML tag
-		/// of the Type element that is about to be deserialized. 
+		/// of the Command element that is about to be deserialized. 
 		/// The method needs to ensure that when it returns, the reader is positioned at the open XML tag of the next sibling element,
 		/// or the close tag of the parent element (or EOF).
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory Type instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory Command instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		public override void Read(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -3301,7 +3301,7 @@ namespace Ufba.Ev
 		/// The caller will guarantee that the reader is positioned on the open XML tag of the current element being deserialized.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory Type instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory Command instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void ReadPropertiesFromAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
@@ -3309,8 +3309,8 @@ namespace Ufba.Ev
 			// Always call the base class so any extensions are deserialized
 			base.ReadPropertiesFromAttributes(serializationContext, element, reader);
 	
-			Type instanceOfType = element as Type;
-			global::System.Diagnostics.Debug.Assert(instanceOfType != null, "Expecting an instance of Type");
+			Command instanceOfCommand = element as Command;
+			global::System.Diagnostics.Debug.Assert(instanceOfCommand != null, "Expecting an instance of Command");
 	
 			// Name
 			if (!serializationContext.Result.Failed)
@@ -3321,7 +3321,7 @@ namespace Ufba.Ev
 					CommandTypes valueOfName;
 					if (DslModeling::SerializationUtilities.TryGetValue<CommandTypes>(serializationContext, attribName, out valueOfName))
 					{
-						instanceOfType.Name = valueOfName;
+						instanceOfCommand.Name = valueOfName;
 					}
 					else
 					{	// Invalid property value, ignored.
@@ -3345,7 +3345,7 @@ namespace Ufba.Ev
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory Type instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory Command instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -3356,8 +3356,8 @@ namespace Ufba.Ev
 	
 		#region TryCreateInstance
 		/// <summary>
-		/// This method creates a correct instance of Type based on the tag currently pointed by the reader. If the reader
-		/// is positioned at a serialized Type, a new Type instance will be created in the given partition, otherwise 
+		/// This method creates a correct instance of Command based on the tag currently pointed by the reader. If the reader
+		/// is positioned at a serialized Command, a new Command instance will be created in the given partition, otherwise 
 		/// null is returned.
 		/// </summary>
 		/// <remarks>
@@ -3367,7 +3367,7 @@ namespace Ufba.Ev
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>	
-		/// <returns>Created Type instance, or null if the reader is not pointing to a serialized Type instance.</returns>
+		/// <returns>Created Command instance, or null if the reader is not pointing to a serialized Command instance.</returns>
 		public override DslModeling::ModelElement TryCreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -3387,18 +3387,18 @@ namespace Ufba.Ev
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.XmlTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "Type" instance.
+				{	// New "Command" instance.
 					result = this.CreateInstance(serializationContext, reader, partition);
 				}
 				else
-				{	// Check for derived classes of "Type".
+				{	// Check for derived classes of "Command".
 					if (this.derivedClasses == null)
 						this.ConstructDerivedClassesLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert (this.derivedClasses != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class instance.
-						TypeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as TypeSerializer;
+						CommandSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CommandSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -3409,8 +3409,8 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// This method creates an instance of Type based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
-		/// to be pointed at a serialized instance of Type.
+		/// This method creates an instance of Command based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
+		/// to be pointed at a serialized instance of Command.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the ModelRoot instance being read. This method should
@@ -3418,8 +3418,8 @@ namespace Ufba.Ev
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		/// <param name="partition">Partition in which new Type instance should be created.</param>	
-		/// <returns>Created Type instance.</returns>
+		/// <param name="partition">Partition in which new Command instance should be created.</param>	
+		/// <returns>Created Command instance.</returns>
 		protected override DslModeling::ModelElement CreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			string idStr = reader.GetAttribute ("Id");
@@ -3435,7 +3435,7 @@ namespace Ufba.Ev
 				{
 					id = new global::System.Guid (idStr);
 				}
-				return new Type(partition, new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id));
+				return new Command(partition, new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id));
 			}
 			catch (global::System.ArgumentNullException /* anEx */)
 			{	
@@ -3453,12 +3453,12 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from Type, created on demand.
+		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from Command, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClasses;
 	
 		/// <summary>
-		/// Construct the apping from XmlTagName to DomainClassInfo that derives from Type.
+		/// Construct the apping from XmlTagName to DomainClassInfo that derives from Command.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -3467,7 +3467,7 @@ namespace Ufba.Ev
 			global::System.Diagnostics.Debug.Assert(this.derivedClasses == null); // Shouldn't construct the table more than once.
 			this.derivedClasses = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(Type.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(Command.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -3499,7 +3499,7 @@ namespace Ufba.Ev
 	
 		#region TryCreateMonikerInstance
 		/// <summary>
-		/// This method creates a Moniker of the correct derived (including Type itself) instance of Type based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of the correct derived (including Command itself) instance of Command based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -3533,18 +3533,18 @@ namespace Ufba.Ev
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.MonikerTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "Type" moniker instance.
+				{	// New "Command" moniker instance.
 					result = this.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 				}
 				else
-				{	// Check for derived classes of "Type".
+				{	// Check for derived classes of "Command".
 					if (this.derivedClassMonikers == null)
 						this.ConstructDerivedClassMonikersLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						TypeSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as TypeSerializer;
+						CommandSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as CommandSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -3555,7 +3555,7 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// This method creates a Moniker of Type based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of Command based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -3580,7 +3580,7 @@ namespace Ufba.Ev
 			{	// Normalize the Id.
 				global::System.Guid id = new global::System.Guid(monikerString);
 				monikerString = id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
-				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, Type.DomainClassId, partition.Store), partition.Store);
+				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, Command.DomainClassId, partition.Store), partition.Store);
 				// Set location info if possible.
 				result.Location = serializationContext.Location;
 				global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
@@ -3604,12 +3604,12 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from Type, created on demand.
+		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from Command, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClassMonikers;
 	
 		/// <summary>
-		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from Type.
+		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from Command.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -3618,7 +3618,7 @@ namespace Ufba.Ev
 			global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers == null); // Shouldn't construct the table more than once.
 			this.derivedClassMonikers = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(Type.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(Command.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -3644,13 +3644,13 @@ namespace Ufba.Ev
 	
 		#region Write Methods
 		/// <summary>
-		/// Public WriteMoniker() method that writes a monikerized Type instance into XML.
+		/// Public WriteMoniker() method that writes a monikerized Command instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">Type instance to be monikerized.</param>
+		/// <param name="element">Command instance to be monikerized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
-		/// <param name="sourceRolePlayer">Source element that references the Type instance being monikerized.</param>
-		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the Type instance being monikerized.</param>
+		/// <param name="sourceRolePlayer">Source element that references the Command instance being monikerized.</param>
+		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the Command instance being monikerized.</param>
 		public override void WriteMoniker(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer, DslModeling::ModelElement sourceRolePlayer, DslModeling::DomainRelationshipXmlSerializer relSerializer)
 		{
 			#region Check Parameters
@@ -3679,10 +3679,10 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// Public Write() method that serializes one Type instance into XML.
+		/// Public Write() method that serializes one Command instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">Type instance to be serialized.</param>
+		/// <param name="element">Command instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
 		/// <param name="rootElementSettings">
 		/// The root element settings if the passed in element is serialized as a root element in the XML. The root element contains additional
@@ -3743,7 +3743,7 @@ namespace Ufba.Ev
 		/// Write all properties that need to be serialized as XML attributes.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">Type instance to be serialized.</param>
+		/// <param name="element">Command instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param> 
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void WritePropertiesAsAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
@@ -3751,13 +3751,13 @@ namespace Ufba.Ev
 			// Always call the base class so any extensions are serialized
 			base.WritePropertiesAsAttributes(serializationContext, element, writer);
 	
-			Type instanceOfType = element as Type;
-			global::System.Diagnostics.Debug.Assert(instanceOfType != null, "Expecting an instance of Type");
+			Command instanceOfCommand = element as Command;
+			global::System.Diagnostics.Debug.Assert(instanceOfCommand != null, "Expecting an instance of Command");
 	
 			// Name
 			if (!serializationContext.Result.Failed)
 			{
-				CommandTypes propValue = instanceOfType.Name;
+				CommandTypes propValue = instanceOfCommand.Name;
 				string serializedPropValue = DslModeling::SerializationUtilities.GetString<CommandTypes>(serializationContext, propValue);
 				if (!serializationContext.Result.Failed)
 				{
@@ -3770,7 +3770,7 @@ namespace Ufba.Ev
 		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">Type instance to be serialized.</param>
+		/// <param name="element">Command instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>        
 		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
 		{
@@ -3783,11 +3783,11 @@ namespace Ufba.Ev
 	
 		#region Moniker Support
 		/// <summary>
-		/// This method calculates a moniker to a given Type instance.
+		/// This method calculates a moniker to a given Command instance.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">Type instance to calculate qualified name for.</param>
-		/// <returns>A fully qualified string moniker to the Type instance.</returns>
+		/// <param name="element">Command instance to calculate qualified name for.</param>
+		/// <returns>A fully qualified string moniker to the Command instance.</returns>
 		public override string CalculateQualifiedName(DslModeling::DomainXmlSerializerDirectory directory, DslModeling::ModelElement element)
 		{
 			#region Check Parameters
@@ -3799,8 +3799,8 @@ namespace Ufba.Ev
 				throw new global::System.ArgumentNullException("element");
 			#endregion	
 			
-			Type instance = element as Type;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of Type!");
+			Command instance = element as Command;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of Command!");
 	
 			return instance.Id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
 		}
@@ -3811,7 +3811,7 @@ namespace Ufba.Ev
 		/// returns empty string.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">Type instance to get moniker qualifier from.</param>
+		/// <param name="element">Command instance to get moniker qualifier from.</param>
 		/// <returns>
 		/// Value of this element's moniker qualifier property, if it has one, or the value of the container's moniker qualifier property. Or empty string if this
 		/// element is not monikerized using standard /qualifier/key mechanism.
@@ -5385,15 +5385,15 @@ namespace Ufba.Ev
 namespace Ufba.Ev
 {
 	/// <summary>
-	/// Serializer OptionHasPropertiesSerializer for DomainClass OptionHasProperties.
+	/// Serializer OptionHasCategoriesSerializer for DomainClass OptionHasCategories.
 	/// </summary>
-	public partial class OptionHasPropertiesSerializer : DslModeling::DomainRelationshipXmlSerializer
+	public partial class OptionHasCategoriesSerializer : DslModeling::DomainRelationshipXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// OptionHasPropertiesSerializer Constructor
+		/// OptionHasCategoriesSerializer Constructor
 		/// </summary>
-		public OptionHasPropertiesSerializer ()
+		public OptionHasCategoriesSerializer ()
 			: base ()
 		{
 		}
@@ -5419,25 +5419,25 @@ namespace Ufba.Ev
 	
 		#region Public Properties
 		/// <summary>
-		/// This is the XML tag name used to serialize an instance of OptionHasProperties.
+		/// This is the XML tag name used to serialize an instance of OptionHasCategories.
 		/// </summary>
 		public override string XmlTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"optionHasProperties"; }
+			get { return @"optionHasCategories"; }
 		}
 	
 		/// <summary>
-		/// This is the XML tag name used to serialize a monikerized instance of OptionHasProperties.
+		/// This is the XML tag name used to serialize a monikerized instance of OptionHasCategories.
 		/// </summary>
 		public override string MonikerTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"optionHasPropertiesMoniker"; }
+			get { return @"optionHasCategoriesMoniker"; }
 		}
 		
 		/// <summary>
-		/// This is the name of the XML attribute that stores the moniker of OptionHasProperties in a serialized monikerized instance.
+		/// This is the name of the XML attribute that stores the moniker of OptionHasCategories in a serialized monikerized instance.
 		/// </summary>
 		public override string MonikerAttributeName
 		{
@@ -5448,16 +5448,16 @@ namespace Ufba.Ev
 	
 		#region Read Methods
 		/// <summary>
-		/// Public Read() method that deserializes one OptionHasProperties instance from XML.
+		/// Public Read() method that deserializes one OptionHasCategories instance from XML.
 		/// </summary>
 		/// <remarks>
 		/// When this method is called, caller guarantees that the passed-in XML reader is positioned at the open XML tag
-		/// of the OptionHasProperties element that is about to be deserialized. 
+		/// of the OptionHasCategories element that is about to be deserialized. 
 		/// The method needs to ensure that when it returns, the reader is positioned at the open XML tag of the next sibling element,
 		/// or the close tag of the parent element (or EOF).
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory OptionHasProperties instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory OptionHasCategories instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		public override void Read(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -5476,7 +5476,7 @@ namespace Ufba.Ev
 			// Read properties serialized as XML attributes.
 			ReadPropertiesFromAttributes(serializationContext, element, reader);
 				
-			// Read nested XML elements, which include at least the instance of target role-player Property
+			// Read nested XML elements, which include at least the instance of target role-player Category
 			if (!serializationContext.Result.Failed)
 			{
 				if (!reader.IsEmptyElement)
@@ -5487,7 +5487,7 @@ namespace Ufba.Ev
 					// Read any extension element data under this XML element
 					EvSerializationHelper.Instance.ReadExtensions(serializationContext, element, reader);
 					
-					// Read target role-player Property.
+					// Read target role-player Category.
 					ReadTargetRolePlayer(serializationContext, element, reader);
 	
 					// Read nested XML elements, they can be either properties serialized as XML elements, or child 
@@ -5505,7 +5505,7 @@ namespace Ufba.Ev
 				}
 				else
 				{
-					EvSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "OptionHasProperties");
+					EvSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "OptionHasCategories");
 				}
 			}
 	
@@ -5515,7 +5515,7 @@ namespace Ufba.Ev
 		
 	
 		/// <summary>
-		/// This method reads the target role player Property.
+		/// This method reads the target role player Category.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at the open tag of the first child XML element.
@@ -5529,7 +5529,7 @@ namespace Ufba.Ev
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory OptionHasProperties instance that will link to the target Property instance.</param>
+		/// <param name="element">In-memory OptionHasCategories instance that will link to the target Category instance.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected virtual void ReadTargetRolePlayer(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -5545,10 +5545,10 @@ namespace Ufba.Ev
 				throw new global::System.ArgumentNullException ("reader");
 			#endregion
 	
-			// Read the instance of target role-player Property
+			// Read the instance of target role-player Category
 			DslModeling::ModelElement targetRolePlayer = null;
-			DslModeling::DomainClassXmlSerializer targetRoleSerializer = serializationContext.Directory.GetSerializer(Property.DomainClassId);
-			global::System.Diagnostics.Debug.Assert(targetRoleSerializer != null, "Cannot find serializer for Property!");
+			DslModeling::DomainClassXmlSerializer targetRoleSerializer = serializationContext.Directory.GetSerializer(Category.DomainClassId);
+			global::System.Diagnostics.Debug.Assert(targetRoleSerializer != null, "Cannot find serializer for Category!");
 	
 			while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 			{
@@ -5556,7 +5556,7 @@ namespace Ufba.Ev
 				if (targetRolePlayer != null)
 				{
 					// Attach the target role-player.
-					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, OptionHasProperties.PropertyDomainRoleId, targetRolePlayer);
+					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, OptionHasCategories.CategoryDomainRoleId, targetRolePlayer);
 					// Read target role-player.
 					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (targetRolePlayer.GetDomainClass().Id);	
 					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + targetRolePlayer.GetDomainClass().Name + "!");
@@ -5569,7 +5569,7 @@ namespace Ufba.Ev
 			}
 			if (targetRolePlayer == null)
 			{
-				EvSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "OptionHasProperties");
+				EvSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "OptionHasCategories");
 			}
 		}
 	
@@ -5581,7 +5581,7 @@ namespace Ufba.Ev
 		/// The caller will guarantee that the reader is positioned on the open XML tag of the current element being deserialized.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory OptionHasProperties instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory OptionHasCategories instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void ReadPropertiesFromAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
@@ -5606,7 +5606,7 @@ namespace Ufba.Ev
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory OptionHasProperties instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory OptionHasCategories instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -5617,8 +5617,8 @@ namespace Ufba.Ev
 	
 		#region TryCreateInstance & TryCreateDerivedInstance
 		/// <summary>
-		/// This method creates a correct instance of OptionHasProperties based on the tag currently pointed by the reader. If the reader
-		/// is positioned at a serialized OptionHasProperties, a new OptionHasProperties instance will be created in the given partition, otherwise 
+		/// This method creates a correct instance of OptionHasCategories based on the tag currently pointed by the reader. If the reader
+		/// is positioned at a serialized OptionHasCategories, a new OptionHasCategories instance will be created in the given partition, otherwise 
 		/// null is returned.
 		/// </summary>
 		/// <remarks>
@@ -5628,7 +5628,7 @@ namespace Ufba.Ev
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>	
-		/// <returns>Created OptionHasProperties instance, or null if the reader is not pointing to a serialized OptionHasProperties instance.</returns>
+		/// <returns>Created OptionHasCategories instance, or null if the reader is not pointing to a serialized OptionHasCategories instance.</returns>
 		public override DslModeling::ModelElement TryCreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -5647,9 +5647,9 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// This method creates a correct derived instance of OptionHasProperties based on the tag currently pointed by the reader.
+		/// This method creates a correct derived instance of OptionHasCategories based on the tag currently pointed by the reader.
 		/// Note that the difference between this method and the above one is that this method will never create an instance of the
-		/// OptionHasProperties type itself, only derived types are checked.
+		/// OptionHasCategories type itself, only derived types are checked.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -5658,7 +5658,7 @@ namespace Ufba.Ev
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>
-		/// <returns>Created instance that derives from OptionHasProperties, or null if the reader is not pointing to such a serialized instance.</returns>
+		/// <returns>Created instance that derives from OptionHasCategories, or null if the reader is not pointing to such a serialized instance.</returns>
 		public override DslModeling::ElementLink TryCreateDerivedInstance (DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -5690,18 +5690,18 @@ namespace Ufba.Ev
 			{
 				string localName = reader.LocalName;
 				if (!derivedTypesOnly && string.Compare (localName, this.XmlTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "OptionHasProperties" instance.
+				{	// New "OptionHasCategories" instance.
 					result = this.CreateInstance(serializationContext, reader, partition);
 				}
 				else
-				{	// Check for derived classes of "OptionHasProperties".
+				{	// Check for derived classes of "OptionHasCategories".
 					if (this.derivedClasses == null)
 						this.ConstructDerivedClassesLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert (this.derivedClasses != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived relationship instance.
-						OptionHasPropertiesSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as OptionHasPropertiesSerializer;
+						OptionHasCategoriesSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as OptionHasCategoriesSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -5712,8 +5712,8 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// This method creates an instance of OptionHasProperties based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
-		/// to be pointed at a serialized instance of OptionHasProperties.
+		/// This method creates an instance of OptionHasCategories based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
+		/// to be pointed at a serialized instance of OptionHasCategories.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the ModelRoot instance being read. This method should
@@ -5721,8 +5721,8 @@ namespace Ufba.Ev
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		/// <param name="partition">Partition in which new OptionHasProperties instance should be created.</param>	
-		/// <returns>Created OptionHasProperties instance.</returns>
+		/// <param name="partition">Partition in which new OptionHasCategories instance should be created.</param>	
+		/// <returns>Created OptionHasCategories instance.</returns>
 		protected override DslModeling::ModelElement CreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			string idStr = reader.GetAttribute ("Id");
@@ -5739,11 +5739,11 @@ namespace Ufba.Ev
 					id = new global::System.Guid (idStr);
 				}
 				// Create the link with place-holder role-players.
-				return new OptionHasProperties(
+				return new OptionHasCategories(
 					partition,
 					new DslModeling::RoleAssignment[] {
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (OptionHasProperties.OptionDomainRoleId), 
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (OptionHasProperties.PropertyDomainRoleId)
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (OptionHasCategories.OptionDomainRoleId), 
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (OptionHasCategories.CategoryDomainRoleId)
 					},
 					new DslModeling::PropertyAssignment[] {
 						new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id)
@@ -5766,12 +5766,12 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from OptionHasProperties, created on demand.
+		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from OptionHasCategories, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClasses;
 	
 		/// <summary>
-		/// Construct the apping from XmlTagName to DomainClassInfo that derives from OptionHasProperties.
+		/// Construct the apping from XmlTagName to DomainClassInfo that derives from OptionHasCategories.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -5780,7 +5780,7 @@ namespace Ufba.Ev
 			global::System.Diagnostics.Debug.Assert(this.derivedClasses == null); // Shouldn't construct the table more than once.
 			this.derivedClasses = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(OptionHasProperties.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(OptionHasCategories.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -5812,7 +5812,7 @@ namespace Ufba.Ev
 	
 		#region TryCreateMonikerInstance
 		/// <summary>
-		/// This method creates a Moniker of the correct derived (including OptionHasProperties itself) instance of OptionHasProperties based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of the correct derived (including OptionHasCategories itself) instance of OptionHasCategories based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -5846,18 +5846,18 @@ namespace Ufba.Ev
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.MonikerTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "OptionHasProperties" moniker instance.
+				{	// New "OptionHasCategories" moniker instance.
 					result = this.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 				}
 				else
-				{	// Check for derived classes of "OptionHasProperties".
+				{	// Check for derived classes of "OptionHasCategories".
 					if (this.derivedClassMonikers == null)
 						this.ConstructDerivedClassMonikersLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						OptionHasPropertiesSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as OptionHasPropertiesSerializer;
+						OptionHasCategoriesSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as OptionHasCategoriesSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -5868,7 +5868,7 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// This method creates a Moniker of OptionHasProperties based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of OptionHasCategories based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -5893,7 +5893,7 @@ namespace Ufba.Ev
 			{	// Normalize the Id.
 				global::System.Guid id = new global::System.Guid(monikerString);
 				monikerString = id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
-				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, OptionHasProperties.DomainClassId, partition.Store), partition.Store);
+				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, OptionHasCategories.DomainClassId, partition.Store), partition.Store);
 				// Set location info if possible.
 				result.Location = serializationContext.Location;
 				global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
@@ -5917,12 +5917,12 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from OptionHasProperties, created on demand.
+		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from OptionHasCategories, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClassMonikers;
 	
 		/// <summary>
-		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from OptionHasProperties.
+		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from OptionHasCategories.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -5931,7 +5931,7 @@ namespace Ufba.Ev
 			global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers == null); // Shouldn't construct the table more than once.
 			this.derivedClassMonikers = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(OptionHasProperties.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(OptionHasCategories.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -5957,13 +5957,13 @@ namespace Ufba.Ev
 	
 		#region Write Methods
 		/// <summary>
-		/// Public WriteMoniker() method that writes a monikerized OptionHasProperties instance into XML.
+		/// Public WriteMoniker() method that writes a monikerized OptionHasCategories instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">OptionHasProperties instance to be monikerized.</param>
+		/// <param name="element">OptionHasCategories instance to be monikerized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
-		/// <param name="sourceRolePlayer">Source element that references the OptionHasProperties instance being monikerized.</param>
-		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the OptionHasProperties instance being monikerized.</param>
+		/// <param name="sourceRolePlayer">Source element that references the OptionHasCategories instance being monikerized.</param>
+		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the OptionHasCategories instance being monikerized.</param>
 		public override void WriteMoniker(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer, DslModeling::ModelElement sourceRolePlayer, DslModeling::DomainRelationshipXmlSerializer relSerializer)
 		{
 			#region Check Parameters
@@ -5992,10 +5992,10 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// Public Write() method that serializes one OptionHasProperties instance into XML.
+		/// Public Write() method that serializes one OptionHasCategories instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">OptionHasProperties instance to be serialized.</param>
+		/// <param name="element">OptionHasCategories instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
 		/// <param name="rootElementSettings">
 		/// The root element settings if the passed in element is serialized as a root element in the XML. The root element contains additional
@@ -6044,10 +6044,10 @@ namespace Ufba.Ev
 			}
 	
 			// Write the target role-player instance.
-			OptionHasProperties instance = element as OptionHasProperties;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of OptionHasProperties!");
+			OptionHasCategories instance = element as OptionHasCategories;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of OptionHasCategories!");
 	
-			DslModeling::ModelElement targetElement = instance.Property;
+			DslModeling::ModelElement targetElement = instance.Category;
 			DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer(targetElement.GetDomainClass().Id);
 			global::System.Diagnostics.Debug.Assert(targetSerializer != null, "Cannot find serializer for " + targetElement.GetDomainClass().Name + "!");
 			targetSerializer.Write(serializationContext, targetElement, writer);
@@ -6065,7 +6065,7 @@ namespace Ufba.Ev
 		/// Write all properties that need to be serialized as XML attributes.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">OptionHasProperties instance to be serialized.</param>
+		/// <param name="element">OptionHasCategories instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param> 
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void WritePropertiesAsAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
@@ -6080,7 +6080,7 @@ namespace Ufba.Ev
 		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">OptionHasProperties instance to be serialized.</param>
+		/// <param name="element">OptionHasCategories instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>        
 		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
 		{
@@ -6093,11 +6093,11 @@ namespace Ufba.Ev
 	
 		#region Moniker Support
 		/// <summary>
-		/// This method calculates a moniker to a given OptionHasProperties instance.
+		/// This method calculates a moniker to a given OptionHasCategories instance.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">OptionHasProperties instance to calculate qualified name for.</param>
-		/// <returns>A fully qualified string moniker to the OptionHasProperties instance.</returns>
+		/// <param name="element">OptionHasCategories instance to calculate qualified name for.</param>
+		/// <returns>A fully qualified string moniker to the OptionHasCategories instance.</returns>
 		public override string CalculateQualifiedName(DslModeling::DomainXmlSerializerDirectory directory, DslModeling::ModelElement element)
 		{
 			#region Check Parameters
@@ -6109,8 +6109,8 @@ namespace Ufba.Ev
 				throw new global::System.ArgumentNullException("element");
 			#endregion	
 			
-			OptionHasProperties instance = element as OptionHasProperties;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of OptionHasProperties!");
+			OptionHasCategories instance = element as OptionHasCategories;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of OptionHasCategories!");
 	
 			return instance.Id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
 		}
@@ -6121,7 +6121,7 @@ namespace Ufba.Ev
 		/// returns empty string.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">OptionHasProperties instance to get moniker qualifier from.</param>
+		/// <param name="element">OptionHasCategories instance to get moniker qualifier from.</param>
 		/// <returns>
 		/// Value of this element's moniker qualifier property, if it has one, or the value of the container's moniker qualifier property. Or empty string if this
 		/// element is not monikerized using standard /qualifier/key mechanism.
@@ -6170,15 +6170,15 @@ namespace Ufba.Ev
 namespace Ufba.Ev
 {
 	/// <summary>
-	/// Serializer OptionHasTypesSerializer for DomainClass OptionHasTypes.
+	/// Serializer OptionHasCommandsSerializer for DomainClass OptionHasCommands.
 	/// </summary>
-	public partial class OptionHasTypesSerializer : DslModeling::DomainRelationshipXmlSerializer
+	public partial class OptionHasCommandsSerializer : DslModeling::DomainRelationshipXmlSerializer
 	{
 		#region Constructor
 		/// <summary>
-		/// OptionHasTypesSerializer Constructor
+		/// OptionHasCommandsSerializer Constructor
 		/// </summary>
-		public OptionHasTypesSerializer ()
+		public OptionHasCommandsSerializer ()
 			: base ()
 		{
 		}
@@ -6204,25 +6204,25 @@ namespace Ufba.Ev
 	
 		#region Public Properties
 		/// <summary>
-		/// This is the XML tag name used to serialize an instance of OptionHasTypes.
+		/// This is the XML tag name used to serialize an instance of OptionHasCommands.
 		/// </summary>
 		public override string XmlTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"optionHasTypes"; }
+			get { return @"optionHasCommands"; }
 		}
 	
 		/// <summary>
-		/// This is the XML tag name used to serialize a monikerized instance of OptionHasTypes.
+		/// This is the XML tag name used to serialize a monikerized instance of OptionHasCommands.
 		/// </summary>
 		public override string MonikerTagName
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
-			get { return @"optionHasTypesMoniker"; }
+			get { return @"optionHasCommandsMoniker"; }
 		}
 		
 		/// <summary>
-		/// This is the name of the XML attribute that stores the moniker of OptionHasTypes in a serialized monikerized instance.
+		/// This is the name of the XML attribute that stores the moniker of OptionHasCommands in a serialized monikerized instance.
 		/// </summary>
 		public override string MonikerAttributeName
 		{
@@ -6233,16 +6233,16 @@ namespace Ufba.Ev
 	
 		#region Read Methods
 		/// <summary>
-		/// Public Read() method that deserializes one OptionHasTypes instance from XML.
+		/// Public Read() method that deserializes one OptionHasCommands instance from XML.
 		/// </summary>
 		/// <remarks>
 		/// When this method is called, caller guarantees that the passed-in XML reader is positioned at the open XML tag
-		/// of the OptionHasTypes element that is about to be deserialized. 
+		/// of the OptionHasCommands element that is about to be deserialized. 
 		/// The method needs to ensure that when it returns, the reader is positioned at the open XML tag of the next sibling element,
 		/// or the close tag of the parent element (or EOF).
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory OptionHasTypes instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory OptionHasCommands instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		public override void Read(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -6261,7 +6261,7 @@ namespace Ufba.Ev
 			// Read properties serialized as XML attributes.
 			ReadPropertiesFromAttributes(serializationContext, element, reader);
 				
-			// Read nested XML elements, which include at least the instance of target role-player Type
+			// Read nested XML elements, which include at least the instance of target role-player Command
 			if (!serializationContext.Result.Failed)
 			{
 				if (!reader.IsEmptyElement)
@@ -6272,7 +6272,7 @@ namespace Ufba.Ev
 					// Read any extension element data under this XML element
 					EvSerializationHelper.Instance.ReadExtensions(serializationContext, element, reader);
 					
-					// Read target role-player Type.
+					// Read target role-player Command.
 					ReadTargetRolePlayer(serializationContext, element, reader);
 	
 					// Read nested XML elements, they can be either properties serialized as XML elements, or child 
@@ -6290,7 +6290,7 @@ namespace Ufba.Ev
 				}
 				else
 				{
-					EvSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "OptionHasTypes");
+					EvSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "OptionHasCommands");
 				}
 			}
 	
@@ -6300,7 +6300,7 @@ namespace Ufba.Ev
 		
 	
 		/// <summary>
-		/// This method reads the target role player Type.
+		/// This method reads the target role player Command.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at the open tag of the first child XML element.
@@ -6314,7 +6314,7 @@ namespace Ufba.Ev
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory OptionHasTypes instance that will link to the target Type instance.</param>
+		/// <param name="element">In-memory OptionHasCommands instance that will link to the target Command instance.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected virtual void ReadTargetRolePlayer(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -6330,10 +6330,10 @@ namespace Ufba.Ev
 				throw new global::System.ArgumentNullException ("reader");
 			#endregion
 	
-			// Read the instance of target role-player Type
+			// Read the instance of target role-player Command
 			DslModeling::ModelElement targetRolePlayer = null;
-			DslModeling::DomainClassXmlSerializer targetRoleSerializer = serializationContext.Directory.GetSerializer(Type.DomainClassId);
-			global::System.Diagnostics.Debug.Assert(targetRoleSerializer != null, "Cannot find serializer for Type!");
+			DslModeling::DomainClassXmlSerializer targetRoleSerializer = serializationContext.Directory.GetSerializer(Command.DomainClassId);
+			global::System.Diagnostics.Debug.Assert(targetRoleSerializer != null, "Cannot find serializer for Command!");
 	
 			while (!serializationContext.Result.Failed && !reader.EOF && reader.NodeType == global::System.Xml.XmlNodeType.Element)
 			{
@@ -6341,7 +6341,7 @@ namespace Ufba.Ev
 				if (targetRolePlayer != null)
 				{
 					// Attach the target role-player.
-					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, OptionHasTypes.TypeDomainRoleId, targetRolePlayer);
+					DslModeling::DomainRoleInfo.SetRolePlayer(element as DslModeling::ElementLink, OptionHasCommands.CommandDomainRoleId, targetRolePlayer);
 					// Read target role-player.
 					DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer (targetRolePlayer.GetDomainClass().Id);	
 					global::System.Diagnostics.Debug.Assert (targetSerializer != null, "Cannot find serializer for " + targetRolePlayer.GetDomainClass().Name + "!");
@@ -6354,7 +6354,7 @@ namespace Ufba.Ev
 			}
 			if (targetRolePlayer == null)
 			{
-				EvSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "OptionHasTypes");
+				EvSerializationBehaviorSerializationMessages.DanglingRelationship(serializationContext, reader, "OptionHasCommands");
 			}
 		}
 	
@@ -6366,7 +6366,7 @@ namespace Ufba.Ev
 		/// The caller will guarantee that the reader is positioned on the open XML tag of the current element being deserialized.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory OptionHasTypes instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory OptionHasCommands instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void ReadPropertiesFromAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
@@ -6391,7 +6391,7 @@ namespace Ufba.Ev
 		/// 3) EOF.
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">In-memory OptionHasTypes instance that will get the deserialized data.</param>
+		/// <param name="element">In-memory OptionHasCommands instance that will get the deserialized data.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		protected override void ReadElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlReader reader)
 		{
@@ -6402,8 +6402,8 @@ namespace Ufba.Ev
 	
 		#region TryCreateInstance & TryCreateDerivedInstance
 		/// <summary>
-		/// This method creates a correct instance of OptionHasTypes based on the tag currently pointed by the reader. If the reader
-		/// is positioned at a serialized OptionHasTypes, a new OptionHasTypes instance will be created in the given partition, otherwise 
+		/// This method creates a correct instance of OptionHasCommands based on the tag currently pointed by the reader. If the reader
+		/// is positioned at a serialized OptionHasCommands, a new OptionHasCommands instance will be created in the given partition, otherwise 
 		/// null is returned.
 		/// </summary>
 		/// <remarks>
@@ -6413,7 +6413,7 @@ namespace Ufba.Ev
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>	
-		/// <returns>Created OptionHasTypes instance, or null if the reader is not pointing to a serialized OptionHasTypes instance.</returns>
+		/// <returns>Created OptionHasCommands instance, or null if the reader is not pointing to a serialized OptionHasCommands instance.</returns>
 		public override DslModeling::ModelElement TryCreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -6432,9 +6432,9 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// This method creates a correct derived instance of OptionHasTypes based on the tag currently pointed by the reader.
+		/// This method creates a correct derived instance of OptionHasCommands based on the tag currently pointed by the reader.
 		/// Note that the difference between this method and the above one is that this method will never create an instance of the
-		/// OptionHasTypes type itself, only derived types are checked.
+		/// OptionHasCommands type itself, only derived types are checked.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -6443,7 +6443,7 @@ namespace Ufba.Ev
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
 		/// <param name="partition">Partition in which new elements should be created.</param>
-		/// <returns>Created instance that derives from OptionHasTypes, or null if the reader is not pointing to such a serialized instance.</returns>
+		/// <returns>Created instance that derives from OptionHasCommands, or null if the reader is not pointing to such a serialized instance.</returns>
 		public override DslModeling::ElementLink TryCreateDerivedInstance (DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			#region Check Parameters
@@ -6475,18 +6475,18 @@ namespace Ufba.Ev
 			{
 				string localName = reader.LocalName;
 				if (!derivedTypesOnly && string.Compare (localName, this.XmlTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "OptionHasTypes" instance.
+				{	// New "OptionHasCommands" instance.
 					result = this.CreateInstance(serializationContext, reader, partition);
 				}
 				else
-				{	// Check for derived classes of "OptionHasTypes".
+				{	// Check for derived classes of "OptionHasCommands".
 					if (this.derivedClasses == null)
 						this.ConstructDerivedClassesLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert (this.derivedClasses != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClasses.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived relationship instance.
-						OptionHasTypesSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as OptionHasTypesSerializer;
+						OptionHasCommandsSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as OptionHasCommandsSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateInstance(serializationContext, reader, partition);
 					}
@@ -6497,8 +6497,8 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// This method creates an instance of OptionHasTypes based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
-		/// to be pointed at a serialized instance of OptionHasTypes.
+		/// This method creates an instance of OptionHasCommands based on the tag currently pointed by the reader. The reader is guaranteed (by the caller)
+		/// to be pointed at a serialized instance of OptionHasCommands.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the ModelRoot instance being read. This method should
@@ -6506,8 +6506,8 @@ namespace Ufba.Ev
 		/// </remarks>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="reader">XmlReader to read serialized data from.</param>
-		/// <param name="partition">Partition in which new OptionHasTypes instance should be created.</param>	
-		/// <returns>Created OptionHasTypes instance.</returns>
+		/// <param name="partition">Partition in which new OptionHasCommands instance should be created.</param>	
+		/// <returns>Created OptionHasCommands instance.</returns>
 		protected override DslModeling::ModelElement CreateInstance(DslModeling::SerializationContext serializationContext, global::System.Xml.XmlReader reader, DslModeling::Partition partition)
 		{
 			string idStr = reader.GetAttribute ("Id");
@@ -6524,11 +6524,11 @@ namespace Ufba.Ev
 					id = new global::System.Guid (idStr);
 				}
 				// Create the link with place-holder role-players.
-				return new OptionHasTypes(
+				return new OptionHasCommands(
 					partition,
 					new DslModeling::RoleAssignment[] {
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (OptionHasTypes.OptionDomainRoleId), 
-						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (OptionHasTypes.TypeDomainRoleId)
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (OptionHasCommands.OptionDomainRoleId), 
+						DslModeling::RoleAssignment.CreatePlaceholderRoleAssignment (OptionHasCommands.CommandDomainRoleId)
 					},
 					new DslModeling::PropertyAssignment[] {
 						new DslModeling::PropertyAssignment(DslModeling::ElementFactory.IdPropertyAssignment, id)
@@ -6551,12 +6551,12 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from OptionHasTypes, created on demand.
+		/// Stores a mapping from XmlTagName to DomainClassInfo that derives from OptionHasCommands, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClasses;
 	
 		/// <summary>
-		/// Construct the apping from XmlTagName to DomainClassInfo that derives from OptionHasTypes.
+		/// Construct the apping from XmlTagName to DomainClassInfo that derives from OptionHasCommands.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -6565,7 +6565,7 @@ namespace Ufba.Ev
 			global::System.Diagnostics.Debug.Assert(this.derivedClasses == null); // Shouldn't construct the table more than once.
 			this.derivedClasses = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(OptionHasTypes.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(OptionHasCommands.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -6597,7 +6597,7 @@ namespace Ufba.Ev
 	
 		#region TryCreateMonikerInstance
 		/// <summary>
-		/// This method creates a Moniker of the correct derived (including OptionHasTypes itself) instance of OptionHasTypes based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of the correct derived (including OptionHasCommands itself) instance of OptionHasCommands based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -6631,18 +6631,18 @@ namespace Ufba.Ev
 			{
 				string localName = reader.LocalName;
 				if (string.Compare (localName, this.MonikerTagName, global::System.StringComparison.CurrentCulture) == 0)
-				{	// New "OptionHasTypes" moniker instance.
+				{	// New "OptionHasCommands" moniker instance.
 					result = this.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 				}
 				else
-				{	// Check for derived classes of "OptionHasTypes".
+				{	// Check for derived classes of "OptionHasCommands".
 					if (this.derivedClassMonikers == null)
 						this.ConstructDerivedClassMonikersLookupTable(serializationContext, partition.DomainDataDirectory);
 					global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers != null);
 					DslModeling::DomainClassInfo derivedClass = null;
 					if (this.derivedClassMonikers.TryGetValue (localName, out derivedClass) && derivedClass != null)
 					{	// New derived class moniker instance.
-						OptionHasTypesSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as OptionHasTypesSerializer;
+						OptionHasCommandsSerializer derivedSerializer = serializationContext.Directory.GetSerializer(derivedClass.Id) as OptionHasCommandsSerializer;
 						global::System.Diagnostics.Debug.Assert(derivedSerializer != null, "Cannot find serializer for " + derivedClass.Name + "!");
 						result = derivedSerializer.CreateMonikerInstance(serializationContext, reader, sourceRolePlayer, relDomainClassId, partition);
 					}
@@ -6653,7 +6653,7 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// This method creates a Moniker of OptionHasTypes based on the tag currently pointed by the reader.
+		/// This method creates a Moniker of OptionHasCommands based on the tag currently pointed by the reader.
 		/// </summary>
 		/// <remarks>
 		/// The caller will guarantee that the reader is positioned at open XML tag of the next element being read. This method should
@@ -6678,7 +6678,7 @@ namespace Ufba.Ev
 			{	// Normalize the Id.
 				global::System.Guid id = new global::System.Guid(monikerString);
 				monikerString = id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
-				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, OptionHasTypes.DomainClassId, partition.Store), partition.Store);
+				DslModeling::Moniker result = new DslModeling::Moniker(new DslModeling::MonikerKey(monikerString, relDomainClassId, OptionHasCommands.DomainClassId, partition.Store), partition.Store);
 				// Set location info if possible.
 				result.Location = serializationContext.Location;
 				global::System.Xml.IXmlLineInfo xmlLineInfo = reader as global::System.Xml.IXmlLineInfo;
@@ -6702,12 +6702,12 @@ namespace Ufba.Ev
 		}
 	
 		/// <summary>
-		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from OptionHasTypes, created on demand.
+		/// Stores a mapping from Moniker Xml tag name to DomainClassInfo that derives from OptionHasCommands, created on demand.
 		/// </summary>
 		private global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> derivedClassMonikers;
 	
 		/// <summary>
-		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from OptionHasTypes.
+		/// Construct the mapping from Moniker Xml tag name to DomainClassInfo that derives from OptionHasCommands.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
 		/// <param name="domainDataDirectory">DomainDataDirectory to be used to discover all derived classes.</param>
@@ -6716,7 +6716,7 @@ namespace Ufba.Ev
 			global::System.Diagnostics.Debug.Assert(this.derivedClassMonikers == null); // Shouldn't construct the table more than once.
 			this.derivedClassMonikers = new global::System.Collections.Generic.Dictionary<string, DslModeling::DomainClassInfo> (global::System.StringComparer.CurrentCulture);
 	
-			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(OptionHasTypes.DomainClassId);
+			DslModeling::DomainClassInfo thisClass = domainDataDirectory.GetDomainClass(OptionHasCommands.DomainClassId);
 			global::System.Diagnostics.Debug.Assert(thisClass != null, "Cannot find DomainClassInfo for ModelRoot!");
 	
 			global::System.Collections.ObjectModel.ReadOnlyCollection<DslModeling::DomainClassInfo> descendents = thisClass.AllDescendants;
@@ -6742,13 +6742,13 @@ namespace Ufba.Ev
 	
 		#region Write Methods
 		/// <summary>
-		/// Public WriteMoniker() method that writes a monikerized OptionHasTypes instance into XML.
+		/// Public WriteMoniker() method that writes a monikerized OptionHasCommands instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">OptionHasTypes instance to be monikerized.</param>
+		/// <param name="element">OptionHasCommands instance to be monikerized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
-		/// <param name="sourceRolePlayer">Source element that references the OptionHasTypes instance being monikerized.</param>
-		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the OptionHasTypes instance being monikerized.</param>
+		/// <param name="sourceRolePlayer">Source element that references the OptionHasCommands instance being monikerized.</param>
+		/// <param name="relSerializer">Serializer that handles the relationship connecting the source element to the OptionHasCommands instance being monikerized.</param>
 		public override void WriteMoniker(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer, DslModeling::ModelElement sourceRolePlayer, DslModeling::DomainRelationshipXmlSerializer relSerializer)
 		{
 			#region Check Parameters
@@ -6777,10 +6777,10 @@ namespace Ufba.Ev
 		}
 		
 		/// <summary>
-		/// Public Write() method that serializes one OptionHasTypes instance into XML.
+		/// Public Write() method that serializes one OptionHasCommands instance into XML.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">OptionHasTypes instance to be serialized.</param>
+		/// <param name="element">OptionHasCommands instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>
 		/// <param name="rootElementSettings">
 		/// The root element settings if the passed in element is serialized as a root element in the XML. The root element contains additional
@@ -6829,10 +6829,10 @@ namespace Ufba.Ev
 			}
 	
 			// Write the target role-player instance.
-			OptionHasTypes instance = element as OptionHasTypes;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of OptionHasTypes!");
+			OptionHasCommands instance = element as OptionHasCommands;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of OptionHasCommands!");
 	
-			DslModeling::ModelElement targetElement = instance.Type;
+			DslModeling::ModelElement targetElement = instance.Command;
 			DslModeling::DomainClassXmlSerializer targetSerializer = serializationContext.Directory.GetSerializer(targetElement.GetDomainClass().Id);
 			global::System.Diagnostics.Debug.Assert(targetSerializer != null, "Cannot find serializer for " + targetElement.GetDomainClass().Name + "!");
 			targetSerializer.Write(serializationContext, targetElement, writer);
@@ -6850,7 +6850,7 @@ namespace Ufba.Ev
 		/// Write all properties that need to be serialized as XML attributes.
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">OptionHasTypes instance to be serialized.</param>
+		/// <param name="element">OptionHasCommands instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param> 
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Generated code.")]
 		protected override void WritePropertiesAsAttributes(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
@@ -6865,7 +6865,7 @@ namespace Ufba.Ev
 		/// This methods serializes 1) properties serialized as nested XML elements and 2) child model elements into XML. 
 		/// </summary>
 		/// <param name="serializationContext">Serialization context.</param>
-		/// <param name="element">OptionHasTypes instance to be serialized.</param>
+		/// <param name="element">OptionHasCommands instance to be serialized.</param>
 		/// <param name="writer">XmlWriter to write serialized data to.</param>        
 		protected override void WriteElements(DslModeling::SerializationContext serializationContext, DslModeling::ModelElement element, global::System.Xml.XmlWriter writer)
 		{
@@ -6878,11 +6878,11 @@ namespace Ufba.Ev
 	
 		#region Moniker Support
 		/// <summary>
-		/// This method calculates a moniker to a given OptionHasTypes instance.
+		/// This method calculates a moniker to a given OptionHasCommands instance.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">OptionHasTypes instance to calculate qualified name for.</param>
-		/// <returns>A fully qualified string moniker to the OptionHasTypes instance.</returns>
+		/// <param name="element">OptionHasCommands instance to calculate qualified name for.</param>
+		/// <returns>A fully qualified string moniker to the OptionHasCommands instance.</returns>
 		public override string CalculateQualifiedName(DslModeling::DomainXmlSerializerDirectory directory, DslModeling::ModelElement element)
 		{
 			#region Check Parameters
@@ -6894,8 +6894,8 @@ namespace Ufba.Ev
 				throw new global::System.ArgumentNullException("element");
 			#endregion	
 			
-			OptionHasTypes instance = element as OptionHasTypes;
-			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of OptionHasTypes!");
+			OptionHasCommands instance = element as OptionHasCommands;
+			global::System.Diagnostics.Debug.Assert(instance != null, "Expecting an instance of OptionHasCommands!");
 	
 			return instance.Id.ToString("D", global::System.Globalization.CultureInfo.CurrentCulture);
 		}
@@ -6906,7 +6906,7 @@ namespace Ufba.Ev
 		/// returns empty string.
 		/// </summary>
 		/// <param name="directory">Directory to look up serializer based on model element type.</param>
-		/// <param name="element">OptionHasTypes instance to get moniker qualifier from.</param>
+		/// <param name="element">OptionHasCommands instance to get moniker qualifier from.</param>
 		/// <returns>
 		/// Value of this element's moniker qualifier property, if it has one, or the value of the container's moniker qualifier property. Or empty string if this
 		/// element is not monikerized using standard /qualifier/key mechanism.
@@ -9272,12 +9272,12 @@ namespace Ufba.Ev
 					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(EvModel.DomainClassId, typeof(EvModelSerializer)));
 					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(Option.DomainClassId, typeof(OptionSerializer)));
 					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(Function.DomainClassId, typeof(FunctionSerializer)));
-					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(Property.DomainClassId, typeof(PropertySerializer)));
-					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(Type.DomainClassId, typeof(TypeSerializer)));
+					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(Category.DomainClassId, typeof(CategorySerializer)));
+					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(Command.DomainClassId, typeof(CommandSerializer)));
 					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(EvModelHasElements.DomainClassId, typeof(EvModelHasElementsSerializer)));
 					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(OptionHasFunctions.DomainClassId, typeof(OptionHasFunctionsSerializer)));
-					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(OptionHasProperties.DomainClassId, typeof(OptionHasPropertiesSerializer)));
-					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(OptionHasTypes.DomainClassId, typeof(OptionHasTypesSerializer)));
+					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(OptionHasCategories.DomainClassId, typeof(OptionHasCategoriesSerializer)));
+					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(OptionHasCommands.DomainClassId, typeof(OptionHasCommandsSerializer)));
 					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(FunctionShape.DomainClassId, typeof(FunctionShapeSerializer)));
 					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(OptionShape.DomainClassId, typeof(OptionShapeSerializer)));
 					EvSerializationBehavior.serializerTypes.Add(new DslModeling::DomainXmlSerializerDirectoryEntry(OptionConnector.DomainClassId, typeof(OptionConnectorSerializer)));

@@ -19,14 +19,14 @@
           </nestedChildShapes>
         </microsoft.VisualStudio.Modeling.DslDesigner.RelationshipShape>
         <microsoft.VisualStudio.Modeling.DslDesigner.RelationshipShape Id="30c4e9c5-bb5b-498e-b882-83a5de584911" isExpanded="false" absoluteBounds="4.95, 4.8019775390624995, 1.35, 0.25">
-          <DomainRelationshipMoniker Name="/Ufba.Ev/OptionHasProperties" />
+          <DomainRelationshipMoniker Name="/Ufba.Ev/OptionHasCategories" />
           <relativeChildShapes />
           <nestedChildShapes>
             <elementListCompartment Id="ef0f1c55-9fea-4f63-b001-cd16a6f37196" absoluteBounds="4.95, 4.8019775390624995, 0.125, 0.2493896484375" name="Properties" titleTextColor="Black" itemTextColor="Black" />
           </nestedChildShapes>
         </microsoft.VisualStudio.Modeling.DslDesigner.RelationshipShape>
         <microsoft.VisualStudio.Modeling.DslDesigner.RelationshipShape Id="3334ce80-156d-4a5b-b046-508dcd029bae" isExpanded="false" absoluteBounds="4.95, 6.0436686197916663, 1.35, 0.25">
-          <DomainRelationshipMoniker Name="/Ufba.Ev/OptionHasTypes" />
+          <DomainRelationshipMoniker Name="/Ufba.Ev/OptionHasCommands" />
           <relativeChildShapes />
           <nestedChildShapes>
             <elementListCompartment Id="1e463a1c-cd64-4dfb-bc43-e7ab38256882" absoluteBounds="4.95, 6.0436686197916663, 0.125, 0.2493896484375" name="Properties" titleTextColor="Black" itemTextColor="Black" />
@@ -201,12 +201,12 @@
             </RootNode>
             <RootNode Id="2757cda0-1503-4549-8f79-2ebe37e814c6">
               <Class>
-                <DomainClassMoniker Name="/Ufba.Ev/Property" />
+                <DomainClassMoniker Name="/Ufba.Ev/Category" />
               </Class>
             </RootNode>
             <RootNode Id="f4886c39-16b8-43ba-91a9-d0641789947a">
               <Class>
-                <DomainClassMoniker Name="/Ufba.Ev/Type" />
+                <DomainClassMoniker Name="/Ufba.Ev/Command" />
               </Class>
             </RootNode>
           </Roots>
@@ -223,12 +223,12 @@
             </SourceRoleNode>
             <SourceRoleNode Id="eb3a7d00-f308-4d6a-9841-2e7a543b845e" IsLeaf="true">
               <Role>
-                <DomainRoleMoniker Name="/Ufba.Ev/OptionHasProperties/Option" />
+                <DomainRoleMoniker Name="/Ufba.Ev/OptionHasCategories/Option" />
               </Role>
             </SourceRoleNode>
             <SourceRoleNode Id="468d8cc5-09d3-4986-84c7-a60c51ce659f" IsLeaf="true">
               <Role>
-                <DomainRoleMoniker Name="/Ufba.Ev/OptionHasTypes/Option" />
+                <DomainRoleMoniker Name="/Ufba.Ev/OptionHasCommands/Option" />
               </Role>
             </SourceRoleNode>
           </Arcs>

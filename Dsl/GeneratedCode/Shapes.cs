@@ -549,16 +549,16 @@ namespace Ufba.Ev
 					}
 					mappings[localCompartmentMappingsOffset+0] = new DslDiagrams::ElementListCompartmentMapping(
 																				"Actions", 
-																				global::Ufba.Ev.Type.NameDomainPropertyId, 
-																				global::Ufba.Ev.Type.DomainClassId, 
+																				global::Ufba.Ev.Command.NameDomainPropertyId, 
+																				global::Ufba.Ev.Command.DomainClassId, 
 																				GetElementsFromOptionForActions,
 																				null,
 																				null,
 																				null);
 					mappings[localCompartmentMappingsOffset+1] = new DslDiagrams::ElementListCompartmentMapping(
 																				"Properties", 
-																				global::Ufba.Ev.Property.NameDomainPropertyId, 
-																				global::Ufba.Ev.Property.DomainClassId, 
+																				global::Ufba.Ev.Category.NameDomainPropertyId, 
+																				global::Ufba.Ev.Category.DomainClassId, 
 																				GetElementsFromOptionForProperties,
 																				null,
 																				null,
@@ -596,14 +596,14 @@ namespace Ufba.Ev
 			{
 				global::Ufba.Ev.Option root = (global::Ufba.Ev.Option)rootElement;
 					// Segments 0 and 1
-					DslModeling::LinkedElementCollection<global::Ufba.Ev.Type> result = root.Types;
+					DslModeling::LinkedElementCollection<global::Ufba.Ev.Command> result = root.Commands;
 				return result;
 			}
 			internal static global::System.Collections.IList GetElementsFromOptionForProperties(DslModeling::ModelElement rootElement)
 			{
 				global::Ufba.Ev.Option root = (global::Ufba.Ev.Option)rootElement;
 					// Segments 0 and 1
-					DslModeling::LinkedElementCollection<global::Ufba.Ev.Property> result = root.Properties;
+					DslModeling::LinkedElementCollection<global::Ufba.Ev.Category> result = root.Categories;
 				return result;
 			}
 			#endregion

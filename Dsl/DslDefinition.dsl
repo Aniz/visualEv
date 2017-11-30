@@ -50,18 +50,18 @@
         </ElementMergeDirective>
         <ElementMergeDirective>
           <Index>
-            <DomainClassMoniker Name="Property" />
+            <DomainClassMoniker Name="Category" />
           </Index>
           <LinkCreationPaths>
-            <DomainPath>OptionHasProperties.Properties</DomainPath>
+            <DomainPath>OptionHasCategories.Categories</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
         <ElementMergeDirective>
           <Index>
-            <DomainClassMoniker Name="Type" />
+            <DomainClassMoniker Name="Command" />
           </Index>
           <LinkCreationPaths>
-            <DomainPath>OptionHasTypes.Types</DomainPath>
+            <DomainPath>OptionHasCommands.Commands</DomainPath>
           </LinkCreationPaths>
         </ElementMergeDirective>
       </ElementMergeDirectives>
@@ -80,18 +80,18 @@
         </DomainProperty>
       </Properties>
     </DomainClass>
-    <DomainClass Id="6a78b38d-b370-45fc-992c-ce5f1193a4a7" Description="Description for Ufba.Ev.Property" Name="Property" DisplayName="Property" Namespace="Ufba.Ev">
+    <DomainClass Id="6a78b38d-b370-45fc-992c-ce5f1193a4a7" Description="Description for Ufba.Ev.Category" Name="Category" DisplayName="Category" Namespace="Ufba.Ev">
       <Properties>
-        <DomainProperty Id="1a60111e-9ed2-4006-87c0-9f9223799b79" Description="Description for Ufba.Ev.Property.Name" Name="Name" DisplayName="Name">
+        <DomainProperty Id="1a60111e-9ed2-4006-87c0-9f9223799b79" Description="Description for Ufba.Ev.Category.Name" Name="Name" DisplayName="Name">
           <Type>
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
       </Properties>
     </DomainClass>
-    <DomainClass Id="2ac8ebca-adb0-4a57-b9e1-38c93f6f2517" Description="Description for Ufba.Ev.Type" Name="Type" DisplayName="Type" Namespace="Ufba.Ev">
+    <DomainClass Id="2ac8ebca-adb0-4a57-b9e1-38c93f6f2517" Description="Description for Ufba.Ev.Command" Name="Command" DisplayName="Command" Namespace="Ufba.Ev">
       <Properties>
-        <DomainProperty Id="748dea58-1627-4eea-9a80-fb924fc83291" Description="Description for Ufba.Ev.Type.Name" Name="Name" DisplayName="Name">
+        <DomainProperty Id="748dea58-1627-4eea-9a80-fb924fc83291" Description="Description for Ufba.Ev.Command.Name" Name="Name" DisplayName="Name">
           <Type>
             <DomainEnumerationMoniker Name="CommandTypes" />
           </Type>
@@ -139,34 +139,34 @@
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="b2482601-abc8-4721-9401-838659fdefab" Description="Description for Ufba.Ev.OptionHasProperties" Name="OptionHasProperties" DisplayName="Option Has Properties" Namespace="Ufba.Ev" IsEmbedding="true">
+    <DomainRelationship Id="b2482601-abc8-4721-9401-838659fdefab" Description="Description for Ufba.Ev.OptionHasCategories" Name="OptionHasCategories" DisplayName="Option Has Categories" Namespace="Ufba.Ev" IsEmbedding="true">
       <Source>
-        <DomainRole Id="c124a9c1-5a72-41a9-be5e-43f7eac30b47" Description="Description for Ufba.Ev.OptionHasProperties.Option" Name="Option" DisplayName="Option" PropertyName="Properties" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Properties">
+        <DomainRole Id="c124a9c1-5a72-41a9-be5e-43f7eac30b47" Description="Description for Ufba.Ev.OptionHasCategories.Option" Name="Option" DisplayName="Option" PropertyName="Categories" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Categories">
           <RolePlayer>
             <DomainClassMoniker Name="Option" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="8723d0d8-3352-4902-bb66-f51f082d418f" Description="Description for Ufba.Ev.OptionHasProperties.Property" Name="Property" DisplayName="Property" PropertyName="Option" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Option">
+        <DomainRole Id="8723d0d8-3352-4902-bb66-f51f082d418f" Description="Description for Ufba.Ev.OptionHasCategories.Category" Name="Category" DisplayName="Category" PropertyName="Option" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Option">
           <RolePlayer>
-            <DomainClassMoniker Name="Property" />
+            <DomainClassMoniker Name="Category" />
           </RolePlayer>
         </DomainRole>
       </Target>
     </DomainRelationship>
-    <DomainRelationship Id="f378e9b2-9af7-454f-8344-2f01eede5025" Description="Description for Ufba.Ev.OptionHasTypes" Name="OptionHasTypes" DisplayName="Option Has Types" Namespace="Ufba.Ev" IsEmbedding="true">
+    <DomainRelationship Id="f378e9b2-9af7-454f-8344-2f01eede5025" Description="Description for Ufba.Ev.OptionHasCommands" Name="OptionHasCommands" DisplayName="Option Has Commands" Namespace="Ufba.Ev" IsEmbedding="true">
       <Source>
-        <DomainRole Id="2badeb65-5ed6-4030-bce6-7bd5bc2ede94" Description="Description for Ufba.Ev.OptionHasTypes.Option" Name="Option" DisplayName="Option" PropertyName="Types" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Types">
+        <DomainRole Id="2badeb65-5ed6-4030-bce6-7bd5bc2ede94" Description="Description for Ufba.Ev.OptionHasCommands.Option" Name="Option" DisplayName="Option" PropertyName="Commands" PropagatesCopy="PropagatesCopyToLinkAndOppositeRolePlayer" PropertyDisplayName="Commands">
           <RolePlayer>
             <DomainClassMoniker Name="Option" />
           </RolePlayer>
         </DomainRole>
       </Source>
       <Target>
-        <DomainRole Id="365a3858-8efb-4194-ac12-1610c7a17036" Description="Description for Ufba.Ev.OptionHasTypes.Type" Name="Type" DisplayName="Type" PropertyName="Option" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Option">
+        <DomainRole Id="365a3858-8efb-4194-ac12-1610c7a17036" Description="Description for Ufba.Ev.OptionHasCommands.Command" Name="Command" DisplayName="Command" PropertyName="Option" Multiplicity="One" PropagatesDelete="true" PropertyDisplayName="Option">
           <RolePlayer>
-            <DomainClassMoniker Name="Type" />
+            <DomainClassMoniker Name="Command" />
           </RolePlayer>
         </DomainRole>
       </Target>
@@ -288,11 +288,11 @@
           <XmlRelationshipData UseFullForm="true" RoleElementName="functions">
             <DomainRelationshipMoniker Name="OptionHasFunctions" />
           </XmlRelationshipData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="properties">
-            <DomainRelationshipMoniker Name="OptionHasProperties" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="categories">
+            <DomainRelationshipMoniker Name="OptionHasCategories" />
           </XmlRelationshipData>
-          <XmlRelationshipData UseFullForm="true" RoleElementName="types">
-            <DomainRelationshipMoniker Name="OptionHasTypes" />
+          <XmlRelationshipData UseFullForm="true" RoleElementName="commands">
+            <DomainRelationshipMoniker Name="OptionHasCommands" />
           </XmlRelationshipData>
           <XmlPropertyData XmlName="optionType">
             <DomainPropertyMoniker Name="Option/OptionType" />
@@ -333,27 +333,27 @@
       <XmlClassData TypeName="OptionShape" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionShapeMoniker" ElementName="optionShape" MonikerTypeName="OptionShapeMoniker">
         <CompartmentShapeMoniker Name="OptionShape" />
       </XmlClassData>
-      <XmlClassData TypeName="Property" MonikerAttributeName="" SerializeId="true" MonikerElementName="propertyMoniker" ElementName="property" MonikerTypeName="PropertyMoniker">
-        <DomainClassMoniker Name="Property" />
+      <XmlClassData TypeName="Category" MonikerAttributeName="" SerializeId="true" MonikerElementName="categoryMoniker" ElementName="category" MonikerTypeName="CategoryMoniker">
+        <DomainClassMoniker Name="Category" />
         <ElementData>
           <XmlPropertyData XmlName="name">
-            <DomainPropertyMoniker Name="Property/Name" />
+            <DomainPropertyMoniker Name="Category/Name" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="OptionHasProperties" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionHasPropertiesMoniker" ElementName="optionHasProperties" MonikerTypeName="OptionHasPropertiesMoniker">
-        <DomainRelationshipMoniker Name="OptionHasProperties" />
+      <XmlClassData TypeName="OptionHasCategories" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionHasCategoriesMoniker" ElementName="optionHasCategories" MonikerTypeName="OptionHasCategoriesMoniker">
+        <DomainRelationshipMoniker Name="OptionHasCategories" />
       </XmlClassData>
-      <XmlClassData TypeName="Type" MonikerAttributeName="" SerializeId="true" MonikerElementName="typeMoniker" ElementName="type" MonikerTypeName="TypeMoniker">
-        <DomainClassMoniker Name="Type" />
+      <XmlClassData TypeName="Command" MonikerAttributeName="" SerializeId="true" MonikerElementName="commandMoniker" ElementName="command" MonikerTypeName="CommandMoniker">
+        <DomainClassMoniker Name="Command" />
         <ElementData>
           <XmlPropertyData XmlName="name">
-            <DomainPropertyMoniker Name="Type/Name" />
+            <DomainPropertyMoniker Name="Command/Name" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>
-      <XmlClassData TypeName="OptionHasTypes" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionHasTypesMoniker" ElementName="optionHasTypes" MonikerTypeName="OptionHasTypesMoniker">
-        <DomainRelationshipMoniker Name="OptionHasTypes" />
+      <XmlClassData TypeName="OptionHasCommands" MonikerAttributeName="" SerializeId="true" MonikerElementName="optionHasCommandsMoniker" ElementName="optionHasCommands" MonikerTypeName="OptionHasCommandsMoniker">
+        <DomainRelationshipMoniker Name="OptionHasCommands" />
       </XmlClassData>
     </ClassData>
   </XmlSerializationBehavior>
@@ -422,22 +422,22 @@
         <CompartmentMap>
           <CompartmentMoniker Name="OptionShape/Actions" />
           <ElementsDisplayed>
-            <DomainPath>OptionHasTypes.Types/!Type</DomainPath>
+            <DomainPath>OptionHasCommands.Commands/!Command</DomainPath>
           </ElementsDisplayed>
           <PropertyDisplayed>
             <PropertyPath>
-              <DomainPropertyMoniker Name="Type/Name" />
+              <DomainPropertyMoniker Name="Command/Name" />
             </PropertyPath>
           </PropertyDisplayed>
         </CompartmentMap>
         <CompartmentMap>
           <CompartmentMoniker Name="OptionShape/Properties" />
           <ElementsDisplayed>
-            <DomainPath>OptionHasProperties.Properties/!Property</DomainPath>
+            <DomainPath>OptionHasCategories.Categories/!Category</DomainPath>
           </ElementsDisplayed>
           <PropertyDisplayed>
             <PropertyPath>
-              <DomainPropertyMoniker Name="Property/Name" />
+              <DomainPropertyMoniker Name="Category/Name" />
             </PropertyPath>
           </PropertyDisplayed>
         </CompartmentMap>

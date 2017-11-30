@@ -581,33 +581,33 @@ namespace Ufba.Ev
 			}
 		}
 		#endregion
-		#region Properties opposite domain role accessor
+		#region Categories opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Properties.
-		/// Description for Ufba.Ev.OptionHasProperties.Option
+		/// Gets a list of Categories.
+		/// Description for Ufba.Ev.OptionHasCategories.Option
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Property> Properties
+		public virtual DslModeling::LinkedElementCollection<Category> Categories
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Property>, Property>(global::Ufba.Ev.OptionHasProperties.OptionDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Category>, Category>(global::Ufba.Ev.OptionHasCategories.OptionDomainRoleId);
 			}
 		}
 		#endregion
-		#region Types opposite domain role accessor
+		#region Commands opposite domain role accessor
 		
 		/// <summary>
-		/// Gets a list of Types.
-		/// Description for Ufba.Ev.OptionHasTypes.Option
+		/// Gets a list of Commands.
+		/// Description for Ufba.Ev.OptionHasCommands.Option
 		/// </summary>
-		public virtual DslModeling::LinkedElementCollection<Type> Types
+		public virtual DslModeling::LinkedElementCollection<Command> Commands
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return GetRoleCollection<DslModeling::LinkedElementCollection<Type>, Type>(global::Ufba.Ev.OptionHasTypes.OptionDomainRoleId);
+				return GetRoleCollection<DslModeling::LinkedElementCollection<Command>, Command>(global::Ufba.Ev.OptionHasCommands.OptionDomainRoleId);
 			}
 		}
 		#endregion
@@ -636,12 +636,12 @@ namespace Ufba.Ev
 					return true;
 				}
 				
-				if (rootElementDomainInfo.IsDerivedFrom(global::Ufba.Ev.Property.DomainClassId)) 
+				if (rootElementDomainInfo.IsDerivedFrom(global::Ufba.Ev.Category.DomainClassId)) 
 				{
 					return true;
 				}
 				
-				if (rootElementDomainInfo.IsDerivedFrom(global::Ufba.Ev.Type.DomainClassId)) 
+				if (rootElementDomainInfo.IsDerivedFrom(global::Ufba.Ev.Command.DomainClassId)) 
 				{
 					return true;
 				}
@@ -679,20 +679,20 @@ namespace Ufba.Ev
 				return;
 			}
 				
-			global::Ufba.Ev.Property sourceProperty2 = sourceElement as global::Ufba.Ev.Property;
-			if (sourceProperty2 != null)
+			global::Ufba.Ev.Category sourceCategory2 = sourceElement as global::Ufba.Ev.Category;
+			if (sourceCategory2 != null)
 			{
-				// Create link for path OptionHasProperties.Properties
-				this.Properties.Add(sourceProperty2);
+				// Create link for path OptionHasCategories.Categories
+				this.Categories.Add(sourceCategory2);
 
 				return;
 			}
 				
-			global::Ufba.Ev.Type sourceType3 = sourceElement as global::Ufba.Ev.Type;
-			if (sourceType3 != null)
+			global::Ufba.Ev.Command sourceCommand3 = sourceElement as global::Ufba.Ev.Command;
+			if (sourceCommand3 != null)
 			{
-				// Create link for path OptionHasTypes.Types
-				this.Types.Add(sourceType3);
+				// Create link for path OptionHasCommands.Commands
+				this.Commands.Add(sourceCommand3);
 
 				return;
 			}
@@ -733,29 +733,29 @@ namespace Ufba.Ev
 				return;
 			}
 				
-			global::Ufba.Ev.Property sourceProperty2 = sourceElement as global::Ufba.Ev.Property;
-			if (sourceProperty2 != null)
+			global::Ufba.Ev.Category sourceCategory2 = sourceElement as global::Ufba.Ev.Category;
+			if (sourceCategory2 != null)
 			{
-				// Delete link for path OptionHasProperties.Properties
+				// Delete link for path OptionHasCategories.Categories
 				
-				foreach (DslModeling::ElementLink link in global::Ufba.Ev.OptionHasProperties.GetLinks((global::Ufba.Ev.Option)this, sourceProperty2))
+				foreach (DslModeling::ElementLink link in global::Ufba.Ev.OptionHasCategories.GetLinks((global::Ufba.Ev.Option)this, sourceCategory2))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::Ufba.Ev.OptionHasProperties.OptionDomainRoleId, global::Ufba.Ev.OptionHasProperties.PropertyDomainRoleId);
+					link.Delete(global::Ufba.Ev.OptionHasCategories.OptionDomainRoleId, global::Ufba.Ev.OptionHasCategories.CategoryDomainRoleId);
 				}
 
 				return;
 			}
 				
-			global::Ufba.Ev.Type sourceType3 = sourceElement as global::Ufba.Ev.Type;
-			if (sourceType3 != null)
+			global::Ufba.Ev.Command sourceCommand3 = sourceElement as global::Ufba.Ev.Command;
+			if (sourceCommand3 != null)
 			{
-				// Delete link for path OptionHasTypes.Types
+				// Delete link for path OptionHasCommands.Commands
 				
-				foreach (DslModeling::ElementLink link in global::Ufba.Ev.OptionHasTypes.GetLinks((global::Ufba.Ev.Option)this, sourceType3))
+				foreach (DslModeling::ElementLink link in global::Ufba.Ev.OptionHasCommands.GetLinks((global::Ufba.Ev.Option)this, sourceCommand3))
 				{
 					// Delete the link, but without possible delete propagation to the element since it's moving to a new location.
-					link.Delete(global::Ufba.Ev.OptionHasTypes.OptionDomainRoleId, global::Ufba.Ev.OptionHasTypes.TypeDomainRoleId);
+					link.Delete(global::Ufba.Ev.OptionHasCommands.OptionDomainRoleId, global::Ufba.Ev.OptionHasCommands.CommandDomainRoleId);
 				}
 
 				return;
@@ -1003,20 +1003,20 @@ namespace Ufba.Ev
 namespace Ufba.Ev
 {
 	/// <summary>
-	/// DomainClass Property
-	/// Description for Ufba.Ev.Property
+	/// DomainClass Category
+	/// Description for Ufba.Ev.Category
 	/// </summary>
-	[DslDesign::DisplayNameResource("Ufba.Ev.Property.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Ufba.Ev.Property.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Ufba.Ev.Category.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ufba.Ev.Category.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Ufba.Ev.EvDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("6a78b38d-b370-45fc-992c-ce5f1193a4a7")]
-	public partial class Property : DslModeling::ModelElement
+	public partial class Category : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// Property domain class Id.
+		/// Category domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x6a78b38d, 0xb370, 0x45fc, 0x99, 0x2c, 0xce, 0x5f, 0x11, 0x93, 0xa4, 0xa7);
 		/// <summary>
@@ -1024,7 +1024,7 @@ namespace Ufba.Ev
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Property(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public Category(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -1034,7 +1034,7 @@ namespace Ufba.Ev
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Property(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public Category(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -1053,10 +1053,10 @@ namespace Ufba.Ev
 		
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
-		/// Description for Ufba.Ev.Property.Name
+		/// Description for Ufba.Ev.Category.Name
 		/// </summary>
-		[DslDesign::DisplayNameResource("Ufba.Ev.Property/Name.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ufba.Ev.Property/Name.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("Ufba.Ev.Category/Name.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.Category/Name.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("1a60111e-9ed2-4006-87c0-9f9223799b79")]
 		public global::System.String Name
 		{
@@ -1072,19 +1072,19 @@ namespace Ufba.Ev
 			}
 		}
 		/// <summary>
-		/// Value handler for the Property.Name domain property.
+		/// Value handler for the Category.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Property, global::System.String>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Category, global::System.String>
 		{
 			private NamePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the Property.Name domain property value handler.
+			/// Gets the singleton instance of the Category.Name domain property value handler.
 			/// </summary>
 			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the Property.Name domain property.
+			/// Gets the Id of the Category.Name domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
@@ -1100,7 +1100,7 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed global::System.String GetValue(Property element)
+			public override sealed global::System.String GetValue(Category element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -1111,7 +1111,7 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Property element, global::System.String newValue)
+			public override sealed void SetValue(Category element, global::System.String newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1129,19 +1129,19 @@ namespace Ufba.Ev
 		#region Option opposite domain role accessor
 		/// <summary>
 		/// Gets or sets Option.
-		/// Description for Ufba.Ev.OptionHasProperties.Property
+		/// Description for Ufba.Ev.OptionHasCategories.Category
 		/// </summary>
 		public virtual Option Option
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ufba.Ev.OptionHasProperties.PropertyDomainRoleId) as Option;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ufba.Ev.OptionHasCategories.CategoryDomainRoleId) as Option;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ufba.Ev.OptionHasProperties.PropertyDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ufba.Ev.OptionHasCategories.CategoryDomainRoleId, value);
 			}
 		}
 		#endregion
@@ -1150,20 +1150,20 @@ namespace Ufba.Ev
 namespace Ufba.Ev
 {
 	/// <summary>
-	/// DomainClass Type
-	/// Description for Ufba.Ev.Type
+	/// DomainClass Command
+	/// Description for Ufba.Ev.Command
 	/// </summary>
-	[DslDesign::DisplayNameResource("Ufba.Ev.Type.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-	[DslDesign::DescriptionResource("Ufba.Ev.Type.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DisplayNameResource("Ufba.Ev.Command.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+	[DslDesign::DescriptionResource("Ufba.Ev.Command.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Ufba.Ev.EvDomainModel))]
 	[global::System.CLSCompliant(true)]
 	[DslModeling::DomainObjectId("2ac8ebca-adb0-4a57-b9e1-38c93f6f2517")]
-	public partial class Type : DslModeling::ModelElement
+	public partial class Command : DslModeling::ModelElement
 	{
 		#region Constructors, domain class Id
 	
 		/// <summary>
-		/// Type domain class Id.
+		/// Command domain class Id.
 		/// </summary>
 		public static readonly new global::System.Guid DomainClassId = new global::System.Guid(0x2ac8ebca, 0xadb0, 0x4a57, 0xb9, 0xe1, 0x38, 0xc9, 0x3f, 0x6f, 0x25, 0x17);
 		/// <summary>
@@ -1171,7 +1171,7 @@ namespace Ufba.Ev
 		/// </summary>
 		/// <param name="store">Store where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Type(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public Command(DslModeling::Store store, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: this(store != null ? store.DefaultPartitionForClass(DomainClassId) : null, propertyAssignments)
 		{
 		}
@@ -1181,7 +1181,7 @@ namespace Ufba.Ev
 		/// </summary>
 		/// <param name="partition">Partition where new element is to be created.</param>
 		/// <param name="propertyAssignments">List of domain property id/value pairs to set once the element is created.</param>
-		public Type(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
+		public Command(DslModeling::Partition partition, params DslModeling::PropertyAssignment[] propertyAssignments)
 			: base(partition, propertyAssignments)
 		{
 		}
@@ -1200,10 +1200,10 @@ namespace Ufba.Ev
 		
 		/// <summary>
 		/// Gets or sets the value of Name domain property.
-		/// Description for Ufba.Ev.Type.Name
+		/// Description for Ufba.Ev.Command.Name
 		/// </summary>
-		[DslDesign::DisplayNameResource("Ufba.Ev.Type/Name.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
-		[DslDesign::DescriptionResource("Ufba.Ev.Type/Name.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DisplayNameResource("Ufba.Ev.Command/Name.DisplayName", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Ufba.Ev.Command/Name.Description", typeof(global::Ufba.Ev.EvDomainModel), "Ufba.Ev.GeneratedCode.DomainModelResx")]
 		[DslModeling::DomainObjectId("748dea58-1627-4eea-9a80-fb924fc83291")]
 		public CommandTypes Name
 		{
@@ -1219,19 +1219,19 @@ namespace Ufba.Ev
 			}
 		}
 		/// <summary>
-		/// Value handler for the Type.Name domain property.
+		/// Value handler for the Command.Name domain property.
 		/// </summary>
-		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Type, CommandTypes>
+		internal sealed partial class NamePropertyHandler : DslModeling::DomainPropertyValueHandler<Command, CommandTypes>
 		{
 			private NamePropertyHandler() { }
 		
 			/// <summary>
-			/// Gets the singleton instance of the Type.Name domain property value handler.
+			/// Gets the singleton instance of the Command.Name domain property value handler.
 			/// </summary>
 			public static readonly NamePropertyHandler Instance = new NamePropertyHandler();
 		
 			/// <summary>
-			/// Gets the Id of the Type.Name domain property.
+			/// Gets the Id of the Command.Name domain property.
 			/// </summary>
 			public sealed override global::System.Guid DomainPropertyId
 			{
@@ -1247,7 +1247,7 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <returns>Property value.</returns>
-			public override sealed CommandTypes GetValue(Type element)
+			public override sealed CommandTypes GetValue(Command element)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 				return element.namePropertyStorage;
@@ -1258,7 +1258,7 @@ namespace Ufba.Ev
 			/// </summary>
 			/// <param name="element">Element which owns the property.</param>
 			/// <param name="newValue">New property value.</param>
-			public override sealed void SetValue(Type element, CommandTypes newValue)
+			public override sealed void SetValue(Command element, CommandTypes newValue)
 			{
 				if (element == null) throw new global::System.ArgumentNullException("element");
 		
@@ -1276,19 +1276,19 @@ namespace Ufba.Ev
 		#region Option opposite domain role accessor
 		/// <summary>
 		/// Gets or sets Option.
-		/// Description for Ufba.Ev.OptionHasTypes.Type
+		/// Description for Ufba.Ev.OptionHasCommands.Command
 		/// </summary>
 		public virtual Option Option
 		{
 			[global::System.Diagnostics.DebuggerStepThrough]
 			get
 			{
-				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ufba.Ev.OptionHasTypes.TypeDomainRoleId) as Option;
+				return DslModeling::DomainRoleInfo.GetLinkedElement(this, global::Ufba.Ev.OptionHasCommands.CommandDomainRoleId) as Option;
 			}
 			[global::System.Diagnostics.DebuggerStepThrough]
 			set
 			{
-				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ufba.Ev.OptionHasTypes.TypeDomainRoleId, value);
+				DslModeling::DomainRoleInfo.SetLinkedElement(this, global::Ufba.Ev.OptionHasCommands.CommandDomainRoleId, value);
 			}
 		}
 		#endregion

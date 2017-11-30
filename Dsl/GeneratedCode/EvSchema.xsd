@@ -96,31 +96,31 @@
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
-          <!-- Relationship: OptionHasProperties -->
-          <xsd:element name="properties" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: OptionHasCategories -->
+          <xsd:element name="categories" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of OptionHasProperties</xsd:documentation>
+              <xsd:documentation>Instances of OptionHasCategories</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="optionHasProperties" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="optionHasCategories" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of OptionHasProperties needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of OptionHasCategories needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
-          <!-- Relationship: OptionHasTypes -->
-          <xsd:element name="types" minOccurs="0" maxOccurs="1">
+          <!-- Relationship: OptionHasCommands -->
+          <xsd:element name="commands" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-              <xsd:documentation>Instances of OptionHasTypes</xsd:documentation>
+              <xsd:documentation>Instances of OptionHasCommands</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element ref="optionHasTypes" minOccurs="0" maxOccurs="unbounded">
+                <xsd:element ref="optionHasCommands" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
-                    <xsd:documentation>[Instance of OptionHasTypes needs to be serialized in full-form]</xsd:documentation>
+                    <xsd:documentation>[Instance of OptionHasCommands needs to be serialized in full-form]</xsd:documentation>
                   </xsd:annotation>
                 </xsd:element>
               </xsd:sequence>
@@ -192,9 +192,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- Property -->
-  <xsd:element name="property" type="Property" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="Property">
+  <!-- Category -->
+  <xsd:element name="category" type="Category" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Category">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <!-- Id -->
@@ -209,11 +209,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- Property Moniker -->
-  <xsd:element name="propertyMoniker" type="PropertyMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="PropertyMoniker">
+  <!-- Category Moniker -->
+  <xsd:element name="categoryMoniker" type="CategoryMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="CategoryMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for Property instance.</xsd:documentation>
+      <xsd:documentation>Moniker for Category instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -226,9 +226,9 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- Type -->
-  <xsd:element name="type" type="Type" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="Type">
+  <!-- Command -->
+  <xsd:element name="command" type="Command" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="Command">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <!-- Id -->
@@ -243,11 +243,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- Type Moniker -->
-  <xsd:element name="typeMoniker" type="TypeMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="TypeMoniker">
+  <!-- Command Moniker -->
+  <xsd:element name="commandMoniker" type="CommandMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="CommandMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for Type instance.</xsd:documentation>
+      <xsd:documentation>Moniker for Command instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -345,14 +345,14 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- OptionHasProperties -->
-  <xsd:element name="optionHasProperties" type="OptionHasProperties" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="OptionHasProperties">
+  <!-- OptionHasCategories -->
+  <xsd:element name="optionHasCategories" type="OptionHasCategories" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="OptionHasCategories">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Target end Property -->
-          <xsd:element ref="property" minOccurs="1" maxOccurs="1">
+          <!-- Target end Category -->
+          <xsd:element ref="category" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation>[Target role-player]</xsd:documentation>
             </xsd:annotation>
@@ -368,11 +368,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- OptionHasProperties Moniker -->
-  <xsd:element name="optionHasPropertiesMoniker" type="OptionHasPropertiesMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="OptionHasPropertiesMoniker">
+  <!-- OptionHasCategories Moniker -->
+  <xsd:element name="optionHasCategoriesMoniker" type="OptionHasCategoriesMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="OptionHasCategoriesMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for OptionHasProperties instance.</xsd:documentation>
+      <xsd:documentation>Moniker for OptionHasCategories instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">
@@ -385,14 +385,14 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- OptionHasTypes -->
-  <xsd:element name="optionHasTypes" type="OptionHasTypes" substitutionGroup="core:modelElement" />
-  <xsd:complexType name="OptionHasTypes">
+  <!-- OptionHasCommands -->
+  <xsd:element name="optionHasCommands" type="OptionHasCommands" substitutionGroup="core:modelElement" />
+  <xsd:complexType name="OptionHasCommands">
     <xsd:complexContent>
       <xsd:extension base="core:ModelElement">
         <xsd:sequence minOccurs="0" maxOccurs="1">
-          <!-- Target end Type -->
-          <xsd:element ref="type" minOccurs="1" maxOccurs="1">
+          <!-- Target end Command -->
+          <xsd:element ref="command" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation>[Target role-player]</xsd:documentation>
             </xsd:annotation>
@@ -408,11 +408,11 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <!-- OptionHasTypes Moniker -->
-  <xsd:element name="optionHasTypesMoniker" type="OptionHasTypesMoniker" substitutionGroup="core:modelElementMoniker" />
-  <xsd:complexType name="OptionHasTypesMoniker">
+  <!-- OptionHasCommands Moniker -->
+  <xsd:element name="optionHasCommandsMoniker" type="OptionHasCommandsMoniker" substitutionGroup="core:modelElementMoniker" />
+  <xsd:complexType name="OptionHasCommandsMoniker">
     <xsd:annotation>
-      <xsd:documentation>Moniker for OptionHasTypes instance.</xsd:documentation>
+      <xsd:documentation>Moniker for OptionHasCommands instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="core:ModelElementMoniker">

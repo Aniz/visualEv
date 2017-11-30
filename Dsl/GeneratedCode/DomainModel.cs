@@ -70,12 +70,12 @@ namespace Ufba.Ev
 				typeof(EvModel),
 				typeof(Option),
 				typeof(Function),
-				typeof(Property),
-				typeof(Type),
+				typeof(Category),
+				typeof(Command),
 				typeof(EvModelHasElements),
 				typeof(OptionHasFunctions),
-				typeof(OptionHasProperties),
-				typeof(OptionHasTypes),
+				typeof(OptionHasCategories),
+				typeof(OptionHasCommands),
 				typeof(EvDiagram),
 				typeof(OptionConnector),
 				typeof(FunctionShape),
@@ -105,8 +105,8 @@ namespace Ufba.Ev
 				new DomainMemberInfo(typeof(Option), "OptionType", Option.OptionTypeDomainPropertyId, typeof(Option.OptionTypePropertyHandler)),
 				new DomainMemberInfo(typeof(Function), "Name", Function.NameDomainPropertyId, typeof(Function.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(Function), "hasView", Function.hasViewDomainPropertyId, typeof(Function.hasViewPropertyHandler)),
-				new DomainMemberInfo(typeof(Property), "Name", Property.NameDomainPropertyId, typeof(Property.NamePropertyHandler)),
-				new DomainMemberInfo(typeof(Type), "Name", Type.NameDomainPropertyId, typeof(Type.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(Category), "Name", Category.NameDomainPropertyId, typeof(Category.NamePropertyHandler)),
+				new DomainMemberInfo(typeof(Command), "Name", Command.NameDomainPropertyId, typeof(Command.NamePropertyHandler)),
 				new DomainMemberInfo(typeof(OptionHasFunctions), "Param", OptionHasFunctions.ParamDomainPropertyId, typeof(OptionHasFunctions.ParamPropertyHandler)),
 			};
 		}
@@ -122,10 +122,10 @@ namespace Ufba.Ev
 				new DomainRolePlayerInfo(typeof(EvModelHasElements), "Element", EvModelHasElements.ElementDomainRoleId),
 				new DomainRolePlayerInfo(typeof(OptionHasFunctions), "Option", OptionHasFunctions.OptionDomainRoleId),
 				new DomainRolePlayerInfo(typeof(OptionHasFunctions), "Function", OptionHasFunctions.FunctionDomainRoleId),
-				new DomainRolePlayerInfo(typeof(OptionHasProperties), "Option", OptionHasProperties.OptionDomainRoleId),
-				new DomainRolePlayerInfo(typeof(OptionHasProperties), "Property", OptionHasProperties.PropertyDomainRoleId),
-				new DomainRolePlayerInfo(typeof(OptionHasTypes), "Option", OptionHasTypes.OptionDomainRoleId),
-				new DomainRolePlayerInfo(typeof(OptionHasTypes), "Type", OptionHasTypes.TypeDomainRoleId),
+				new DomainRolePlayerInfo(typeof(OptionHasCategories), "Option", OptionHasCategories.OptionDomainRoleId),
+				new DomainRolePlayerInfo(typeof(OptionHasCategories), "Category", OptionHasCategories.CategoryDomainRoleId),
+				new DomainRolePlayerInfo(typeof(OptionHasCommands), "Option", OptionHasCommands.OptionDomainRoleId),
+				new DomainRolePlayerInfo(typeof(OptionHasCommands), "Command", OptionHasCommands.CommandDomainRoleId),
 			};
 		}
 		#endregion
@@ -151,8 +151,8 @@ namespace Ufba.Ev
 				createElementMap.Add(typeof(EvModel), 0);
 				createElementMap.Add(typeof(Option), 1);
 				createElementMap.Add(typeof(Function), 2);
-				createElementMap.Add(typeof(Property), 3);
-				createElementMap.Add(typeof(Type), 4);
+				createElementMap.Add(typeof(Category), 3);
+				createElementMap.Add(typeof(Command), 4);
 				createElementMap.Add(typeof(EvDiagram), 5);
 				createElementMap.Add(typeof(OptionConnector), 6);
 				createElementMap.Add(typeof(FunctionShape), 7);
@@ -173,8 +173,8 @@ namespace Ufba.Ev
 				case 0: return new EvModel(partition, propertyAssignments);
 				case 1: return new Option(partition, propertyAssignments);
 				case 2: return new Function(partition, propertyAssignments);
-				case 3: return new Property(partition, propertyAssignments);
-				case 4: return new Type(partition, propertyAssignments);
+				case 3: return new Category(partition, propertyAssignments);
+				case 4: return new Command(partition, propertyAssignments);
 				case 5: return new EvDiagram(partition, propertyAssignments);
 				case 6: return new OptionConnector(partition, propertyAssignments);
 				case 7: return new FunctionShape(partition, propertyAssignments);
@@ -204,8 +204,8 @@ namespace Ufba.Ev
 				createElementLinkMap = new global::System.Collections.Generic.Dictionary<global::System.Type, int>(4);
 				createElementLinkMap.Add(typeof(EvModelHasElements), 0);
 				createElementLinkMap.Add(typeof(OptionHasFunctions), 1);
-				createElementLinkMap.Add(typeof(OptionHasProperties), 2);
-				createElementLinkMap.Add(typeof(OptionHasTypes), 3);
+				createElementLinkMap.Add(typeof(OptionHasCategories), 2);
+				createElementLinkMap.Add(typeof(OptionHasCommands), 3);
 			}
 			int index;
 			if (!createElementLinkMap.TryGetValue(elementLinkType, out index))
@@ -222,8 +222,8 @@ namespace Ufba.Ev
 			{
 				case 0: return new EvModelHasElements(partition, roleAssignments, propertyAssignments);
 				case 1: return new OptionHasFunctions(partition, roleAssignments, propertyAssignments);
-				case 2: return new OptionHasProperties(partition, roleAssignments, propertyAssignments);
-				case 3: return new OptionHasTypes(partition, roleAssignments, propertyAssignments);
+				case 2: return new OptionHasCategories(partition, roleAssignments, propertyAssignments);
+				case 3: return new OptionHasCommands(partition, roleAssignments, propertyAssignments);
 				default: return null;
 			}
 		}
@@ -406,8 +406,8 @@ namespace Ufba.Ev
 			#region Initialize DomainData Table
 			DomainRoles.Add(global::Ufba.Ev.EvModelHasElements.ElementDomainRoleId, true);
 			DomainRoles.Add(global::Ufba.Ev.OptionHasFunctions.FunctionDomainRoleId, true);
-			DomainRoles.Add(global::Ufba.Ev.OptionHasProperties.PropertyDomainRoleId, true);
-			DomainRoles.Add(global::Ufba.Ev.OptionHasTypes.TypeDomainRoleId, true);
+			DomainRoles.Add(global::Ufba.Ev.OptionHasCategories.CategoryDomainRoleId, true);
+			DomainRoles.Add(global::Ufba.Ev.OptionHasCommands.CommandDomainRoleId, true);
 			#endregion
 		}
 		/// <summary>
